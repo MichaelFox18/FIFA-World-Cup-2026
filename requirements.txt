@@ -1,0 +1,20 @@
+# Core
+pandas
+numpy
+scipy
+
+# Modelling
+scikit-learn
+xgboost
+lightgbm
+statsmodels
+
+# Scraping
+requests
+beautifulsoup4
+soccerdata
+
+# Utilities
+tqdm
+python-dotenv
+joblib
