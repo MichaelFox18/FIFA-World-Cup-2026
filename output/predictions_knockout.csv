@@ -1,0 +1,33 @@
+match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_cards,match_winner,penalties
+73,Mexico,Switzerland,1,2,10,3,0,away,False
+74,Brazil,Japan,2,1,9,4,0,home,False
+75,Germany,Czechia,2,1,8,3,0,home,False
+76,Netherlands,Morocco,2,1,8,3,0,home,False
+77,Ecuador,Norway,1,2,8,4,0,away,False
+78,France,Scotland,1,0,8,3,0,home,False
+79,Mexico,Côte d'Ivoire,1,0,8,4,0,home,False
+80,England,Saudi Arabia,1,0,10,3,0,home,False
+81,Belgium,Austria,2,1,8,3,0,home,False
+82,United States,Bosnia and Herzegovina,2,1,9,3,0,home,False
+83,Colombia,Croatia,2,1,8,4,0,home,False
+84,Spain,Austria,2,1,8,3,0,home,False
+85,Canada,Iran,2,1,9,3,0,home,False
+86,United States,Belgium,1,2,10,3,0,away,False
+87,Argentina,Uruguay,2,1,9,5,0,home,False
+88,Portugal,Uzbekistan,2,1,9,3,0,home,False
+89,Switzerland,Germany,1,2,9,3,0,away,False
+90,Brazil,France,1,2,9,4,0,away,False
+91,Netherlands,France,1,2,9,3,0,away,False
+92,Mexico,England,1,2,9,3,0,away,False
+93,Colombia,Spain,1,2,8,4,0,away,False
+94,Belgium,United States,2,1,10,3,0,home,False
+95,Belgium,Portugal,1,2,10,3,0,away,False
+96,Switzerland,Argentina,1,2,10,4,0,away,False
+97,Germany,Brazil,1,2,10,4,0,away,False
+98,Spain,Belgium,2,1,9,3,0,home,False
+99,France,England,2,1,9,3,0,home,False
+100,Portugal,Argentina,2,1,9,4,0,home,False
+101,Germany,Spain,1,2,9,3,0,away,False
+102,England,Portugal,1,2,9,3,0,away,False
+103,Germany,England,1,2,9,3,0,away,False
+104,Spain,Portugal,2,1,9,3,0,home,False
