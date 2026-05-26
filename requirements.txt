@@ -12,7 +12,7 @@ statsmodels
 # Scraping
 requests
 beautifulsoup4
-soccerdata
+cloudscraper
 
 # Utilities
 tqdm

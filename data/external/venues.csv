@@ -1,0 +1,17 @@
+stadium,city,country,altitude_m,avg_june_temp_c,avg_june_humidity_pct,roof_covered
+MetLife Stadium,East Rutherford,US,10,22,65,0
+SoFi Stadium,Los Angeles,US,60,22,70,1
+AT&T Stadium,Dallas,US,170,30,65,1
+Levi's Stadium,Santa Clara,US,10,17,75,0
+Hard Rock Stadium,Miami,US,2,30,78,1
+Lumen Field,Seattle,US,10,17,73,0
+Gillette Stadium,Foxborough,US,20,20,68,0
+NRG Stadium,Houston,US,15,30,76,1
+Lincoln Financial Field,Philadelphia,US,10,24,67,0
+GEHA Field at Arrowhead Stadium,Kansas City,US,320,25,68,0
+Mercedes-Benz Stadium,Atlanta,US,320,27,70,1
+Estadio Akron,Guadalajara,MX,1560,23,55,0
+Estadio Azteca,Mexico City,MX,2240,18,50,0
+Estadio BBVA,Monterrey,MX,538,33,55,0
+BMO Field,Toronto,CA,76,22,64,0
+BC Place,Vancouver,CA,10,18,70,1

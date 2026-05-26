@@ -400,3 +400,72 @@ When building this project step by step:
 6. **When in doubt about a modelling decision**, default to the simpler model first — a well-tuned Poisson regression will outperform a poorly-tuned neural network
 7. **The corners model is the highest-priority differentiator** — give it the most feature engineering effort
 8. **Test every script** before moving to the next phase
+
+---
+
+## Implementation Log
+
+Current build state as of latest commit. This section is updated as the project evolves.
+
+### Scripts implemented
+
+| Script | Status | Purpose |
+|---|---|---|
+| `01_collect_data.py` | ✅ | Pulls all external data sources into `data/raw/`. Includes auto-consolidation of FIFA ranking snapshots and audit of `data/external/` lookup tables. |
+| `01b_collect_match_details.py` | ✅ | Scrapes FBRef tournament hub pages for per-team season stats (corners, cards, xG) covering WC 2022, Euro 2024, Copa 2024, AFCON 2024, Asian Cup 2023. Fills the corners/cards data gap. |
+| `02_clean_merge.py` | ✅ | Normalises team names, resolves UEFA + FIFA inter-confederation playoff placeholders, parses Polymarket markets, builds per-team feature aggregates. |
+| `03_feature_engineering.py` | ⏳ | Rolling averages, time decay, head-to-head, match-context features. |
+| `04_train_goals_model.py` | ⏳ | Dixon-Coles Poisson goals model. |
+| `05_train_corners_model.py` | ⏳ | XGBoost corners regressor. |
+| `06_train_cards_model.py` | ⏳ | Poisson regression for yellow cards + low-lambda for reds. |
+| `07_monte_carlo_simulator.py` | ⏳ | Full tournament simulation (50,000+ iterations). |
+| `08_generate_predictions.py` | ⏳ | Generate final per-match predictions. |
+| `09_format_output.py` | ⏳ | Format to DataLab submission CSV. |
+
+### Data sources actually used (vs. README plan)
+
+| Source | Status | Notes |
+|---|---|---|
+| Kaggle: `results.csv` (1872–2024) | ✅ | 49,287 historical international matches; filtered to 2010+ for training. |
+| Kaggle: `goalscorers.csv` | ✅ | Per-goal detail (unused so far — reserved for late tuning). |
+| Kaggle: `shootouts.csv` | ✅ | Penalty shootout history; powers per-team shootout win rate feature. |
+| Kaggle: `former_names.csv` | ✅ | Cross-reference for team name normalisation. |
+| Kaggle: FIFA rankings snapshots | ✅ | 3 snapshots (2023-07, 2024-04, 2024-06) consolidated into time series. |
+| **Manual FIFA current rankings** | ✅ | `data/external/fifa_*_rankings_manual.csv` — primary current-strength source. Replaces failed Wikipedia scrape. Updateable closer to deadline. |
+| Polymarket gamma API | ✅ | Outright winner odds for 50 teams. Used as Bayesian prior. France/Spain co-favourites at 17.45% each. |
+| The Odds API (h2h match odds) | ✅ | 3,291 rows of live bookmaker odds, ~497 requests/month remaining. |
+| Club Elo | ❌ Dropped | Club-football data; required squad-to-club mapping we don't have. |
+| World Football Elo (eloratings.net) | ❌ Dropped | URL 404'd; redundant given Polymarket + FIFA rank. |
+| Transfermarkt squad values | ❌ Dropped | Bot-blocked; Polymarket gives comparable strength signal. |
+| OpenWeather forecast API | ❌ Dropped | 3-4 week forecasts are unreliable; replaced with static June climate averages in `venues.csv`. |
+| FBRef via `soccerdata` | ❌ Dropped | Library doesn't support international tournaments. |
+| **FBRef direct scrape** | ✅ | Custom scraper in `01b_collect_match_details.py` for corners/cards/xG. |
+
+### External lookup tables (`data/external/`)
+
+| File | Purpose |
+|---|---|
+| `venues.csv` | All 16 WC 2026 venues with altitude, June climate, roof-covered flag. |
+| `team_name_map.csv` | Canonical team name normalisation across data sources. Grown organically via `name_audit.csv` output. |
+| `uefa_playoff_qualifiers.csv` | UEFA playoff results (Bosnia & Herzegovina, Sweden, Türkiye, Czechia). |
+| `fifa_intercontinental_qualifiers.csv` | FIFA inter-confed playoff results (DR Congo → Group K, Iraq → Group I). |
+| `fifa_*_rankings_manual.csv` | Manually maintained current FIFA rankings (top 75 teams). Most recent file by mtime is used. |
+
+### Processed outputs (`data/processed/`)
+
+| File | Description |
+|---|---|
+| `matches_clean.csv` | 30,210 historical matches from 2010+ with normalised teams, `is_competitive` flag, `winner`, `goal_diff`. |
+| `fixtures_group.csv` | All 72 group stage fixtures with venue metadata, host-nation flag, all UEFA + FIFA playoff placeholders resolved. |
+| `fixtures_knockout.csv` | All 32 knockout slot definitions with venue metadata. |
+| `team_features.csv` | Per-team aggregates for all 48 WC 2026 teams: FIFA rank/points, last-20 form, Polymarket implied prob, shootout record. |
+| `polymarket_clean.csv` | 50-team WC winner probabilities (sorted by liquidity). |
+| `name_audit.csv` | Distinct team-name variants encountered during normalisation (audit trail for extending `team_name_map.csv`). |
+
+### Key implementation decisions
+
+- **Current FIFA rank source**: Manual file (most recent by mtime) is primary, June 2024 snapshot is fallback for teams outside the manual top-75. The pipeline is fully re-runnable when newer rankings are published — just drop a new `fifa_<month>_rankings_manual.csv` file in `data/external/`.
+- **Polymarket parsing**: Each market is a binary `"Will <Team> win the 2026 FIFA World Cup?"` with Yes/No outcomes. Team name is regex-extracted from the question text; Yes-side price = implied win probability.
+- **Playoff resolution**: Both UEFA and FIFA inter-confederation placeholders are resolved deterministically since results are known (March/April 2026). No probability-weighting needed — they're concrete teams now.
+- **Host advantage**: Computed per-fixture by matching team country to venue country (US/Mexico/Canada). 9 group-stage matches involve a host nation playing at home.
+- **Submission timing strategy**: Re-run the full pipeline ~24 hours before the June 10 deadline to capture the freshest Polymarket odds, latest Odds API h2h prices, and most recent FIFA rankings. Models are frozen post-validation (June 5) but feature inputs refresh continuously.

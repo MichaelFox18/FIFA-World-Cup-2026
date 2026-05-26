@@ -1,0 +1,33 @@
+index,match_id,round,multiplier,date_utc,venue,slot_home,slot_away,stadium,city,country,altitude_m,avg_june_temp_c,avg_june_humidity_pct,roof_covered,high_altitude,very_high_altitude
+0,73,Round of 32,1,2026-06-28 19:00:00+00:00,"SoFi Stadium, Los Angeles",Runner-up Group A,Runner-up Group B,SoFi Stadium,Los Angeles,US,60,22,70,1,0,0
+1,74,Round of 32,1,2026-06-29 17:00:00+00:00,"NRG Stadium, Houston",Winner Group C,Runner-up Group F,NRG Stadium,Houston,US,15,30,76,1,0,0
+2,75,Round of 32,1,2026-06-29 20:30:00+00:00,"Gillette Stadium, Boston",Winner Group E,Best 3rd (Groups A/B/C/D/F),Gillette Stadium,Boston,US,20,20,68,0,0,0
+3,76,Round of 32,1,2026-06-30 01:00:00+00:00,"Estadio BBVA, Monterrey",Winner Group F,Runner-up Group C,Estadio BBVA,Monterrey,MX,538,33,55,0,1,0
+4,77,Round of 32,1,2026-06-30 17:00:00+00:00,"AT&T Stadium, Dallas",Runner-up Group E,Runner-up Group I,AT&T Stadium,Dallas,US,170,30,65,1,0,0
+5,78,Round of 32,1,2026-06-30 21:00:00+00:00,"MetLife Stadium, East Rutherford",Winner Group I,Best 3rd (Groups C/D/F/G/H),MetLife Stadium,East Rutherford,US,10,22,65,0,0,0
+6,79,Round of 32,1,2026-07-01 01:00:00+00:00,"Estadio Azteca, Mexico City",Winner Group A,Best 3rd (Groups C/E/F/H/I),Estadio Azteca,Mexico City,MX,2240,18,50,0,1,1
+7,80,Round of 32,1,2026-07-01 16:00:00+00:00,"Mercedes-Benz Stadium, Atlanta",Winner Group L,Best 3rd (Groups E/H/I/J/K),Mercedes-Benz Stadium,Atlanta,US,320,27,70,1,0,0
+8,81,Round of 32,1,2026-07-01 20:00:00+00:00,"Lumen Field, Seattle",Winner Group G,Best 3rd (Groups A/E/H/I/J),Lumen Field,Seattle,US,10,17,73,0,0,0
+9,82,Round of 32,1,2026-07-02 00:00:00+00:00,"Levi's Stadium, Santa Clara",Winner Group D,Best 3rd (Groups B/E/F/I/J),Levi's Stadium,Santa Clara,US,10,17,75,0,0,0
+10,83,Round of 32,1,2026-07-02 19:00:00+00:00,"BMO Field, Toronto",Runner-up Group K,Runner-up Group L,BMO Field,Toronto,CA,76,22,64,0,0,0
+11,84,Round of 32,1,2026-07-02 23:00:00+00:00,"SoFi Stadium, Los Angeles",Winner Group H,Runner-up Group J,SoFi Stadium,Los Angeles,US,60,22,70,1,0,0
+12,85,Round of 32,1,2026-07-03 03:00:00+00:00,"BC Place, Vancouver",Winner Group B,Best 3rd (Groups E/F/G/I/J),BC Place,Vancouver,CA,10,18,70,1,0,0
+13,86,Round of 32,1,2026-07-03 18:00:00+00:00,"AT&T Stadium, Dallas",Runner-up Group D,Runner-up Group G,AT&T Stadium,Dallas,US,170,30,65,1,0,0
+14,87,Round of 32,1,2026-07-03 22:00:00+00:00,"Hard Rock Stadium, Miami",Winner Group J,Runner-up Group H,Hard Rock Stadium,Miami,US,2,30,78,1,0,0
+15,88,Round of 32,1,2026-07-04 01:30:00+00:00,"GEHA Field at Arrowhead Stadium, Kansas City",Winner Group K,Best 3rd (Groups D/E/I/J/L),GEHA Field at Arrowhead Stadium,Kansas City,US,320,25,68,0,0,0
+16,89,Round of 16,2,2026-07-04 17:00:00+00:00,"NRG Stadium, Houston",Winner Match 73,Winner Match 75,NRG Stadium,Houston,US,15,30,76,1,0,0
+17,90,Round of 16,2,2026-07-04 21:00:00+00:00,"Lincoln Financial Field, Philadelphia",Winner Match 74,Winner Match 77,Lincoln Financial Field,Philadelphia,US,10,24,67,0,0,0
+18,91,Round of 16,2,2026-07-05 20:00:00+00:00,"MetLife Stadium, East Rutherford",Winner Match 76,Winner Match 78,MetLife Stadium,East Rutherford,US,10,22,65,0,0,0
+19,92,Round of 16,2,2026-07-06 00:00:00+00:00,"Estadio Azteca, Mexico City",Winner Match 79,Winner Match 80,Estadio Azteca,Mexico City,MX,2240,18,50,0,1,1
+20,93,Round of 16,2,2026-07-06 19:00:00+00:00,"AT&T Stadium, Dallas",Winner Match 83,Winner Match 84,AT&T Stadium,Dallas,US,170,30,65,1,0,0
+21,94,Round of 16,2,2026-07-07 00:00:00+00:00,"Lumen Field, Seattle",Winner Match 81,Winner Match 82,Lumen Field,Seattle,US,10,17,73,0,0,0
+22,95,Round of 16,2,2026-07-07 16:00:00+00:00,"Mercedes-Benz Stadium, Atlanta",Winner Match 86,Winner Match 88,Mercedes-Benz Stadium,Atlanta,US,320,27,70,1,0,0
+23,96,Round of 16,2,2026-07-07 20:00:00+00:00,"BC Place, Vancouver",Winner Match 85,Winner Match 87,BC Place,Vancouver,CA,10,18,70,1,0,0
+24,97,Quarter-final,4,2026-07-09 20:00:00+00:00,"Gillette Stadium, Boston",Winner Match 89,Winner Match 90,Gillette Stadium,Boston,US,20,20,68,0,0,0
+25,98,Quarter-final,4,2026-07-10 19:00:00+00:00,"SoFi Stadium, Los Angeles",Winner Match 93,Winner Match 94,SoFi Stadium,Los Angeles,US,60,22,70,1,0,0
+26,99,Quarter-final,4,2026-07-11 21:00:00+00:00,"Hard Rock Stadium, Miami",Winner Match 91,Winner Match 92,Hard Rock Stadium,Miami,US,2,30,78,1,0,0
+27,100,Quarter-final,4,2026-07-12 01:00:00+00:00,"GEHA Field at Arrowhead Stadium, Kansas City",Winner Match 95,Winner Match 96,GEHA Field at Arrowhead Stadium,Kansas City,US,320,25,68,0,0,0
+28,101,Semi-final,8,2026-07-14 19:00:00+00:00,"AT&T Stadium, Dallas",Winner Match 97,Winner Match 98,AT&T Stadium,Dallas,US,170,30,65,1,0,0
+29,102,Semi-final,8,2026-07-15 19:00:00+00:00,"Mercedes-Benz Stadium, Atlanta",Winner Match 99,Winner Match 100,Mercedes-Benz Stadium,Atlanta,US,320,27,70,1,0,0
+30,103,Third-place playoff,8,2026-07-18 21:00:00+00:00,"Hard Rock Stadium, Miami",Loser Match 101,Loser Match 102,Hard Rock Stadium,Miami,US,2,30,78,1,0,0
+31,104,Final,16,2026-07-19 19:00:00+00:00,"MetLife Stadium, East Rutherford",Winner Match 101,Winner Match 102,MetLife Stadium,East Rutherford,US,10,22,65,0,0,0
