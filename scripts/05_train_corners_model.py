@@ -49,14 +49,54 @@ def altitude_adj(altitude_m) -> float:
     return 1.0
 
 
+# Per-source sample weights when pooling tournaments.
+# WC22 is the exact tournament type we predict, so it gets full weight.
+# Continental tournaments are slightly downweighted (different selection,
+# different referee pool, different prep windows).
+SOURCE_WEIGHT = {"WC 2022": 1.0}
+DEFAULT_EXTERNAL_WEIGHT = 0.8
+
+
+def load_training_pool():
+    """Concatenate WC22 + any external tournament stats present."""
+    wc22 = pd.read_csv(PROCESSED / "match_stats_wc2022.csv", parse_dates=["date"])
+    # Possession is stored as '42%' string in WC22 -- normalise to numeric here
+    if "possession" in wc22.columns and wc22["possession"].dtype == object:
+        wc22["possession"] = pd.to_numeric(
+            wc22["possession"].astype(str).str.replace("%", "").str.strip(),
+            errors="coerce"
+        )
+    parts = [wc22]
+    ext_path = PROCESSED / "match_stats_external.csv"
+    if ext_path.exists():
+        ext = pd.read_csv(ext_path, parse_dates=["date"])
+        # Align to WC22 schema; only the cols we use need exist
+        parts.append(ext)
+        ok("external_long", f"{len(ext)} rows from {ext_path.name}")
+    else:
+        warn("external_missing",
+             f"{ext_path.name} not found -- run 01d to expand training data")
+    combined = pd.concat(parts, ignore_index=True, sort=False)
+    combined["source_weight"] = combined["tournament"].map(
+        lambda t: SOURCE_WEIGHT.get(t, DEFAULT_EXTERNAL_WEIGHT)
+    )
+    return combined
+
+
 def main():
     print("=" * 60)
     print("05_train_corners_model.py  |  Poisson regression")
     print("=" * 60)
 
     section("Loading training data")
-    long = pd.read_csv(PROCESSED / "match_stats_wc2022.csv", parse_dates=["date"])
-    ok("wc22_long", f"{len(long)} team-match rows from WC 2022")
+    long = load_training_pool()
+    ok("pooled_long", f"{len(long)} team-match rows across "
+                      f"{long['tournament'].nunique()} tournament(s)")
+    for t, n in long.groupby("tournament").size().sort_values(ascending=False).items():
+        ok(f"  {t}", f"{n} team-rows")
+
+    # Drop rows without corners data (external sources may have NaN)
+    long = long.dropna(subset=["corners"]).copy()
 
     # Build unique match_id from (sorted team pair, date)
     long["pair_key"] = long.apply(
@@ -69,9 +109,12 @@ def main():
                 .agg(home_team=("team", "first"),
                      away_team=("opponent", "first"),
                      home_corners=("corners", "first"),
-                     away_corners=("corners", "last"))
+                     away_corners=("corners", "last"),
+                     tournament=("tournament", "first"),
+                     source_weight=("source_weight", "first"))
                 .reset_index())
     one["total_corners"] = one["home_corners"] + one["away_corners"]
+    one = one.dropna(subset=["total_corners"]).copy()
     ok("matches_built", f"{len(one)} matches with total_corners")
     ok("mean_total_corners", f"{one['total_corners'].mean():.2f}  (README expected 9-11.5)")
 
@@ -92,6 +135,13 @@ def main():
     one["home_rank"] = one["home_team"].map(rank_lookup).fillna(100)
     one["away_rank"] = one["away_team"].map(rank_lookup).fillna(100)
 
+    # NOTE: tried adding per-team possession (WC22 only, 32 teams covered) as
+    # a corners-model feature on 2026-05-27. CV MAE got worse (2.70 -> 2.77),
+    # likely because only ~65% of WC26 teams have possession history and the
+    # signal is already captured by sum_avg_corners. Feature removed; the
+    # per-team possession data is still extracted in match_stats_wc2022.csv
+    # for future use.
+
     one["sum_avg_corners"] = one["home_loo_avg"] + one["away_loo_avg"]
     one["min_avg_corners"] = one[["home_loo_avg", "away_loo_avg"]].min(axis=1)
     one["max_avg_corners"] = one[["home_loo_avg", "away_loo_avg"]].max(axis=1)
@@ -102,22 +152,36 @@ def main():
 
     X = one[feature_cols].to_numpy()
     y = one["total_corners"].to_numpy()
+    sw = one["source_weight"].to_numpy()
+    wc22_mask = (one["tournament"] == "WC 2022").to_numpy()
 
     section("Training Poisson regression (L2 regularised)")
     scaler = StandardScaler().fit(X)
     Xs = scaler.transform(X)
 
-    # 5-fold CV
+    # 5-fold CV (pooled)
     kf = KFold(n_splits=5, shuffle=True, random_state=42)
-    fold_maes = []
+    fold_maes, fold_maes_wc22 = [], []
     for tr, te in kf.split(Xs):
-        m = PoissonRegressor(alpha=0.3, max_iter=500).fit(Xs[tr], y[tr])
-        fold_maes.append(float(np.mean(np.abs(m.predict(Xs[te]) - y[te]))))
+        m = PoissonRegressor(alpha=0.3, max_iter=500).fit(
+            Xs[tr], y[tr], sample_weight=sw[tr]
+        )
+        pred_te = m.predict(Xs[te])
+        fold_maes.append(float(np.mean(np.abs(pred_te - y[te]))))
+        # Restrict the test fold to WC22 rows for honest target-distribution MAE
+        wc22_te = wc22_mask[te]
+        if wc22_te.any():
+            fold_maes_wc22.append(
+                float(np.mean(np.abs(pred_te[wc22_te] - y[te][wc22_te])))
+            )
     cv_mae = float(np.mean(fold_maes))
-    ok("cv_mae_total", f"{cv_mae:.2f}  (README target <2.5)")
+    ok("cv_mae_total", f"{cv_mae:.2f}  (pooled, all tournaments)")
+    if fold_maes_wc22:
+        ok("cv_mae_wc22_only", f"{float(np.mean(fold_maes_wc22)):.2f}  "
+                                f"(README target <2.5)")
 
     # Refit on full data
-    model = PoissonRegressor(alpha=0.3, max_iter=500).fit(Xs, y)
+    model = PoissonRegressor(alpha=0.3, max_iter=500).fit(Xs, y, sample_weight=sw)
     in_mae = float(np.mean(np.abs(model.predict(Xs) - y)))
     ok("in_sample_mae", f"{in_mae:.2f}")
     ok("intercept_log", f"{model.intercept_:+.3f}")
@@ -135,11 +199,24 @@ def main():
     ok("corners_model.pkl", "saved")
 
     section("Predicting WC 2026 group fixtures")
+    # Build per-team pooled corner averages from the same data the model was
+    # trained on, so train- and predict-time inputs share a distribution.
+    # Fall back to the wc22_avg column from fixture_features for teams that
+    # didn't appear in the pool at all.
+    pooled_avg_corners = long.groupby("team")["corners"].mean().to_dict()
     fixtures = pd.read_csv(PROCESSED / "fixture_features.csv")
     fx = fixtures.copy()
-    fx["sum_avg_corners"] = fx["home_wc22_avg_corners"] + fx["away_wc22_avg_corners"]
-    fx["min_avg_corners"] = fx[["home_wc22_avg_corners", "away_wc22_avg_corners"]].min(axis=1)
-    fx["max_avg_corners"] = fx[["home_wc22_avg_corners", "away_wc22_avg_corners"]].max(axis=1)
+    fx["home_pool_corners"] = fx["home_team"].map(pooled_avg_corners)
+    fx["away_pool_corners"] = fx["away_team"].map(pooled_avg_corners)
+    n_home_pool = int(fx["home_pool_corners"].notna().sum())
+    n_away_pool = int(fx["away_pool_corners"].notna().sum())
+    fx["home_pool_corners"] = fx["home_pool_corners"].fillna(fx["home_wc22_avg_corners"])
+    fx["away_pool_corners"] = fx["away_pool_corners"].fillna(fx["away_wc22_avg_corners"])
+    ok("pooled_avg_home", f"{n_home_pool}/{len(fx)} fixtures got pooled home avg")
+    ok("pooled_avg_away", f"{n_away_pool}/{len(fx)} fixtures got pooled away avg")
+    fx["sum_avg_corners"] = fx["home_pool_corners"] + fx["away_pool_corners"]
+    fx["min_avg_corners"] = fx[["home_pool_corners", "away_pool_corners"]].min(axis=1)
+    fx["max_avg_corners"] = fx[["home_pool_corners", "away_pool_corners"]].max(axis=1)
     fx["abs_rank_diff"] = (fx["home_fifa_rank"].fillna(100)
                            - fx["away_fifa_rank"].fillna(100)).abs()
     fx["avg_rank"] = (fx["home_fifa_rank"].fillna(100)

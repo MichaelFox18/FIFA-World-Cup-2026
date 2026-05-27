@@ -19,6 +19,7 @@ Outputs:
 
 import math
 import pickle
+import re
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -49,6 +50,11 @@ def altitude_corners_adj(altitude_m):
 # trend. Apply a small upward bump so our predictions match the historical
 # long-run WC corner rate.
 CORNERS_TOURNAMENT_BUMP = 0.6
+
+# Blend weight when combining Dixon-Coles + bookmaker consensus for the
+# winning_team prediction. 1.0 = pure model, 0.0 = pure market. The market is
+# usually sharper at the top of the bracket but noisier on long-shots.
+MARKET_BLEND_WEIGHT = 0.25       # 75% model, 25% market
 
 
 def altitude_cards_adj(altitude_m):
@@ -97,7 +103,153 @@ def best_score_from_lambdas(lh: float, la: float, rho: float) -> tuple:
     return h, a, p_home, p_draw, p_away
 
 
-def predict_score_neutral(home, away, gm):
+def dc_winner_neutral(home, away, gm, h2h_lookup=None):
+    """Deterministic Dixon-Coles winner at a neutral venue: whichever team has
+    the larger expected goals. Reused by predict_score_neutral and the bracket
+    reconciler so a chosen matchup yields the same winner everywhere."""
+    team_to_idx = gm["team_to_idx"]
+    if home not in team_to_idx or away not in team_to_idx:
+        return home
+    hi, ai = team_to_idx[home], team_to_idx[away]
+    alpha, attack, defense = gm["alpha"], gm["attack"], gm["defense"]
+    delta_h2h = float(gm.get("delta", 0.0))
+    h2h_ha = float((h2h_lookup or {}).get((home, away), 0.0))
+    lh = math.exp(alpha + attack[hi] - defense[ai] + delta_h2h * h2h_ha)
+    la = math.exp(alpha + attack[ai] - defense[hi] - delta_h2h * h2h_ha)
+    return home if lh >= la else away
+
+
+_SLOT_DEP_RE = re.compile(r"^(Winner|Loser) Match (\d+)$")
+
+
+def parse_bracket_dependencies(knockout_fixtures: pd.DataFrame) -> dict:
+    """Map match_id -> (home_dep, away_dep), where each dep is either None
+    (group-stage slot like 'Winner Group A') or a tuple (kind, parent_match_id)
+    such as ('Winner', 73) or ('Loser', 101)."""
+    deps = {}
+    for _, r in knockout_fixtures.iterrows():
+        mid = int(r["match_id"])
+        h_match = _SLOT_DEP_RE.match(str(r["slot_home"]))
+        a_match = _SLOT_DEP_RE.match(str(r["slot_away"]))
+        deps[mid] = (
+            (h_match.group(1), int(h_match.group(2))) if h_match else None,
+            (a_match.group(1), int(a_match.group(2))) if a_match else None,
+        )
+    return deps
+
+
+def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
+                      knockout_fixtures: pd.DataFrame, gm: dict,
+                      h2h_lookup: dict | None) -> tuple[dict, list[str]]:
+    """Top-down propagation: pick the Final matchup, then for each upstream
+    round, pick the matchup whose Dixon-Coles winner matches the required
+    downstream input. Returns (chosen, log) where chosen[match_id] = (home, away)
+    and log is a list of human-readable notes."""
+    deps = parse_bracket_dependencies(knockout_fixtures)
+    chosen: dict[int, tuple[str, str]] = {}
+    required_winner: dict[int, str] = {}
+    log: list[str] = []
+
+    def pick_top_for(mid: int) -> tuple[str, str] | None:
+        sub = matchup_details[matchup_details["match_id"] == mid]
+        if sub.empty:
+            row = mc_knockout[mc_knockout["match_id"] == mid]
+            if row.empty:
+                return None
+            r = row.iloc[0]
+            return (r["pred_home_team"], r["pred_away_team"])
+        top = sub.sort_values("count", ascending=False).iloc[0]
+        return (top["home_team"], top["away_team"])
+
+    def pick_with_winner(mid: int, required: str) -> tuple[str, str] | None:
+        """Pick the highest-count matchup whose Dixon-Coles winner matches
+        `required`. Falls back to the highest-count matchup that simply
+        contains `required`, then to the global top pick."""
+        sub = matchup_details[matchup_details["match_id"] == mid].sort_values(
+            "count", ascending=False
+        )
+        if sub.empty:
+            return pick_top_for(mid)
+        # 1) winner match
+        for _, c in sub.iterrows():
+            if dc_winner_neutral(c["home_team"], c["away_team"], gm, h2h_lookup) == required:
+                return (c["home_team"], c["away_team"])
+        # 2) team appears at all
+        contains = sub[(sub["home_team"] == required) | (sub["away_team"] == required)]
+        if not contains.empty:
+            top = contains.iloc[0]
+            log.append(f"match {mid}: required winner {required!r} never wins in any "
+                       f"MC matchup, took top matchup containing them: "
+                       f"{top['home_team']} vs {top['away_team']}")
+            return (top["home_team"], top["away_team"])
+        # 3) absolute fallback
+        top = sub.iloc[0]
+        log.append(f"match {mid}: required team {required!r} not in MC's matchups, "
+                   f"took global top: {top['home_team']} vs {top['away_team']}")
+        return (top["home_team"], top["away_team"])
+
+    final_mid_row = knockout_fixtures[knockout_fixtures["round"] == "Final"]
+    if final_mid_row.empty:
+        return chosen, ["no Final match found in fixtures"]
+    final_mid = int(final_mid_row.iloc[0]["match_id"])
+
+    # Step 1: Final picks freely
+    pick = pick_top_for(final_mid)
+    if pick is None:
+        return chosen, ["matchup_details empty for Final"]
+    chosen[final_mid] = pick
+    log.append(f"Final ({final_mid}): {pick[0]} vs {pick[1]}")
+
+    # Propagate constraints
+    home_dep, away_dep = deps[final_mid]
+    if home_dep and home_dep[0] == "Winner":
+        required_winner[home_dep[1]] = pick[0]
+    if away_dep and away_dep[0] == "Winner":
+        required_winner[away_dep[1]] = pick[1]
+
+    # Step 2: BFS down the bracket (semis -> QFs -> R16 -> R32). Process by
+    # descending match_id so each match is handled after the rounds that
+    # depend on it. Skip 3rd-place -- handled separately after Semis are set.
+    third_row = knockout_fixtures[knockout_fixtures["round"] == "Third-place playoff"]
+    third_mid = int(third_row.iloc[0]["match_id"]) if not third_row.empty else None
+
+    order = sorted(deps.keys(), reverse=True)
+    for mid in order:
+        if mid in chosen or mid == third_mid:
+            continue
+        req = required_winner.get(mid)
+        pick = pick_with_winner(mid, req) if req else pick_top_for(mid)
+        if pick is None:
+            continue
+        chosen[mid] = pick
+        # Propagate constraints upward (to earlier rounds)
+        h_dep, a_dep = deps[mid]
+        if h_dep and h_dep[0] == "Winner":
+            required_winner.setdefault(h_dep[1], pick[0])
+        if a_dep and a_dep[0] == "Winner":
+            required_winner.setdefault(a_dep[1], pick[1])
+
+    # Step 3: 3rd-place uses losers of the two Semis (whose matchups are now fixed)
+    if third_mid is not None:
+        h_dep, a_dep = deps[third_mid]
+        third_home = third_away = None
+        if h_dep and h_dep[0] == "Loser" and h_dep[1] in chosen:
+            ph, pa = chosen[h_dep[1]]
+            w = dc_winner_neutral(ph, pa, gm, h2h_lookup)
+            third_home = pa if w == ph else ph
+        if a_dep and a_dep[0] == "Loser" and a_dep[1] in chosen:
+            ph, pa = chosen[a_dep[1]]
+            w = dc_winner_neutral(ph, pa, gm, h2h_lookup)
+            third_away = pa if w == ph else ph
+        if third_home and third_away:
+            chosen[third_mid] = (third_home, third_away)
+            log.append(f"3rd-place ({third_mid}): {third_home} vs {third_away} "
+                       f"(derived from Semi losers)")
+
+    return chosen, log
+
+
+def predict_score_neutral(home, away, gm, h2h_lookup=None):
     """Knockout prediction (neutral venue). Forces a non-draw result since
     knockout matches can't actually end in a tie -- either regulation/ET
     decides it, or pens do (and pens are reported via the penalties flag,
@@ -110,8 +262,10 @@ def predict_score_neutral(home, away, gm):
         return 1, 0, 0.5, 0.0, 0.5
     hi, ai = team_to_idx[home], team_to_idx[away]
     alpha, attack, defense, rho = gm["alpha"], gm["attack"], gm["defense"], gm["rho"]
-    lh = math.exp(alpha + attack[hi] - defense[ai])
-    la = math.exp(alpha + attack[ai] - defense[hi])
+    delta_h2h = float(gm.get("delta", 0.0))
+    h2h_ha = float((h2h_lookup or {}).get((home, away), 0.0))
+    lh = math.exp(alpha + attack[hi] - defense[ai] + delta_h2h * h2h_ha)
+    la = math.exp(alpha + attack[ai] - defense[hi] - delta_h2h * h2h_ha)
 
     h = int(round(lh))
     a = int(round(la))
@@ -209,9 +363,51 @@ def main():
 
     team_lookup = build_feature_lookups(team_features)
 
+    # Build a (home, away) -> h2h_avg_gd lookup for knockout neutral-venue
+    # predictions. Uses the same definition as scripts 03/04 (avg per prior
+    # meeting, clipped to +/-3).
+    h2h_lookup = {}
+    try:
+        hist = pd.read_csv(PROCESSED / "matches_clean.csv", parse_dates=["date"])
+        hist = hist.dropna(subset=["home_score", "away_score"])
+        hist["pair"] = hist.apply(
+            lambda r: tuple(sorted([r["home_team"], r["away_team"]])), axis=1
+        )
+        hist["gd_first"] = np.where(
+            hist["home_team"] == hist["pair"].str[0],
+            hist["home_score"] - hist["away_score"],
+            hist["away_score"] - hist["home_score"]
+        )
+        agg = hist.groupby("pair", sort=False).agg(
+            n=("gd_first", "size"), s=("gd_first", "sum")
+        )
+        for (ta, tb), row in agg.iterrows():
+            avg = max(-3.0, min(3.0, row["s"] / max(row["n"], 1)))
+            h2h_lookup[(ta, tb)] = avg
+            h2h_lookup[(tb, ta)] = -avg
+        ok("h2h_lookup", f"{len(h2h_lookup)//2} team pairs with history")
+    except FileNotFoundError:
+        warn("h2h_lookup", "matches_clean.csv not found, knockouts will use h2h=0")
+
+    # Build bookmaker consensus lookup for the winning_team blend
+    market_lookup = {}
+    odds_path = PROCESSED / "odds_consensus.csv"
+    if odds_path.exists():
+        odds = pd.read_csv(odds_path)
+        for _, o in odds.iterrows():
+            market_lookup[(o["home_team"], o["away_team"])] = (
+                float(o["p_home"]), float(o["p_draw"]), float(o["p_away"])
+            )
+        ok("market_lookup", f"{len(market_lookup)} fixtures with bookmaker consensus "
+                            f"(blend={1-MARKET_BLEND_WEIGHT:.2f}*model + "
+                            f"{MARKET_BLEND_WEIGHT:.2f}*market)")
+    else:
+        warn("market_lookup", "odds_consensus.csv not found; run 01e to enable market blend")
+
     section("Building group-stage predictions (1-72)")
     rho = gm["rho"]
     group_rows = []
+    n_winner_flipped = 0
     for _, r in fixtures_g.iterrows():
         mid = int(r["match_id"])
         g = group_lambdas[group_lambdas["match_id"] == mid].iloc[0]
@@ -221,13 +417,28 @@ def main():
         lh, la = float(g["lambda_home"]), float(g["lambda_away"])
         hs, as_, p_home, p_draw, p_away = best_score_from_lambdas(lh, la, rho)
 
-        # winning_team: independent max-probability prediction (not score-implied)
-        if p_home >= p_draw and p_home >= p_away:
+        # winning_team: blend with bookmaker consensus if available, then argmax
+        mkt = market_lookup.get((r["home_team"], r["away_team"]))
+        if mkt is not None:
+            w = MARKET_BLEND_WEIGHT
+            p_h_b = (1 - w) * p_home + w * mkt[0]
+            p_d_b = (1 - w) * p_draw + w * mkt[1]
+            p_a_b = (1 - w) * p_away + w * mkt[2]
+        else:
+            p_h_b, p_d_b, p_a_b = p_home, p_draw, p_away
+
+        if p_h_b >= p_d_b and p_h_b >= p_a_b:
             winning = "home"
-        elif p_draw >= p_away:
+        elif p_d_b >= p_a_b:
             winning = "draw"
         else:
             winning = "away"
+
+        # Track how often the market changes the model's call
+        model_pick = ("home" if p_home >= p_draw and p_home >= p_away
+                      else "draw" if p_draw >= p_away else "away")
+        if winning != model_pick:
+            n_winner_flipped += 1
 
         group_rows.append({
             "match_id":     mid,
@@ -243,36 +454,33 @@ def main():
             "penalties":    np.nan,
         })
     ok("group_predictions", f"{len(group_rows)} matches")
+    if market_lookup:
+        ok("market_flips", f"{n_winner_flipped} of {len(group_rows)} group winners "
+                            f"changed by market blend")
 
-    section("Reconciling bracket consistency (Final / 3rd-place)")
-    # Pull the predicted Final matchup
-    final_row = mc_knockout[mc_knockout["round"] == "Final"].iloc[0]
-    final_teams = {final_row["pred_home_team"], final_row["pred_away_team"]}
-    ok("final_teams", f"{final_row['pred_home_team']} vs {final_row['pred_away_team']}")
-
-    # 3rd-place playoff teams must NOT overlap with Final teams (they're the
-    # losers of the semi-finals). If MC's top pick conflicts, swap to the
-    # most-common matchup whose teams aren't in the Final.
-    overrides = {}
+    section("Full top-down bracket reconciliation")
+    # Pick the Final matchup first, then traverse the bracket upstream choosing
+    # each match's matchup so its Dixon-Coles winner matches the team needed in
+    # the next round. Replaces the previous Final/3rd-place-only reconciler.
+    overrides: dict[int, tuple[str, str, float]] = {}
     if matchup_details is not None:
-        third_row = mc_knockout[mc_knockout["round"] == "Third-place playoff"].iloc[0]
-        third_mid = int(third_row["match_id"])
-        if third_row["pred_home_team"] in final_teams or third_row["pred_away_team"] in final_teams:
-            candidates = matchup_details[
-                (matchup_details["match_id"] == third_mid)
-                & ~matchup_details["home_team"].isin(final_teams)
-                & ~matchup_details["away_team"].isin(final_teams)
-            ].sort_values("count", ascending=False)
-            if not candidates.empty:
-                top = candidates.iloc[0]
-                overrides[third_mid] = (top["home_team"], top["away_team"], float(top["prob"]))
-                warn("third_place_conflict",
-                     f"original {third_row['pred_home_team']} vs {third_row['pred_away_team']} "
-                     f"-> replaced with {top['home_team']} vs {top['away_team']} (p={top['prob']:.3f})")
-            else:
-                warn("third_place_conflict", "no non-conflicting matchup found")
-        else:
-            ok("third_place", f"{third_row['pred_home_team']} vs {third_row['pred_away_team']}  (no conflict)")
+        chosen, log = reconcile_bracket(
+            matchup_details, mc_knockout, fixtures_k, gm, h2h_lookup
+        )
+        # Compare against MC's raw per-slot top picks to surface what changed
+        for mid, (h, a) in chosen.items():
+            raw_row = mc_knockout[mc_knockout["match_id"] == mid]
+            if raw_row.empty:
+                continue
+            raw = raw_row.iloc[0]
+            if h != raw["pred_home_team"] or a != raw["pred_away_team"]:
+                overrides[mid] = (h, a, 0.0)
+        for entry in log[:4]:
+            ok("reconcile", entry)
+        ok("matches_overridden", f"{len(overrides)} of {len(chosen)} knockout matches "
+                                  f"changed from MC top pick for bracket consistency")
+        if len(log) > 4:
+            ok("more_reconcile_notes", f"... {len(log) - 4} additional notes (suppressed)")
     else:
         warn("matchup_details", "mc_matchup_details.csv not found -- re-run script 07")
 
@@ -289,7 +497,7 @@ def main():
         fx = knockout_lookup.loc[mid]
         altitude_m = fx.get("altitude_m", np.nan)
 
-        hs, as_, p_home, p_draw, p_away = predict_score_neutral(home, away, gm)
+        hs, as_, p_home, p_draw, p_away = predict_score_neutral(home, away, gm, h2h_lookup)
         corners = round(predict_corners_for(home, away, altitude_m, team_lookup, corners_bundle)
                         + CORNERS_TOURNAMENT_BUMP)
         yellow, red_rate = predict_cards_for(home, away, altitude_m, team_lookup, cards_bundle)

@@ -29,7 +29,9 @@ from collections import defaultdict, Counter
 PROCESSED = Path("data/processed")
 MODELS = Path("models")
 
-N_SIMS = 10000
+N_SIMS = 50000   # Bumped from 10k on 2026-05-27 -- smoother per-slot
+                 # matchup distributions, especially for ambiguous knockout
+                 # slots. Adds ~3-4 minutes to the full pipeline.
 SEED = 42
 
 EXTRA_TIME_LAMBDA_FACTOR = 1 / 3
@@ -60,13 +62,44 @@ def build_group_lambdas(group_lambdas: pd.DataFrame) -> dict:
     return out
 
 
-def precompute_knockout_lambdas(all_teams: list, gm: dict) -> tuple:
+def build_h2h_matrix(all_teams: list, matches: pd.DataFrame) -> np.ndarray:
+    """Cumulative h2h goal-diff per prior meeting, from row team's perspective.
+    Matrix entry [i,j] = avg(GD per meeting) favouring team i vs team j."""
+    n = len(all_teams)
+    team_to_idx = {t: i for i, t in enumerate(all_teams)}
+    H = np.zeros((n, n))
+    sub = matches[matches["home_team"].isin(all_teams) &
+                  matches["away_team"].isin(all_teams)].copy()
+    sub["pair"] = sub.apply(
+        lambda r: tuple(sorted([r["home_team"], r["away_team"]])), axis=1
+    )
+    sub["gd_first"] = np.where(
+        sub["home_team"] == sub["pair"].str[0],
+        sub["home_score"] - sub["away_score"],
+        sub["away_score"] - sub["home_score"]
+    )
+    for pair, grp in sub.groupby("pair", sort=False):
+        n_meet = len(grp)
+        avg_gd_first = grp["gd_first"].sum() / max(n_meet, 1)
+        # Clip to the same range used in training (H2H_AVG_CLIP=3)
+        avg_gd_first = max(-3.0, min(3.0, avg_gd_first))
+        ta, tb = pair
+        if ta in team_to_idx and tb in team_to_idx:
+            i, j = team_to_idx[ta], team_to_idx[tb]
+            H[i, j] = avg_gd_first
+            H[j, i] = -avg_gd_first
+    return H
+
+
+def precompute_knockout_lambdas(all_teams: list, gm: dict,
+                                h2h_matrix: np.ndarray | None = None) -> tuple:
     """Precompute Dixon-Coles lambdas for every (home, away) pair (neutral venue)."""
     n = len(all_teams)
     team_to_idx = {t: i for i, t in enumerate(all_teams)}
     lh = np.zeros((n, n))
     la = np.zeros((n, n))
     alpha, attack, defense = gm["alpha"], gm["attack"], gm["defense"]
+    delta_h2h = float(gm.get("delta", 0.0))
     for i, h in enumerate(all_teams):
         if h not in gm["team_to_idx"]:
             continue
@@ -75,8 +108,9 @@ def precompute_knockout_lambdas(all_teams: list, gm: dict) -> tuple:
             if i == j or a not in gm["team_to_idx"]:
                 continue
             ai = gm["team_to_idx"][a]
-            lh[i, j] = math.exp(alpha + attack[hi] - defense[ai])
-            la[i, j] = math.exp(alpha + attack[ai] - defense[hi])
+            h2h_ij = float(h2h_matrix[i, j]) if h2h_matrix is not None else 0.0
+            lh[i, j] = math.exp(alpha + attack[hi] - defense[ai] + delta_h2h * h2h_ij)
+            la[i, j] = math.exp(alpha + attack[ai] - defense[hi] - delta_h2h * h2h_ij)
     return lh, la, team_to_idx
 
 
@@ -238,18 +272,27 @@ def main():
     group_fix = pd.read_csv(PROCESSED / "fixtures_group.csv")
     knockout = pd.read_csv(PROCESSED / "fixtures_knockout.csv").sort_values("match_id")
     group_lambdas = pd.read_csv(PROCESSED / "group_lambdas.csv")
+    matches_clean = pd.read_csv(PROCESSED / "matches_clean.csv", parse_dates=["date"])
     with open(MODELS / "goals_model.pkl", "rb") as f:
         gm = pickle.load(f)
     ok("group_fixtures", f"{len(group_fix)} matches")
     ok("knockout_slots", f"{len(knockout)} matches")
     ok("group_lambdas", f"{len(group_lambdas)} fixtures with lambdas")
-    ok("goals_model", f"alpha={gm['alpha']:.3f}, gamma={gm['gamma']:.3f}, rho={gm['rho']:.3f}")
+    ok("goals_model", f"alpha={gm['alpha']:.3f}, gamma={gm['gamma']:.3f}, "
+                      f"rho={gm['rho']:.3f}, delta={gm.get('delta', 0.0):+.3f}")
 
     groups = build_groups(group_fix)
     lambda_lookup = build_group_lambdas(group_lambdas)
 
     all_wc_teams = sorted(set(group_fix["home_team"]) | set(group_fix["away_team"]))
-    lh_table, la_table, team_to_idx = precompute_knockout_lambdas(all_wc_teams, gm)
+    h2h_matrix = build_h2h_matrix(all_wc_teams, matches_clean)
+    n_pairs_with_history = int((h2h_matrix != 0).sum() // 2)
+    ok("h2h_matrix",
+       f"{n_pairs_with_history} of {len(all_wc_teams)*(len(all_wc_teams)-1)//2} "
+       f"WC team pairs have h2h history")
+    lh_table, la_table, team_to_idx = precompute_knockout_lambdas(
+        all_wc_teams, gm, h2h_matrix
+    )
     missing = [t for t in all_wc_teams if t not in gm["team_to_idx"]]
     if missing:
         warn("teams_not_in_goals_model", str(missing))

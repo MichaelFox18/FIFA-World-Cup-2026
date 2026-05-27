@@ -50,17 +50,19 @@ def dc_tau(x, y, lh, la, rho):
     return tau
 
 
-def make_nll(home_idx, away_idx, x, y, w, n_teams):
+def make_nll(home_idx, away_idx, x, y, w, h2h, n_teams):
 
     def nll(params):
         attack = params[:n_teams]
         defense = params[n_teams:2 * n_teams]
         alpha = params[2 * n_teams]
         gamma = params[2 * n_teams + 1]
-        rho = params[2 * n_teams + 2]
+        rho   = params[2 * n_teams + 2]
+        delta = params[2 * n_teams + 3]
 
-        lh = np.exp(alpha + attack[home_idx] - defense[away_idx] + gamma)
-        la = np.exp(alpha + attack[away_idx] - defense[home_idx])
+        # Positive h2h favours home -> raise lh, lower la (opposite sign on la)
+        lh = np.exp(alpha + attack[home_idx]  - defense[away_idx] + gamma + delta * h2h)
+        la = np.exp(alpha + attack[away_idx] - defense[home_idx]          - delta * h2h)
 
         log_ph = poisson.logpmf(x, lh)
         log_pa = poisson.logpmf(y, la)
@@ -134,6 +136,9 @@ def main():
     x = train["home_score"].to_numpy().astype(int)
     y = train["away_score"].to_numpy().astype(int)
     w = train["sample_weight"].to_numpy()
+    h2h = train["h2h_avg_gd"].fillna(0).to_numpy()
+    ok("h2h_signal", f"h2h_avg_gd range [{h2h.min():.2f}, {h2h.max():.2f}], "
+                     f"nonzero={(h2h != 0).sum():,}/{len(h2h):,}")
 
     n_teams = len(teams)
     section("Fitting parameters")
@@ -141,16 +146,16 @@ def main():
     p0 = np.concatenate([
         np.zeros(n_teams),
         np.zeros(n_teams),
-        [alpha0, 0.3, -0.13],   # rho ~ -0.13 per README (low-score boost)
+        [alpha0, 0.3, -0.13, 0.0],  # alpha, gamma, rho, delta(h2h)
     ])
     bounds = (
         [(-3, 3)] * n_teams +
         [(-3, 3)] * n_teams +
-        [(-2, 2), (0, 1), (-0.5, 0.5)]
+        [(-2, 2), (0, 1), (-0.5, 0.5), (-0.5, 0.5)]
     )
 
-    nll = make_nll(home_idx, away_idx, x, y, w, n_teams)
-    ok("optimizer", f"L-BFGS-B, {2 * n_teams + 3} free params")
+    nll = make_nll(home_idx, away_idx, x, y, w, h2h, n_teams)
+    ok("optimizer", f"L-BFGS-B, {2 * n_teams + 4} free params")
 
     res = minimize(nll, p0, method="L-BFGS-B", bounds=bounds,
                    options={"maxiter": 2000})
@@ -164,9 +169,11 @@ def main():
     alpha = params[2 * n_teams]
     gamma = params[2 * n_teams + 1]
     rho = params[2 * n_teams + 2]
+    delta = params[2 * n_teams + 3]
     ok("home_advantage", f"gamma = {gamma:.3f}  (~{(math.exp(gamma) - 1) * 100:.1f}% more home goals)")
     ok("dc_rho", f"rho = {rho:.3f}")
     ok("intercept", f"alpha = {alpha:.3f}  (~{math.exp(alpha):.2f} avg goals/team)")
+    ok("h2h_delta", f"delta = {delta:+.3f}  (per goal of avg h2h GD favouring home)")
 
     section("Top attacking sides (largest attack coef)")
     rank_a = sorted(zip(teams, attack), key=lambda t: -t[1])[:8]
@@ -182,8 +189,8 @@ def main():
         print(f"  {t:<28} {v:+.3f}")
 
     section("In-sample goodness of fit")
-    lh_in = np.exp(alpha + attack[home_idx] - defense[away_idx] + gamma)
-    la_in = np.exp(alpha + attack[away_idx] - defense[home_idx])
+    lh_in = np.exp(alpha + attack[home_idx] - defense[away_idx] + gamma + delta * h2h)
+    la_in = np.exp(alpha + attack[away_idx] - defense[home_idx]         - delta * h2h)
     mae_home = float(np.mean(np.abs(lh_in - x)))
     mae_away = float(np.mean(np.abs(la_in - y)))
     ok("MAE home", f"{mae_home:.3f}  (README target <0.8)")
@@ -193,7 +200,7 @@ def main():
     model = {
         "teams": teams, "team_to_idx": team_to_idx,
         "attack": attack, "defense": defense,
-        "alpha": alpha, "gamma": gamma, "rho": rho,
+        "alpha": alpha, "gamma": gamma, "rho": rho, "delta": delta,
         "training_window_from": TRAIN_FROM,
         "training_matches": int(len(train)),
         "in_sample_mae_home": mae_home,
@@ -226,8 +233,9 @@ def main():
         # Apply gamma only to the team genuinely playing at home
         gamma_h = gamma if home_is_host else 0.0
         gamma_a = gamma if away_is_host else 0.0
-        lh = math.exp(alpha + attack[hi] - defense[ai] + gamma_h)
-        la = math.exp(alpha + attack[ai] - defense[hi] + gamma_a)
+        h2h_fx = float(fx.get("h2h_avg_gd", 0.0) or 0.0)
+        lh = math.exp(alpha + attack[hi] - defense[ai] + gamma_h + delta * h2h_fx)
+        la = math.exp(alpha + attack[ai] - defense[hi] + gamma_a - delta * h2h_fx)
         P = score_distribution(lh, la, rho)
         mh, ma = best_scoreline(P)
         eh, ea = expected_goals_from_P(P)

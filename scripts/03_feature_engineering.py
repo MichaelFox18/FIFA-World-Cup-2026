@@ -117,6 +117,11 @@ def add_fifa_rank_at_date(matches: pd.DataFrame, fifa: pd.DataFrame) -> pd.DataF
 
 # -- Head-to-head (cumulative, time-aware) -----------------------------------
 
+# Per-match GD is clipped to keep blowouts from dominating. A consistent 3-goal
+# h2h edge over many meetings is already a very strong signal.
+H2H_AVG_CLIP = 3.0
+
+
 def add_h2h(matches: pd.DataFrame) -> pd.DataFrame:
     m = matches.sort_values("date").copy()
     m["pair"] = m.apply(lambda r: tuple(sorted([r["home_team"], r["away_team"]])), axis=1)
@@ -130,7 +135,43 @@ def add_h2h(matches: pd.DataFrame) -> pd.DataFrame:
     m["h2h_cum_gd_first"] = g["gd_first"].cumsum().shift(1).fillna(0)
     first_is_home = (m["home_team"] == m["pair"].str[0])
     m["h2h_home_gd"] = np.where(first_is_home, m["h2h_cum_gd_first"], -m["h2h_cum_gd_first"])
+    # Per-prior-meeting average -- consistent across training (leakage-free
+    # via cumsum().shift(1)) and prediction (full historical lookup).
+    m["h2h_avg_gd"] = (m["h2h_home_gd"] / m["h2h_played"].clip(lower=1)).clip(
+        lower=-H2H_AVG_CLIP, upper=H2H_AVG_CLIP
+    )
     return m.drop(columns=["pair", "gd_first", "h2h_cum_gd_first"]).sort_index()
+
+
+def compute_fixture_h2h(fixtures: pd.DataFrame, matches: pd.DataFrame) -> pd.DataFrame:
+    """For each prediction fixture, look up cumulative h2h goal-diff favoring
+    the home team across all historical meetings."""
+    hist = matches[["home_team", "away_team", "home_score", "away_score"]].copy()
+    hist["pair"] = hist.apply(
+        lambda r: tuple(sorted([r["home_team"], r["away_team"]])), axis=1
+    )
+    hist["gd_first"] = np.where(
+        hist["home_team"] == hist["pair"].str[0],
+        hist["home_score"] - hist["away_score"],
+        hist["away_score"] - hist["home_score"]
+    )
+    agg = hist.groupby("pair", sort=False).agg(
+        h2h_played=("gd_first", "size"),
+        cum_gd_first=("gd_first", "sum")
+    )
+
+    out = fixtures.copy()
+    pair_keys = out.apply(
+        lambda r: tuple(sorted([r["home_team"], r["away_team"]])), axis=1
+    )
+    out["h2h_played"]      = pair_keys.map(agg["h2h_played"]).fillna(0).astype(int)
+    cum_gd_first           = pair_keys.map(agg["cum_gd_first"]).fillna(0)
+    first_is_home          = out["home_team"] == pair_keys.str[0]
+    out["h2h_home_gd"]     = np.where(first_is_home, cum_gd_first, -cum_gd_first)
+    out["h2h_avg_gd"]      = (out["h2h_home_gd"] /
+                              out["h2h_played"].clip(lower=1)).clip(
+                                  lower=-H2H_AVG_CLIP, upper=H2H_AVG_CLIP)
+    return out
 
 
 # -- Confederation baselines (fallback for teams without WC22 data) ----------
@@ -261,6 +302,13 @@ def main():
     group_features = build_fixture_features(fixtures_g, team_features)
     group_features["round"] = "Group"
     group_features["multiplier"] = 1
+    # Historical h2h between the two teams (full record, not leakage-restricted
+    # since this is future prediction).
+    group_features = compute_fixture_h2h(group_features, matches)
+    ok("h2h_in_fixtures",
+       f"mean h2h_played={group_features['h2h_played'].mean():.1f}, "
+       f"non-zero h2h: {int((group_features['h2h_played'] > 0).sum())}/"
+       f"{len(group_features)}")
     ok("fixtures_group", f"{len(group_features)} matches, {len(group_features.columns)} cols")
 
     knock_features = fixtures_k.copy()

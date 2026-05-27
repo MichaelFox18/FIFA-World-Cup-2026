@@ -69,12 +69,14 @@ def predict_fixture(fx, gm):
     hi, ai = team_to_idx[h], team_to_idx[a]
     alpha, attack, defense, gamma, rho = (gm["alpha"], gm["attack"], gm["defense"],
                                           gm["gamma"], gm["rho"])
+    delta_h2h = float(gm.get("delta", 0.0))
     home_is_host = int(fx.get("home_is_host", 0) or 0)
     away_is_host = int(fx.get("away_is_host", 0) or 0)
     g_h = gamma if home_is_host else 0.0
     g_a = gamma if away_is_host else 0.0
-    lh = math.exp(alpha + attack[hi] - defense[ai] + g_h)
-    la = math.exp(alpha + attack[ai] - defense[hi] + g_a)
+    h2h_fx = float(fx.get("h2h_avg_gd", 0.0) or 0.0)
+    lh = math.exp(alpha + attack[hi] - defense[ai] + g_h + delta_h2h * h2h_fx)
+    la = math.exp(alpha + attack[ai] - defense[hi] + g_a - delta_h2h * h2h_fx)
     P = score_distribution(lh, la, rho)
     mh, ma = np.unravel_index(np.argmax(P), P.shape)
     grid = np.arange(P.shape[0])

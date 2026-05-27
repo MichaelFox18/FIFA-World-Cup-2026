@@ -39,6 +39,42 @@ CONF_CARD_MULT = {
     "OFC":      1.00,
 }
 
+# Fallback confederation when team_features.csv has no entry (e.g., Euro 2024
+# teams that aren't WC 2026 qualifiers). Inferred from tournament tag.
+TOURNAMENT_CONF_FALLBACK = {
+    "WC 2022":           None,        # use per-team lookup (all WC teams in team_features)
+    "Euro 2024":         "UEFA",
+    "Copa America 2024": "CONMEBOL",  # mixed CONMEBOL/CONCACAF -- skewed CONMEBOL
+    "Afcon 2023":        "CAF",
+    "Afcon 2025":        "CAF",
+    "Afcon 2025 2026":   "CAF",
+    "Africa Cup Of Nations 2023": "CAF",
+    "Africa Cup Of Nations 2025": "CAF",
+}
+
+# Per-source sample weights (continental tournaments slightly downweighted)
+SOURCE_WEIGHT = {"WC 2022": 1.0}
+DEFAULT_EXTERNAL_WEIGHT = 0.8
+
+
+def load_training_pool():
+    """Concatenate WC22 + any external tournament stats present."""
+    wc22 = pd.read_csv(PROCESSED / "match_stats_wc2022.csv", parse_dates=["date"])
+    parts = [wc22]
+    ext_path = PROCESSED / "match_stats_external.csv"
+    if ext_path.exists():
+        ext = pd.read_csv(ext_path, parse_dates=["date"])
+        parts.append(ext)
+        ok("external_long", f"{len(ext)} rows from {ext_path.name}")
+    else:
+        warn("external_missing",
+             f"{ext_path.name} not found -- run 01d to expand training data")
+    combined = pd.concat(parts, ignore_index=True, sort=False)
+    combined["source_weight"] = combined["tournament"].map(
+        lambda t: SOURCE_WEIGHT.get(t, DEFAULT_EXTERNAL_WEIGHT)
+    )
+    return combined
+
 
 def altitude_card_adj(altitude_m) -> float:
     """More physical/aerial play at altitude -> slightly more cards."""
@@ -57,8 +93,14 @@ def main():
     print("=" * 60)
 
     section("Loading training data")
-    long = pd.read_csv(PROCESSED / "match_stats_wc2022.csv", parse_dates=["date"])
-    ok("wc22_long", f"{len(long)} team-match rows")
+    long = load_training_pool()
+    ok("pooled_long", f"{len(long)} team-match rows across "
+                      f"{long['tournament'].nunique()} tournament(s)")
+    for t, n in long.groupby("tournament").size().sort_values(ascending=False).items():
+        ok(f"  {t}", f"{n} team-rows")
+
+    # Drop rows without yellow card data (external sources may have NaN)
+    long = long.dropna(subset=["yellow cards"]).copy()
 
     long["pair_key"] = long.apply(
         lambda r: tuple(sorted([str(r["team"]), str(r["opponent"])])), axis=1
@@ -71,10 +113,13 @@ def main():
                      home_yellow=("yellow cards", "first"),
                      away_yellow=("yellow cards", "last"),
                      home_red=("red cards", "first"),
-                     away_red=("red cards", "last"))
+                     away_red=("red cards", "last"),
+                     tournament=("tournament", "first"),
+                     source_weight=("source_weight", "first"))
                 .reset_index())
     one["total_yellow"] = one["home_yellow"] + one["away_yellow"]
-    one["total_red"] = one["home_red"] + one["away_red"]
+    one["total_red"] = one["home_red"] + one["away_red"].fillna(0)
+    one = one.dropna(subset=["total_yellow"]).copy()
     ok("matches", f"{len(one)} matches built")
     ok("mean_yellow", f"{one['total_yellow'].mean():.2f}  (README target 2.8-3.8)")
     ok("mean_red", f"{one['total_red'].mean():.3f}  (README target <0.25 avg)")
@@ -93,8 +138,16 @@ def main():
     conf_map = dict(zip(team_features["team"], team_features["confederation"]))
     rank_map = dict(zip(team_features["team"], team_features["fifa_rank"]))
 
-    one["home_conf"] = one["home_team"].map(conf_map)
-    one["away_conf"] = one["away_team"].map(conf_map)
+    # Confederation lookup with tournament-based fallback for teams that aren't
+    # WC 2026 qualifiers (e.g. Euro 2024 non-qualifiers).
+    def resolve_conf(team: str, tournament: str):
+        c = conf_map.get(team)
+        if c and not pd.isna(c):
+            return c
+        return TOURNAMENT_CONF_FALLBACK.get(tournament)
+
+    one["home_conf"] = one.apply(lambda r: resolve_conf(r["home_team"], r["tournament"]), axis=1)
+    one["away_conf"] = one.apply(lambda r: resolve_conf(r["away_team"], r["tournament"]), axis=1)
     one["home_rank"] = one["home_team"].map(rank_map).fillna(100)
     one["away_rank"] = one["away_team"].map(rank_map).fillna(100)
 
@@ -108,20 +161,35 @@ def main():
 
     X = one[feature_cols].to_numpy()
     y = one["total_yellow"].to_numpy()
+    sw = one["source_weight"].to_numpy()
+    wc22_mask = (one["tournament"] == "WC 2022").to_numpy()
 
     section("Training yellow-card Poisson regression")
     scaler = StandardScaler().fit(X)
     Xs = scaler.transform(X)
 
     kf = KFold(n_splits=5, shuffle=True, random_state=42)
-    fold_maes = []
+    fold_maes, fold_maes_wc22 = [], []
     for tr, te in kf.split(Xs):
-        m = PoissonRegressor(alpha=0.5, max_iter=500).fit(Xs[tr], y[tr])
-        fold_maes.append(float(np.mean(np.abs(m.predict(Xs[te]) - y[te]))))
+        m = PoissonRegressor(alpha=0.5, max_iter=500).fit(
+            Xs[tr], y[tr], sample_weight=sw[tr]
+        )
+        pred_te = m.predict(Xs[te])
+        fold_maes.append(float(np.mean(np.abs(pred_te - y[te]))))
+        wc22_te = wc22_mask[te]
+        if wc22_te.any():
+            fold_maes_wc22.append(
+                float(np.mean(np.abs(pred_te[wc22_te] - y[te][wc22_te])))
+            )
     cv_mae = float(np.mean(fold_maes))
-    ok("cv_mae_yellow", f"{cv_mae:.2f}  (README target <1.0)")
+    ok("cv_mae_yellow", f"{cv_mae:.2f}  (pooled, all tournaments)")
+    if fold_maes_wc22:
+        ok("cv_mae_yellow_wc22", f"{float(np.mean(fold_maes_wc22)):.2f}  "
+                                  f"(README target <1.0)")
 
-    yellow_model = PoissonRegressor(alpha=0.5, max_iter=500).fit(Xs, y)
+    yellow_model = PoissonRegressor(alpha=0.5, max_iter=500).fit(
+        Xs, y, sample_weight=sw
+    )
     in_mae = float(np.mean(np.abs(yellow_model.predict(Xs) - y)))
     ok("in_sample_mae", f"{in_mae:.2f}")
     ok("intercept", f"{yellow_model.intercept_:+.3f}")
@@ -129,8 +197,12 @@ def main():
         ok(f"coef[{n}]", f"{c:+.3f}")
 
     section("Red cards: empirical rate model")
-    red_rate = float(one["total_red"].mean())
-    ok("global_red_rate", f"{red_rate:.3f} per match  (default prediction = 0)")
+    # Red rate from WC 2022 only -- the tournament we're predicting most resembles
+    wc22_one = one.loc[one["tournament"] == "WC 2022"]
+    red_rate = float(wc22_one["total_red"].mean()) if len(wc22_one) else float(one["total_red"].mean())
+    pooled_red_rate = float(one["total_red"].mean())
+    ok("wc22_red_rate", f"{red_rate:.3f} per match  (used for predictions)")
+    ok("pooled_red_rate", f"{pooled_red_rate:.3f} per match  (for reference)")
 
     section("Saving models")
     bundle = {
@@ -148,6 +220,8 @@ def main():
     ok("cards_model.pkl", "saved")
 
     section("Predicting WC 2026 fixtures")
+    # Per-team pooled yellow averages from the same data the model trained on.
+    pooled_avg_yellow = long.groupby("team")["yellow cards"].mean().to_dict()
     fixtures = pd.read_csv(PROCESSED / "fixture_features.csv")
     fx = fixtures.copy()
 
@@ -157,7 +231,15 @@ def main():
     fx["away_card_mult"] = fx["away_conf"].map(CONF_CARD_MULT).fillna(1.0)
     fx["conf_mult"] = (fx["home_card_mult"] + fx["away_card_mult"]) / 2
 
-    fx["sum_avg_y"] = fx["home_wc22_avg_yellows"] + fx["away_wc22_avg_yellows"]
+    fx["home_pool_yellow"] = fx["home_team"].map(pooled_avg_yellow)
+    fx["away_pool_yellow"] = fx["away_team"].map(pooled_avg_yellow)
+    n_home_pool = int(fx["home_pool_yellow"].notna().sum())
+    n_away_pool = int(fx["away_pool_yellow"].notna().sum())
+    fx["home_pool_yellow"] = fx["home_pool_yellow"].fillna(fx["home_wc22_avg_yellows"])
+    fx["away_pool_yellow"] = fx["away_pool_yellow"].fillna(fx["away_wc22_avg_yellows"])
+    ok("pooled_avg_home", f"{n_home_pool}/{len(fx)} fixtures got pooled home avg")
+    ok("pooled_avg_away", f"{n_away_pool}/{len(fx)} fixtures got pooled away avg")
+    fx["sum_avg_y"] = fx["home_pool_yellow"] + fx["away_pool_yellow"]
     fx["abs_rank_diff"] = (fx["home_fifa_rank"].fillna(100)
                            - fx["away_fifa_rank"].fillna(100)).abs()
 
