@@ -1,0 +1,176 @@
+team,player,role,importance_weight,notes
+France,Kylian Mbappé,FWD,1.0,franchise player; absence is catastrophic for attack
+France,Antoine Griezmann,MID,0.7,creative hub; veteran captain
+France,Aurélien Tchouaméni,MID,0.7,defensive midfield anchor
+France,Théo Hernández,DEF,0.6,left back / overlapping attacker
+France,Mike Maignan,GK,0.5,first-choice keeper
+Spain,Lamine Yamal,FWD,1.0,Polymarket favourite-by-implication; key wide creator
+Spain,Rodri,MID,1.0,defensive midfield engine; Ballon d'Or winner
+Spain,Pedri,MID,0.8,deep playmaker; chance creation
+Spain,Nico Williams,FWD,0.7,left wing pace + finishing
+Spain,Aymeric Laporte,DEF,0.5,centre back; if Saudi-based form holds
+Spain,Unai Simón,GK,0.4,first-choice keeper
+England,Jude Bellingham,MID,1.0,attacking midfielder; pivot of the side
+England,Harry Kane,FWD,0.9,captain + goalscorer
+England,Phil Foden,MID,0.8,creative outlet
+England,Bukayo Saka,FWD,0.8,right wing pace + finishing
+England,Declan Rice,MID,0.6,defensive midfield
+England,Jordan Pickford,GK,0.4,first-choice keeper
+Portugal,Cristiano Ronaldo,FWD,0.8,captain; symbolic + still a finisher
+Portugal,Bruno Fernandes,MID,0.8,chance creation + set pieces
+Portugal,Bernardo Silva,MID,0.7,deep creator + winger
+Portugal,Rúben Dias,DEF,0.7,centre back leader
+Portugal,João Félix,FWD,0.5,attacking versatility
+Portugal,Diogo Costa,GK,0.4,first-choice keeper
+Argentina,Lionel Messi,FWD,1.0,still iconic; transformative when fit
+Argentina,Lautaro Martínez,FWD,0.8,primary striker
+Argentina,Enzo Fernández,MID,0.7,deep playmaker
+Argentina,Alexis Mac Allister,MID,0.7,midfield linker
+Argentina,Cristian Romero,DEF,0.6,centre back
+Argentina,Emiliano Martínez,GK,0.6,2022 Cup-winning keeper
+Brazil,Vinicius Jr.,FWD,1.0,primary attacker
+Brazil,Rodrygo,FWD,0.7,wide forward
+Brazil,Neymar,FWD,0.8,when fit; status uncertain
+Brazil,Marquinhos,DEF,0.6,centre back captain
+Brazil,Casemiro,MID,0.5,defensive midfield veteran
+Brazil,Alisson,GK,0.6,first-choice keeper
+Germany,Jamal Musiala,MID,1.0,playmaker + finisher
+Germany,Florian Wirtz,MID,1.0,creative engine
+Germany,Joshua Kimmich,MID,0.7,captain + deep midfielder
+Germany,Kai Havertz,FWD,0.6,versatile forward
+Germany,Antonio Rüdiger,DEF,0.6,centre back leader
+Germany,Manuel Neuer,GK,0.5,first-choice keeper (if still active)
+Netherlands,Virgil van Dijk,DEF,0.9,captain + centre back; backline organisation
+Netherlands,Frenkie de Jong,MID,0.8,deep midfielder
+Netherlands,Cody Gakpo,FWD,0.7,wide forward
+Netherlands,Memphis Depay,FWD,0.6,striker / finisher
+Netherlands,Tijjani Reijnders,MID,0.5,box-to-box midfielder
+Netherlands,Bart Verbruggen,GK,0.4,first-choice keeper
+Norway,Erling Haaland,FWD,1.0,team carries on his goals; absence devastating
+Norway,Martin Ødegaard,MID,0.8,captain + chance creator
+Norway,Antonio Nusa,FWD,0.5,emerging winger
+Norway,Alexander Sørloth,FWD,0.4,secondary striker
+Belgium,Kevin De Bruyne,MID,0.9,creative midfielder; declining but key
+Belgium,Romelu Lukaku,FWD,0.7,striker
+Belgium,Jérémy Doku,FWD,0.6,wing pace
+Belgium,Thibaut Courtois,GK,0.7,elite keeper
+Belgium,Youri Tielemans,MID,0.5,midfield depth
+Colombia,Luis Díaz,FWD,0.8,left wing
+Colombia,James Rodríguez,MID,0.7,veteran playmaker
+Colombia,Davinson Sánchez,DEF,0.5,centre back
+Colombia,Jhon Durán,FWD,0.5,emerging striker
+Japan,Takefusa Kubo,FWD,0.8,creative winger
+Japan,Wataru Endō,MID,0.6,captain + defensive midfield
+Japan,Daichi Kamada,MID,0.5,attacking midfielder
+Japan,Daizen Maeda,FWD,0.5,pace + pressing
+Japan,Hidemasa Morita,MID,0.5,midfield engine
+Morocco,Achraf Hakimi,DEF,1.0,right back + primary outlet
+Morocco,Hakim Ziyech,MID,0.7,creative midfielder (when fit)
+Morocco,Yassine Bounou,GK,0.6,2022 hero keeper
+Morocco,Sofyan Amrabat,MID,0.5,defensive midfielder
+Mexico,Edson Álvarez,MID,0.6,captain + defensive midfield
+Mexico,Hirving Lozano,FWD,0.6,winger
+Mexico,Santiago Giménez,FWD,0.5,striker
+Mexico,Raúl Jiménez,FWD,0.5,veteran striker
+Mexico,Guillermo Ochoa,GK,0.4,if still active
+United States,Christian Pulisic,FWD,1.0,primary attacker
+United States,Tyler Adams,MID,0.6,defensive midfield captain
+United States,Weston McKennie,MID,0.6,box-to-box midfielder
+United States,Folarin Balogun,FWD,0.5,striker
+United States,Matt Turner,GK,0.4,first-choice keeper
+Uruguay,Federico Valverde,MID,0.9,box-to-box midfielder; team carries
+Uruguay,Darwin Núñez,FWD,0.7,striker
+Uruguay,Ronald Araújo,DEF,0.6,centre back
+Uruguay,José María Giménez,DEF,0.5,centre back partner
+Switzerland,Granit Xhaka,MID,0.7,captain + deep midfielder
+Switzerland,Manuel Akanji,DEF,0.6,centre back
+Switzerland,Yann Sommer,GK,0.5,first-choice keeper
+Switzerland,Breel Embolo,FWD,0.5,striker
+Ecuador,Moisés Caicedo,MID,0.9,defensive midfield anchor
+Ecuador,Enner Valencia,FWD,0.6,veteran striker
+Ecuador,Piero Hincapié,DEF,0.5,centre back
+Türkiye,Hakan Çalhanoğlu,MID,0.8,deep playmaker + set pieces
+Türkiye,Arda Güler,MID,0.7,emerging creative midfielder
+Türkiye,Kenan Yıldız,FWD,0.6,attacker
+Türkiye,Ferdi Kadıoğlu,DEF,0.5,left back
+Croatia,Luka Modrić,MID,0.7,veteran maestro; depends on minutes load
+Croatia,Joško Gvardiol,DEF,0.7,centre back
+Croatia,Mateo Kovačić,MID,0.6,deep midfielder
+Croatia,Andrej Kramarić,FWD,0.5,striker
+Senegal,Sadio Mané,FWD,0.9,still primary outlet
+Senegal,Kalidou Koulibaly,DEF,0.7,centre back leader
+Senegal,Édouard Mendy,GK,0.6,first-choice keeper
+Senegal,Ismaïla Sarr,FWD,0.5,winger
+Senegal,Idrissa Gueye,MID,0.5,defensive midfield
+Sweden,Alexander Isak,FWD,0.9,primary striker
+Sweden,Viktor Gyökeres,FWD,0.7,secondary striker
+Sweden,Anthony Elanga,FWD,0.5,wing pace
+Sweden,Robin Olsen,GK,0.4,first-choice keeper
+Austria,David Alaba,DEF,0.8,centre back + leader (if fit)
+Austria,Marko Arnautović,FWD,0.5,veteran striker
+Austria,Konrad Laimer,MID,0.5,energetic midfielder
+Austria,Marcel Sabitzer,MID,0.5,attacking midfielder
+Canada,Alphonso Davies,DEF,1.0,attacking left back; primary outlet
+Canada,Jonathan David,FWD,0.8,striker
+Canada,Stephen Eustáquio,MID,0.6,midfielder
+Canada,Cyle Larin,FWD,0.4,secondary striker
+Egypt,Mohamed Salah,FWD,1.0,everything goes through him
+Egypt,Mohamed Elneny,MID,0.5,midfield veteran
+Egypt,Trezeguet,FWD,0.4,attacker
+Ghana,Mohammed Kudus,MID,0.9,creative attacker
+Ghana,Thomas Partey,MID,0.6,defensive midfielder
+Ghana,Jordan Ayew,FWD,0.4,striker
+Paraguay,Miguel Almirón,FWD,0.6,winger
+Paraguay,Antonio Sanabria,FWD,0.5,striker
+Paraguay,Diego Gómez,MID,0.5,midfielder
+Bosnia and Herzegovina,Edin Džeko,FWD,0.7,veteran striker
+Bosnia and Herzegovina,Miralem Pjanić,MID,0.5,deep midfielder
+Bosnia and Herzegovina,Ermedin Demirović,FWD,0.5,striker
+Czechia,Patrik Schick,FWD,0.7,primary striker
+Czechia,Tomáš Souček,MID,0.6,midfield workhorse
+Czechia,Adam Hložek,FWD,0.5,attacker
+South Korea,Son Heung-min,FWD,1.0,captain + primary attacker
+South Korea,Lee Kang-in,MID,0.7,creative midfielder
+South Korea,Hwang Hee-chan,FWD,0.5,secondary striker
+South Korea,Kim Min-jae,DEF,0.6,centre back
+Côte d'Ivoire,Sébastien Haller,FWD,0.7,striker
+Côte d'Ivoire,Franck Kessié,MID,0.6,midfield captain
+Côte d'Ivoire,Wilfried Singo,DEF,0.5,centre back
+Scotland,Andrew Robertson,DEF,0.7,left back captain
+Scotland,Scott McTominay,MID,0.6,box-to-box midfielder
+Scotland,Lyndon Dykes,FWD,0.4,striker
+Scotland,Angus Gunn,GK,0.4,first-choice keeper
+Australia,Mathew Ryan,GK,0.6,captain + keeper
+Australia,Ajdin Hrustic,MID,0.5,attacking midfielder
+Australia,Mitchell Duke,FWD,0.4,striker
+Algeria,Riyad Mahrez,FWD,0.8,primary attacker + set pieces
+Algeria,Ismaël Bennacer,MID,0.6,midfielder
+Algeria,Said Benrahma,FWD,0.5,attacker
+Tunisia,Hannibal Mejbri,MID,0.5,attacking midfielder
+Tunisia,Wahbi Khazri,MID,0.4,veteran attacker
+Iran,Mehdi Taremi,FWD,0.8,primary striker
+Iran,Sardar Azmoun,FWD,0.6,secondary striker
+Iran,Alireza Jahanbakhsh,FWD,0.4,winger
+Saudi Arabia,Salem Al-Dawsari,FWD,0.6,attacker
+Saudi Arabia,Mohamed Kanno,MID,0.4,defensive midfielder
+Haiti,Duckens Nazon,FWD,0.5,striker
+Haiti,Frantzdy Pierrot,FWD,0.4,striker
+Qatar,Akram Afif,FWD,0.7,Asian Cup top scorer
+Qatar,Almoez Ali,FWD,0.5,striker
+Iraq,Aymen Hussein,FWD,0.5,striker
+Iraq,Ali Adnan,DEF,0.4,left back
+New Zealand,Chris Wood,FWD,0.7,primary striker
+New Zealand,Sarpreet Singh,MID,0.4,midfielder
+Uzbekistan,Eldor Shomurodov,FWD,0.6,primary striker
+Jordan,Musa Al-Tamari,FWD,0.6,winger / attacker
+Jordan,Yazan Al-Naimat,FWD,0.4,striker
+Panama,Adalberto Carrasquilla,MID,0.5,midfielder
+Panama,Aníbal Godoy,MID,0.4,defensive midfielder
+Curaçao,Tahith Chong,MID,0.5,midfielder
+Curaçao,Cuco Martina,DEF,0.3,defender
+South Africa,Lyle Foster,FWD,0.6,primary striker
+South Africa,Percy Tau,FWD,0.5,attacker
+Cape Verde,Ryan Mendes,FWD,0.5,attacker
+Cape Verde,Bebé,FWD,0.4,veteran attacker
+DR Congo,Cédric Bakambu,FWD,0.5,striker
+DR Congo,Chancel Mbemba,DEF,0.5,centre back
