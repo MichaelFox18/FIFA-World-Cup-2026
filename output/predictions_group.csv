@@ -8,10 +8,10 @@ match_id,home_score,away_score,corners,yellow_cards,red_cards,winning_team
 7,1,1,9,4,0,home
 8,1,1,10,4,0,away
 9,2,1,11,4,0,home
-10,1,2,9,4,0,home
+10,1,1,9,4,0,home
 11,1,1,10,4,0,draw
 12,1,1,10,4,0,away
-13,2,0,10,4,0,home
+13,2,1,10,4,0,home
 14,1,1,9,4,0,home
 15,0,1,9,3,0,away
 16,1,1,9,4,0,home
@@ -19,7 +19,7 @@ match_id,home_score,away_score,corners,yellow_cards,red_cards,winning_team
 18,1,1,9,4,0,home
 19,1,2,10,4,0,away
 20,2,1,9,4,0,home
-21,2,1,10,4,0,home
+21,1,1,10,4,0,home
 22,1,1,8,4,0,home
 23,1,1,9,4,0,home
 24,1,1,8,4,0,away
@@ -31,7 +31,7 @@ match_id,home_score,away_score,corners,yellow_cards,red_cards,winning_team
 30,2,1,9,4,0,home
 31,1,1,9,4,0,away
 32,2,1,10,4,0,home
-33,1,2,10,4,0,away
+33,1,1,10,4,0,away
 34,2,1,9,4,0,home
 35,2,1,11,4,0,home
 36,1,1,10,4,0,home
@@ -56,7 +56,7 @@ match_id,home_score,away_score,corners,yellow_cards,red_cards,winning_team
 55,1,1,11,4,0,away
 56,1,1,10,4,0,away
 57,2,1,9,4,0,home
-58,1,2,10,4,0,away
+58,1,1,10,4,0,away
 59,2,1,10,4,0,home
 60,1,1,9,4,0,away
 61,1,1,9,4,0,away

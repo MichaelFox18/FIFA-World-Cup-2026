@@ -6,28 +6,28 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 77,Côte d'Ivoire,Senegal,1,2,9,4,0,away,False
 78,Norway,Scotland,2,1,7,4,0,home,False
 79,Mexico,Ecuador,2,1,8,4,0,home,False
-80,England,Saudi Arabia,1,0,9,4,0,home,False
+80,Ghana,Uruguay,1,2,9,4,0,away,False
 81,Egypt,Algeria,2,1,7,5,0,home,False
 82,United States,Bosnia and Herzegovina,2,1,9,4,0,home,False
 83,Colombia,Croatia,2,1,8,4,0,home,False
 84,Spain,Austria,2,1,8,4,0,home,False
 85,Canada,Iran,2,1,9,4,0,home,False
-86,Australia,Belgium,1,2,9,4,0,away,False
+86,Türkiye,Belgium,1,2,9,4,0,away,False
 87,Argentina,Uruguay,2,1,9,4,0,home,False
 88,Portugal,Ghana,2,1,10,4,0,home,False
 89,Switzerland,Germany,1,2,10,4,0,away,False
 90,Brazil,Senegal,2,1,10,4,0,home,False
 91,Japan,Norway,2,1,8,4,0,home,False
-92,Mexico,England,1,2,8,4,0,away,False
+92,Mexico,Uruguay,2,1,8,4,0,home,False
 93,Colombia,Spain,1,2,8,4,0,away,False
 94,Egypt,United States,1,2,9,4,0,away,False
 95,Belgium,Portugal,1,2,9,4,0,away,False
 96,Canada,Argentina,1,2,9,4,0,away,False
 97,Germany,Brazil,2,1,11,4,0,home,False
 98,Spain,United States,2,1,9,4,0,home,False
-99,Japan,England,1,2,9,4,0,away,False
+99,Japan,Mexico,2,1,9,4,0,home,False
 100,Portugal,Argentina,2,1,9,4,0,home,False
 101,Germany,Spain,1,2,10,4,0,away,False
-102,England,Portugal,2,1,9,4,0,home,False
-103,Germany,Portugal,1,2,10,4,0,away,False
-104,Spain,England,2,1,9,4,0,home,False
+102,Japan,Portugal,1,2,9,4,0,away,False
+103,Germany,Japan,2,3,10,4,0,away,False
+104,Spain,Portugal,2,1,9,4,0,home,False

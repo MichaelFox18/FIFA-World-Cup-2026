@@ -15703,3 +15703,34 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral,i
 2026-06-27,DR Congo,Uzbekistan,,,FIFA World Cup,Atlanta,United States,True,True,,,Draw
 2026-06-27,Panama,England,,,FIFA World Cup,East Rutherford,United States,True,True,,,Draw
 2026-06-27,Croatia,Ghana,,,FIFA World Cup,Philadelphia,United States,True,True,,,Draw
+2026-05-26,Morocco,Burundi,5.0,0.0,Friendly,Sale,Morocco,False,False,5.0,5.0,Morocco
+2026-05-26,Nigeria,Zimbabwe,2.0,0.0,Friendly,London,England,True,False,2.0,2.0,Nigeria
+2026-05-27,Jamaica,India,2.0,0.0,Friendly,London,England,True,False,2.0,2.0,Jamaica
+2026-05-28,Egypt,Russia,1.0,0.0,Friendly,Cairo,Egypt,False,False,1.0,1.0,Egypt
+2026-05-28,Republic of Ireland,Qatar,1.0,0.0,Friendly,Dublin,Republic of Ireland,False,False,1.0,1.0,Republic of Ireland
+2026-05-29,Iran,Gambia,0.0,0.0,Friendly,Antalya,Türkiye,True,False,0.0,0.0,Draw
+2026-05-29,Iraq,Andorra,1.0,0.0,Friendly,Girona,Spain,True,False,1.0,1.0,Iraq
+2026-05-29,South Africa,Nicaragua,0.0,0.0,Friendly,Johannesburg,South Africa,False,False,0.0,0.0,Draw
+2026-05-29,Bosnia and Herzegovina,North Macedonia,0.0,0.0,Friendly,Sarajevo,Bosnia and Herzegovina,False,False,0.0,0.0,Draw
+2026-05-30,Scotland,Curaçao,4.0,1.0,Friendly,Glasgow,Scotland,False,False,5.0,3.0,Scotland
+2026-05-30,Zimbabwe,India,1.0,0.0,Friendly,London,England,True,False,1.0,1.0,Zimbabwe
+2026-05-30,Jamaica,Nigeria,0.0,3.0,Friendly,London,England,True,False,3.0,-3.0,Nigeria
+2026-05-30,Ecuador,Saudi Arabia,2.0,1.0,Friendly,Harrison,United States,True,False,3.0,1.0,Ecuador
+2026-05-30,South Korea,Trinidad and Tobago,5.0,0.0,Friendly,,,True,False,5.0,5.0,South Korea
+2026-05-30,Mexico,Australia,1.0,0.0,Friendly,Pasadena,United States,True,False,1.0,1.0,Mexico
+2026-05-31,Japan,Iceland,1.0,0.0,Friendly,Tokyo,Japan,False,False,1.0,1.0,Japan
+2026-05-31,Singapore,Mongolia,4.0,0.0,Friendly,Kingston,Jamaica,True,False,4.0,4.0,Singapore
+2026-05-31,Switzerland,Jordan,4.0,1.0,Friendly,St. Gallen,Switzerland,False,False,5.0,3.0,Switzerland
+2026-05-31,Czechia,Kosovo,2.0,1.0,Friendly,Prague,Czechia,False,False,3.0,1.0,Czechia
+2026-05-31,Cape Verde,Serbia,3.0,0.0,Friendly,Lisbon,Portugal,True,False,3.0,3.0,Cape Verde
+2026-05-31,Poland,Ukraine,0.0,2.0,Friendly,Wroclaw,Poland,False,False,2.0,-2.0,Ukraine
+2026-05-31,Germany,Finland,4.0,0.0,Friendly,Mainz,Germany,False,False,4.0,4.0,Germany
+2026-05-31,United States,Senegal,3.0,2.0,Friendly,Charlotte,United States,False,False,5.0,1.0,United States
+2026-05-31,Brazil,Panama,6.0,2.0,Friendly,Rio de Janeiro,Brazil,False,False,8.0,4.0,Brazil
+2026-06-01,Bulgaria,Montenegro,0.0,1.0,Friendly,Plovdiv,Bulgaria,False,False,1.0,-1.0,Montenegro
+2026-06-01,Slovakia,Malta,2.0,1.0,Friendly,Dunajská Streda,Slovakia,False,False,3.0,1.0,Slovakia
+2026-06-01,Norway,Sweden,3.0,0.0,Friendly,Oslo,Norway,False,False,3.0,3.0,Norway
+2026-06-01,Türkiye,North Macedonia,4.0,0.0,Friendly,Istanbul,Türkiye,False,False,4.0,4.0,Türkiye
+2026-06-01,Austria,Tunisia,1.0,0.0,Friendly,Vienna,Austria,False,False,1.0,1.0,Austria
+2026-06-01,Colombia,Costa Rica,3.0,0.0,Friendly,Bogotá,Colombia,False,False,3.0,3.0,Colombia
+2026-06-01,Canada,Uzbekistan,2.0,0.0,Friendly,Edmonton,Canada,False,False,2.0,2.0,Canada

@@ -8,10 +8,10 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 7,Brazil,Morocco,1,1,9,4,0,home,,,2
 8,Haiti,Scotland,1,1,10,4,0,away,,,2
 9,Germany,Curaçao,2,1,11,4,0,home,,,3
-10,Netherlands,Japan,1,2,9,4,0,home,,,3
+10,Netherlands,Japan,1,1,9,4,0,home,,,2
 11,Côte d'Ivoire,Ecuador,1,1,10,4,0,draw,,,2
 12,Sweden,Tunisia,1,1,10,4,0,away,,,2
-13,Spain,Cape Verde,2,0,10,4,0,home,,,2
+13,Spain,Cape Verde,2,1,10,4,0,home,,,3
 14,Belgium,Egypt,1,1,9,4,0,home,,,2
 15,Saudi Arabia,Uruguay,0,1,9,3,0,away,,,1
 16,Iran,New Zealand,1,1,9,4,0,home,,,2
@@ -19,7 +19,7 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 18,France,Senegal,1,1,9,4,0,home,,,2
 19,Iraq,Norway,1,2,10,4,0,away,,,3
 20,Argentina,Algeria,2,1,9,4,0,home,,,3
-21,Portugal,DR Congo,2,1,10,4,0,home,,,3
+21,Portugal,DR Congo,1,1,10,4,0,home,,,2
 22,England,Croatia,1,1,8,4,0,home,,,2
 23,Ghana,Panama,1,1,9,4,0,home,,,2
 24,Uzbekistan,Colombia,1,1,8,4,0,away,,,2
@@ -31,7 +31,7 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 30,United States,Australia,2,1,9,4,0,home,,,3
 31,Scotland,Morocco,1,1,9,4,0,away,,,2
 32,Brazil,Haiti,2,1,10,4,0,home,,,3
-33,Tunisia,Japan,1,2,10,4,0,away,,,3
+33,Tunisia,Japan,1,1,10,4,0,away,,,2
 34,Netherlands,Sweden,2,1,9,4,0,home,,,3
 35,Germany,Côte d'Ivoire,2,1,11,4,0,home,,,3
 36,Ecuador,Curaçao,1,1,10,4,0,home,,,2
@@ -56,7 +56,7 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 55,Curaçao,Côte d'Ivoire,1,1,11,4,0,away,,,2
 56,Ecuador,Germany,1,1,10,4,0,away,,,2
 57,Japan,Sweden,2,1,9,4,0,home,,,3
-58,Tunisia,Netherlands,1,2,10,4,0,away,,,3
+58,Tunisia,Netherlands,1,1,10,4,0,away,,,2
 59,United States,Türkiye,2,1,10,4,0,home,,,3
 60,Paraguay,Australia,1,1,9,4,0,away,,,2
 61,Norway,France,1,1,9,4,0,away,,,2
@@ -78,28 +78,28 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 77,Côte d'Ivoire,Senegal,1,2,9,4,0,,away,False,3
 78,Norway,Scotland,2,1,7,4,0,,home,False,3
 79,Mexico,Ecuador,2,1,8,4,0,,home,False,3
-80,England,Saudi Arabia,1,0,9,4,0,,home,False,1
+80,Ghana,Uruguay,1,2,9,4,0,,away,False,3
 81,Egypt,Algeria,2,1,7,5,0,,home,False,3
 82,United States,Bosnia and Herzegovina,2,1,9,4,0,,home,False,3
 83,Colombia,Croatia,2,1,8,4,0,,home,False,3
 84,Spain,Austria,2,1,8,4,0,,home,False,3
 85,Canada,Iran,2,1,9,4,0,,home,False,3
-86,Australia,Belgium,1,2,9,4,0,,away,False,3
+86,Türkiye,Belgium,1,2,9,4,0,,away,False,3
 87,Argentina,Uruguay,2,1,9,4,0,,home,False,3
 88,Portugal,Ghana,2,1,10,4,0,,home,False,3
 89,Switzerland,Germany,1,2,10,4,0,,away,False,3
 90,Brazil,Senegal,2,1,10,4,0,,home,False,3
 91,Japan,Norway,2,1,8,4,0,,home,False,3
-92,Mexico,England,1,2,8,4,0,,away,False,3
+92,Mexico,Uruguay,2,1,8,4,0,,home,False,3
 93,Colombia,Spain,1,2,8,4,0,,away,False,3
 94,Egypt,United States,1,2,9,4,0,,away,False,3
 95,Belgium,Portugal,1,2,9,4,0,,away,False,3
 96,Canada,Argentina,1,2,9,4,0,,away,False,3
 97,Germany,Brazil,2,1,11,4,0,,home,False,3
 98,Spain,United States,2,1,9,4,0,,home,False,3
-99,Japan,England,1,2,9,4,0,,away,False,3
+99,Japan,Mexico,2,1,9,4,0,,home,False,3
 100,Portugal,Argentina,2,1,9,4,0,,home,False,3
 101,Germany,Spain,1,2,10,4,0,,away,False,3
-102,England,Portugal,2,1,9,4,0,,home,False,3
-103,Germany,Portugal,1,2,10,4,0,,away,False,3
-104,Spain,England,2,1,9,4,0,,home,False,3
+102,Japan,Portugal,1,2,9,4,0,,away,False,3
+103,Germany,Japan,2,3,10,4,0,,away,False,5
+104,Spain,Portugal,2,1,9,4,0,,home,False,3

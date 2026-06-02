@@ -1,0 +1,32 @@
+date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
+2026-05-26,Morocco,Burundi,5,0,Friendly,Sale,Morocco,FALSE
+2026-05-26,Nigeria,Zimbabwe,2,0,Friendly,London,England,TRUE
+2026-05-27,Jamaica,India,2,0,Friendly,London,England,TRUE
+2026-05-28,Egypt,Russia,1,0,Friendly,Cairo,Egypt,FALSE
+2026-05-28,Republic of Ireland,Qatar,1,0,Friendly,Dublin,Republic of Ireland,FALSE
+2026-05-29,Iran,Gambia,0,0,Friendly,Antalya,Türkiye,TRUE
+2026-05-29,Iraq,Andorra,1,0,Friendly,Girona,Spain,TRUE
+2026-05-29,South Africa,Nicaragua,0,0,Friendly,Johannesburg,South Africa,FALSE
+2026-05-29,Bosnia and Herzegovina,North Macedonia,0,0,Friendly,Sarajevo,Bosnia and Herzegovina,FALSE
+2026-05-30,Scotland,Curaçao,4,1,Friendly,Glasgow,Scotland,FALSE
+2026-05-30,Zimbabwe,India,1,0,Friendly,London,England,TRUE
+2026-05-30,Jamaica,Nigeria,0,3,Friendly,London,England,TRUE
+2026-05-30,Ecuador,Saudi Arabia,2,1,Friendly,Harrison,United States,TRUE
+2026-05-30,South Korea,Trinidad and Tobago,5,0,Friendly,,,TRUE
+2026-05-30,Mexico,Australia,1,0,Friendly,Pasadena,United States,TRUE
+2026-05-31,Japan,Iceland,1,0,Friendly,Tokyo,Japan,FALSE
+2026-05-31,Singapore,Mongolia,4,0,Friendly,Kingston,Jamaica,TRUE
+2026-05-31,Switzerland,Jordan,4,1,Friendly,St. Gallen,Switzerland,FALSE
+2026-05-31,Czechia,Kosovo,2,1,Friendly,Prague,Czechia,FALSE
+2026-05-31,Cape Verde,Serbia,3,0,Friendly,Lisbon,Portugal,TRUE
+2026-05-31,Poland,Ukraine,0,2,Friendly,Wroclaw,Poland,FALSE
+2026-05-31,Germany,Finland,4,0,Friendly,Mainz,Germany,FALSE
+2026-05-31,United States,Senegal,3,2,Friendly,Charlotte,United States,FALSE
+2026-05-31,Brazil,Panama,6,2,Friendly,Rio de Janeiro,Brazil,FALSE
+2026-06-01,Bulgaria,Montenegro,0,1,Friendly,Plovdiv,Bulgaria,FALSE
+2026-06-01,Slovakia,Malta,2,1,Friendly,Dunajská Streda,Slovakia,FALSE
+2026-06-01,Norway,Sweden,3,0,Friendly,Oslo,Norway,FALSE
+2026-06-01,Türkiye,North Macedonia,4,0,Friendly,Istanbul,Türkiye,FALSE
+2026-06-01,Austria,Tunisia,1,0,Friendly,Vienna,Austria,FALSE
+2026-06-01,Colombia,Costa Rica,3,0,Friendly,Bogotá,Colombia,FALSE
+2026-06-01,Canada,Uzbekistan,2,0,Friendly,Edmonton,Canada,FALSE
