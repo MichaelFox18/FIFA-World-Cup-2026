@@ -39,6 +39,7 @@ if (-not $SkipCollect) {
     Step "Load WC22 match stats"           "scripts/01c_load_match_stats.py"
     Step "Load external tournament stats"  "scripts/01d_load_external_match_stats.py"
     Step "Process Odds API h2h"            "scripts/01e_process_odds.py"
+    Step "Compute player form (watchlist)" "scripts/01f_compute_player_form.py"
 }
 
 Step "Clean + merge"                       "scripts/02_clean_merge.py"

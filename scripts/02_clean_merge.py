@@ -105,8 +105,38 @@ def main():
 
     # ---- Load raw -----------------------------------------------------------
     section("Loading raw data")
-    results = pd.read_csv(RAW / "results.csv", parse_dates=["date"])
-    ok("results", f"{len(results):,} rows")
+    results = pd.read_csv(RAW / "results.csv")
+    # results.csv has MIXED date formats -- early rows are ISO (1872-11-30),
+    # most rows are US (2/3/1900). format='mixed' parses each row individually.
+    results["date"] = pd.to_datetime(results["date"], format="mixed", errors="coerce")
+    ok("results", f"{len(results):,} rows  (latest played: "
+                   f"{results.dropna(subset=['home_score'])['date'].max().date()})")
+
+    # Optional hand-curated supplement of matches the Kaggle source hasn't
+    # picked up yet (typically April–early-June pre-WC friendlies). Same
+    # schema as results.csv; deduped on (date, home_team, away_team) with
+    # the supplemental winning if a duplicate exists.
+    supp_path = RAW / "recent_results_supplemental.csv"
+    if supp_path.exists():
+        supp = pd.read_csv(supp_path)
+        supp["date"] = pd.to_datetime(supp["date"], format="mixed", errors="coerce")
+        # Only keep rows that have actual scores -- ignore future-fixture rows
+        supp = supp.dropna(subset=["home_score", "away_score"]).copy()
+        if len(supp):
+            before = len(results)
+            results = pd.concat([results, supp], ignore_index=True)
+            results = results.drop_duplicates(
+                subset=["date", "home_team", "away_team"], keep="last"
+            ).reset_index(drop=True)
+            added = len(results) - before
+            ok("supplemental_results",
+               f"+{added} from {supp_path.name} (latest played now: "
+               f"{results.dropna(subset=['home_score'])['date'].max().date()})")
+        else:
+            ok("supplemental_results", f"{supp_path.name} present but empty")
+    else:
+        ok("supplemental_results",
+           f"{supp_path.name} not present (optional)")
 
     shootouts = pd.read_csv(RAW / "shootouts.csv")
     shootouts["date"] = pd.to_datetime(shootouts["date"], errors="coerce")
