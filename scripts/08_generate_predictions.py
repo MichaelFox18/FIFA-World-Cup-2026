@@ -144,10 +144,19 @@ def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
     """Top-down propagation: pick the Final matchup, then for each upstream
     round, pick the matchup whose Dixon-Coles winner matches the required
     downstream input. Returns (chosen, log) where chosen[match_id] = (home, away)
-    and log is a list of human-readable notes."""
+    and log is a list of human-readable notes.
+
+    Enforces two invariants:
+      1. Each match's DC winner must equal the team needed in the downstream slot.
+      2. Within a round, each team appears in at most one matchup (no team can be
+         in two semis, two QFs, etc., at the same level)."""
     deps = parse_bracket_dependencies(knockout_fixtures)
+    round_of = dict(zip(knockout_fixtures["match_id"], knockout_fixtures["round"]))
     chosen: dict[int, tuple[str, str]] = {}
     required_winner: dict[int, str] = {}
+    # Teams already assigned to ANY slot in a given round (e.g., a semi-final
+    # team can't also be the other semi's loser). Built up as we go.
+    assigned_in_round: dict[str, set[str]] = {}
     log: list[str] = []
 
     def pick_top_for(mid: int) -> tuple[str, str] | None:
@@ -161,32 +170,57 @@ def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
         top = sub.sort_values("count", ascending=False).iloc[0]
         return (top["home_team"], top["away_team"])
 
+    def _other_round_assignments(mid: int) -> set[str]:
+        """Teams committed elsewhere in mid's round -- candidates for mid must
+        not include any of these."""
+        r = round_of.get(mid)
+        return assigned_in_round.get(r, set())
+
     def pick_with_winner(mid: int, required: str) -> tuple[str, str] | None:
         """Pick the highest-count matchup whose Dixon-Coles winner matches
-        `required`. Falls back to the highest-count matchup that simply
-        contains `required`, then to the global top pick."""
+        `required` AND whose other team isn't already committed to this round.
+        Falls back progressively: relax the round-uniqueness constraint first,
+        then accept any matchup containing the required team."""
         sub = matchup_details[matchup_details["match_id"] == mid].sort_values(
             "count", ascending=False
         )
         if sub.empty:
             return pick_top_for(mid)
-        # 1) winner match
+        forbidden = _other_round_assignments(mid)
+        # 1) winner match AND round-unique
+        for _, c in sub.iterrows():
+            h, a = c["home_team"], c["away_team"]
+            if h in forbidden or a in forbidden:
+                continue
+            if dc_winner_neutral(h, a, gm, h2h_lookup) == required:
+                return (h, a)
+        # 2) winner match (ignore round-uniqueness if no candidate satisfies it)
         for _, c in sub.iterrows():
             if dc_winner_neutral(c["home_team"], c["away_team"], gm, h2h_lookup) == required:
+                log.append(f"match {mid}: best winner-match conflicts with already-"
+                           f"assigned round teams {sorted(forbidden)}; accepting "
+                           f"{c['home_team']} vs {c['away_team']} anyway")
                 return (c["home_team"], c["away_team"])
-        # 2) team appears at all
-        contains = sub[(sub["home_team"] == required) | (sub["away_team"] == required)]
-        if not contains.empty:
-            top = contains.iloc[0]
-            log.append(f"match {mid}: required winner {required!r} never wins in any "
-                       f"MC matchup, took top matchup containing them: "
-                       f"{top['home_team']} vs {top['away_team']}")
-            return (top["home_team"], top["away_team"])
-        # 3) absolute fallback
+        # 3) team appears at all (round-unique preferred)
+        for _, c in sub.iterrows():
+            h, a = c["home_team"], c["away_team"]
+            if (h == required or a == required) and h not in forbidden and a not in forbidden:
+                log.append(f"match {mid}: required winner {required!r} never wins in MC, "
+                           f"took round-unique matchup containing them: {h} vs {a}")
+                return (h, a)
+        # 4) absolute fallback
         top = sub.iloc[0]
         log.append(f"match {mid}: required team {required!r} not in MC's matchups, "
                    f"took global top: {top['home_team']} vs {top['away_team']}")
         return (top["home_team"], top["away_team"])
+
+    def commit(mid: int, pick: tuple[str, str]):
+        """Record the chosen matchup AND mark its teams as committed for the
+        round so later picks in the same round can't reuse them."""
+        chosen[mid] = pick
+        r = round_of.get(mid)
+        if r is not None:
+            assigned_in_round.setdefault(r, set()).update(pick)
 
     final_mid_row = knockout_fixtures[knockout_fixtures["round"] == "Final"]
     if final_mid_row.empty:
@@ -197,7 +231,7 @@ def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
     pick = pick_top_for(final_mid)
     if pick is None:
         return chosen, ["matchup_details empty for Final"]
-    chosen[final_mid] = pick
+    commit(final_mid, pick)
     log.append(f"Final ({final_mid}): {pick[0]} vs {pick[1]}")
 
     # Propagate constraints
@@ -221,7 +255,7 @@ def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
         pick = pick_with_winner(mid, req) if req else pick_top_for(mid)
         if pick is None:
             continue
-        chosen[mid] = pick
+        commit(mid, pick)
         # Propagate constraints upward (to earlier rounds)
         h_dep, a_dep = deps[mid]
         if h_dep and h_dep[0] == "Winner":
@@ -242,7 +276,7 @@ def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
             w = dc_winner_neutral(ph, pa, gm, h2h_lookup)
             third_away = pa if w == ph else ph
         if third_home and third_away:
-            chosen[third_mid] = (third_home, third_away)
+            commit(third_mid, (third_home, third_away))
             log.append(f"3rd-place ({third_mid}): {third_home} vs {third_away} "
                        f"(derived from Semi losers)")
 

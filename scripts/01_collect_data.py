@@ -128,23 +128,26 @@ def fetch_current_fifa_rankings() -> None:
 def fetch_polymarket() -> None:
     section("Polymarket  (gamma-api.polymarket.com)")
     try:
-        url = "https://gamma-api.polymarket.com/events"
-        params = {"limit": 100, "active": "true", "closed": "false"}
-        resp = requests.get(url, params=params, headers=HEADERS, timeout=30)
-        resp.raise_for_status()
-        events = resp.json()
+        rows = []
 
+        # Polymarket has reorganised the WC 2026 surface over time:
+        #   * Early on, championship outrights were grouped under a single
+        #     "FIFA World Cup 2026 Winner" event in /events.
+        #   * Later they got split into individual "Will X win the 2026 FIFA
+        #     World Cup?" markets that live in /markets, not /events.
+        # We fetch BOTH and dedupe -- this stays robust if Polymarket reverts.
+
+        # Path A: /events with WC 2026 in title/slug
+        evt_resp = requests.get("https://gamma-api.polymarket.com/events",
+                                params={"limit": 200, "active": "true", "closed": "false"},
+                                headers=HEADERS, timeout=30)
+        evt_resp.raise_for_status()
+        events = evt_resp.json()
         wc_events = [
             e for e in events
             if "world cup" in (e.get("title", "") + e.get("slug", "")).lower()
             and "2026" in (e.get("title", "") + e.get("slug", ""))
         ]
-
-        if not wc_events:
-            fail("polymarket", "No WC 2026 events found in active markets")
-            return
-
-        rows = []
         for ev in wc_events:
             for m in ev.get("markets", []):
                 outcomes = json.loads(m.get("outcomes", "[]"))
@@ -160,12 +163,41 @@ def fetch_polymarket() -> None:
                         "end_date":  m.get("endDate", ""),
                     })
 
+        # Path B: /markets directly for "Will X win the 2026 FIFA World Cup?"
+        # These are individual binary markets; the championship outrights
+        # currently live here, not in /events.
+        mkt_resp = requests.get("https://gamma-api.polymarket.com/markets",
+                                params={"limit": 500, "active": "true", "closed": "false"},
+                                headers=HEADERS, timeout=30)
+        mkt_resp.raise_for_status()
+        markets = mkt_resp.json()
+        wc_markets = [
+            m for m in markets
+            if "world cup" in m.get("question", "").lower()
+            and "2026" in m.get("question", "")
+            and "win" in m.get("question", "").lower()
+        ]
+        for m in wc_markets:
+            outcomes = json.loads(m.get("outcomes", "[]"))
+            prices = json.loads(m.get("outcomePrices", "[]"))
+            for outcome, price in zip(outcomes, prices):
+                rows.append({
+                    "event":     "FIFA World Cup 2026 Championship",
+                    "market":    m.get("question", ""),
+                    "outcome":   outcome,
+                    "price":     float(price) if price else None,
+                    "volume":    m.get("volume", 0),
+                    "liquidity": m.get("liquidity", 0),
+                    "end_date":  m.get("endDate", ""),
+                })
+
         if not rows:
-            fail("polymarket", f"Found {len(wc_events)} events but no extractable outcomes")
+            fail("polymarket", "no WC 2026 markets found via /events or /markets")
             return
 
-        df = pd.DataFrame(rows)
-        save(df, "polymarket.csv", "polymarket", extra=f"{len(wc_events)} events")
+        df = pd.DataFrame(rows).drop_duplicates(subset=["market", "outcome"], keep="first")
+        save(df, "polymarket.csv", "polymarket",
+             extra=f"{len(wc_events)} events + {len(wc_markets)} standalone markets")
     except Exception as e:
         fail("polymarket", str(e))
 

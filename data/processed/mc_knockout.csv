@@ -1,33 +1,33 @@
 match_id,round,multiplier,slot_home_desc,slot_away_desc,pred_home_team,pred_away_team,p_matchup_exact,top_pair_match,pred_winner,p_pred_winner,p_penalties
-73,Round of 32,1,Runner-up Group A,Runner-up Group B,South Korea,Switzerland,0.09954,South Korea vs Switzerland,Switzerland,0.18694,0.15182
-74,Round of 32,1,Winner Group C,Runner-up Group F,Brazil,Netherlands,0.13084,Brazil vs Netherlands,Brazil,0.23038,0.1375
-75,Round of 32,1,Winner Group E,Best 3rd (Groups A/B/C/D/F),Germany,Czechia,0.1063,Germany vs Czechia,Germany,0.3314,0.16816
-76,Round of 32,1,Winner Group F,Runner-up Group C,Japan,Morocco,0.1422,Japan vs Morocco,Japan,0.30182,0.12636
-77,Round of 32,1,Runner-up Group E,Runner-up Group I,Côte d'Ivoire,Norway,0.0831,Côte d'Ivoire vs Norway,France,0.19484,0.19832
-78,Round of 32,1,Winner Group I,Best 3rd (Groups C/D/F/G/H),France,Scotland,0.08902,France vs Scotland,France,0.32866,0.16046
-79,Round of 32,1,Winner Group A,Best 3rd (Groups C/E/F/H/I),Mexico,Ecuador,0.08156,Mexico vs Ecuador,Mexico,0.22838,0.19636
-80,Round of 32,1,Winner Group L,Best 3rd (Groups E/H/I/J/K),England,Saudi Arabia,0.06654,England vs Saudi Arabia,England,0.31778,0.17044
-81,Round of 32,1,Winner Group G,Best 3rd (Groups A/E/H/I/J),Belgium,Austria,0.04022,Belgium vs Austria,Belgium,0.22082,0.1532
-82,Round of 32,1,Winner Group D,Best 3rd (Groups B/E/F/I/J),United States,Bosnia and Herzegovina,0.05774,United States vs Bosnia and Herzegovina,United States,0.23158,0.14804
-83,Round of 32,1,Runner-up Group K,Runner-up Group L,Colombia,Croatia,0.10694,Colombia vs Croatia,England,0.17744,0.14664
-84,Round of 32,1,Winner Group H,Runner-up Group J,Spain,Austria,0.20824,Spain vs Austria,Spain,0.62412,0.09846
-85,Round of 32,1,Winner Group B,Best 3rd (Groups E/F/G/I/J),Canada,Iran,0.06052,Canada vs Iran,Canada,0.22102,0.15252
-86,Round of 32,1,Runner-up Group D,Runner-up Group G,Australia,Egypt,0.07782,Australia vs Egypt,Belgium,0.1565,0.16652
-87,Round of 32,1,Winner Group J,Runner-up Group H,Argentina,Uruguay,0.2157,Argentina vs Uruguay,Argentina,0.34742,0.17278
-88,Round of 32,1,Winner Group K,Best 3rd (Groups D/E/I/J/L),Portugal,Ghana,0.06776,Portugal vs Ghana,Portugal,0.4229,0.13684
-89,Round of 16,2,Winner Match 73,Winner Match 75,Switzerland,Germany,0.06256,Switzerland vs Germany,Germany,0.20556,0.16184
-90,Round of 16,2,Winner Match 74,Winner Match 77,Brazil,France,0.04454,Brazil vs France,Brazil,0.13278,0.16268
-91,Round of 16,2,Winner Match 76,Winner Match 78,Japan,France,0.09748,Japan vs France,France,0.20246,0.14564
-92,Round of 16,2,Winner Match 79,Winner Match 80,Mexico,England,0.07298,Mexico vs England,England,0.20932,0.1828
-93,Round of 16,2,Winner Match 83,Winner Match 84,England,Spain,0.11046,Colombia vs Spain,Spain,0.46486,0.11702
-94,Round of 16,2,Winner Match 81,Winner Match 82,Belgium,United States,0.05098,Belgium vs United States,Belgium,0.13132,0.14982
-95,Round of 16,2,Winner Match 86,Winner Match 88,Belgium,Portugal,0.06748,Belgium vs Portugal,Portugal,0.29188,0.1476
-96,Round of 16,2,Winner Match 85,Winner Match 87,Canada,Argentina,0.07606,Canada vs Argentina,Argentina,0.23092,0.1596
-97,Quarter-final,4,Winner Match 89,Winner Match 90,Germany,Brazil,0.028,Germany vs Brazil,Germany,0.14446,0.1578
-98,Quarter-final,4,Winner Match 93,Winner Match 94,Spain,Belgium,0.05996,Spain vs Belgium,Spain,0.36404,0.11738
-99,Quarter-final,4,Winner Match 91,Winner Match 92,France,England,0.04204,France vs England,France,0.148,0.1599
-100,Quarter-final,4,Winner Match 95,Winner Match 96,Portugal,Argentina,0.06762,Portugal vs Argentina,Portugal,0.18894,0.15444
-101,Semi-final,8,Winner Match 97,Winner Match 98,Germany,Spain,0.05316,Germany vs Spain,Spain,0.27272,0.12898
-102,Semi-final,8,Winner Match 99,Winner Match 100,France,Portugal,0.02796,France vs Portugal,Portugal,0.11244,0.1532
-103,Third-place playoff,8,Loser Match 101,Loser Match 102,Spain,Portugal,0.00756,Spain vs Portugal,Spain,0.08386,0.1496
-104,Final,16,Winner Match 101,Winner Match 102,Spain,Portugal,0.0324,Spain vs Portugal,Spain,0.23462,0.138
+73,Round of 32,1,Runner-up Group A,Runner-up Group B,South Korea,Switzerland,0.09954,South Korea vs Switzerland,Switzerland,0.19202,0.15742
+74,Round of 32,1,Winner Group C,Runner-up Group F,Brazil,Netherlands,0.12816,Brazil vs Netherlands,Brazil,0.2312,0.14494
+75,Round of 32,1,Winner Group E,Best 3rd (Groups A/B/C/D/F),Germany,Czechia,0.10362,Germany vs Czechia,Germany,0.33208,0.17256
+76,Round of 32,1,Winner Group F,Runner-up Group C,Japan,Morocco,0.13444,Japan vs Morocco,Japan,0.2698,0.133
+77,Round of 32,1,Runner-up Group E,Runner-up Group I,Côte d'Ivoire,Norway,0.0822,Côte d'Ivoire vs Norway,France,0.19764,0.20862
+78,Round of 32,1,Winner Group I,Best 3rd (Groups C/D/F/G/H),France,Scotland,0.08558,France vs Scotland,France,0.31136,0.16664
+79,Round of 32,1,Winner Group A,Best 3rd (Groups C/E/F/H/I),Mexico,Ecuador,0.0831,Mexico vs Ecuador,Mexico,0.23944,0.20494
+80,Round of 32,1,Winner Group L,Best 3rd (Groups E/H/I/J/K),England,Saudi Arabia,0.06856,England vs Saudi Arabia,England,0.31316,0.17916
+81,Round of 32,1,Winner Group G,Best 3rd (Groups A/E/H/I/J),Belgium,Austria,0.0429,Belgium vs Austria,Belgium,0.22228,0.16404
+82,Round of 32,1,Winner Group D,Best 3rd (Groups B/E/F/I/J),United States,Bosnia and Herzegovina,0.05806,United States vs Bosnia and Herzegovina,United States,0.23332,0.1553
+83,Round of 32,1,Runner-up Group K,Runner-up Group L,Colombia,Croatia,0.10202,Colombia vs Croatia,England,0.17816,0.155
+84,Round of 32,1,Winner Group H,Runner-up Group J,Spain,Algeria,0.20672,Spain vs Algeria,Spain,0.60692,0.1094
+85,Round of 32,1,Winner Group B,Best 3rd (Groups E/F/G/I/J),Canada,New Zealand,0.06018,Canada vs New Zealand,Canada,0.22754,0.15596
+86,Round of 32,1,Runner-up Group D,Runner-up Group G,Australia,Egypt,0.07572,Australia vs Belgium,Belgium,0.15786,0.1714
+87,Round of 32,1,Winner Group J,Runner-up Group H,Argentina,Uruguay,0.2074,Argentina vs Uruguay,Argentina,0.34062,0.18144
+88,Round of 32,1,Winner Group K,Best 3rd (Groups D/E/I/J/L),Portugal,Ghana,0.0645,Portugal vs Ghana,Portugal,0.4062,0.14672
+89,Round of 16,2,Winner Match 73,Winner Match 75,Switzerland,Germany,0.06508,Switzerland vs Germany,Germany,0.21038,0.16492
+90,Round of 16,2,Winner Match 74,Winner Match 77,Brazil,France,0.0466,Brazil vs France,Brazil,0.12816,0.17154
+91,Round of 16,2,Winner Match 76,Winner Match 78,Japan,France,0.08406,Japan vs France,France,0.18968,0.15128
+92,Round of 16,2,Winner Match 79,Winner Match 80,Mexico,England,0.07398,Mexico vs England,England,0.20614,0.18796
+93,Round of 16,2,Winner Match 83,Winner Match 84,England,Spain,0.10764,England vs Spain,Spain,0.44496,0.124
+94,Round of 16,2,Winner Match 81,Winner Match 82,Belgium,United States,0.05212,Belgium vs United States,Belgium,0.13646,0.15604
+95,Round of 16,2,Winner Match 86,Winner Match 88,Belgium,Portugal,0.06338,Belgium vs Portugal,Portugal,0.27884,0.1539
+96,Round of 16,2,Winner Match 85,Winner Match 87,Canada,Argentina,0.07814,Canada vs Argentina,Argentina,0.22796,0.16272
+97,Quarter-final,4,Winner Match 89,Winner Match 90,Germany,Brazil,0.0277,Germany vs Brazil,Germany,0.15408,0.16274
+98,Quarter-final,4,Winner Match 93,Winner Match 94,Spain,Belgium,0.0621,Spain vs Belgium,Spain,0.34496,0.12612
+99,Quarter-final,4,Winner Match 91,Winner Match 92,France,England,0.03912,France vs England,France,0.13948,0.17012
+100,Quarter-final,4,Winner Match 95,Winner Match 96,Portugal,Argentina,0.0638,Portugal vs Argentina,Portugal,0.1766,0.1578
+101,Semi-final,8,Winner Match 97,Winner Match 98,Germany,Spain,0.0521,Germany vs Spain,Spain,0.2535,0.1403
+102,Semi-final,8,Winner Match 99,Winner Match 100,France,Portugal,0.02538,France vs Portugal,Portugal,0.10356,0.1608
+103,Third-place playoff,8,Loser Match 101,Loser Match 102,Spain,Portugal,0.00694,Spain vs Portugal,Spain,0.08614,0.15626
+104,Final,16,Winner Match 101,Winner Match 102,Spain,Portugal,0.02826,Spain vs Portugal,Spain,0.21982,0.14286

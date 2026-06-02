@@ -1,6 +1,6 @@
 match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_cards,winning_team,match_winner,penalties,total_goals
-1,Mexico,South Africa,2,1,9,4,0,home,,,3
-2,South Korea,Czechia,2,1,9,4,0,home,,,3
+1,Mexico,South Africa,1,1,9,4,0,home,,,2
+2,South Korea,Czechia,1,1,9,4,0,home,,,2
 3,Canada,Bosnia and Herzegovina,2,1,10,4,0,home,,,3
 4,United States,Paraguay,1,1,9,4,0,home,,,2
 5,Australia,Türkiye,1,1,9,3,0,home,,,2
@@ -11,7 +11,7 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 10,Netherlands,Japan,2,2,9,4,0,away,,,4
 11,Côte d'Ivoire,Ecuador,0,0,10,4,0,draw,,,0
 12,Sweden,Tunisia,1,1,10,4,0,home,,,2
-13,Spain,Cape Verde,3,1,10,4,0,home,,,4
+13,Spain,Cape Verde,2,1,10,4,0,home,,,3
 14,Belgium,Egypt,1,1,9,4,0,home,,,2
 15,Saudi Arabia,Uruguay,0,1,9,3,0,away,,,1
 16,Iran,New Zealand,1,1,9,4,0,home,,,2
@@ -32,7 +32,7 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 31,Scotland,Morocco,1,1,9,4,0,away,,,2
 32,Brazil,Haiti,2,1,10,4,0,home,,,3
 33,Tunisia,Japan,1,1,10,4,0,away,,,2
-34,Netherlands,Sweden,3,1,9,4,0,home,,,4
+34,Netherlands,Sweden,2,1,9,4,0,home,,,3
 35,Germany,Côte d'Ivoire,1,1,11,4,0,home,,,2
 36,Ecuador,Curaçao,1,1,10,4,0,home,,,2
 37,Spain,Saudi Arabia,2,1,9,4,0,home,,,3
@@ -43,16 +43,16 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 42,France,Iraq,1,0,9,4,0,home,,,1
 43,Norway,Senegal,1,1,10,4,0,home,,,2
 44,Jordan,Algeria,1,1,9,4,0,away,,,2
-45,Portugal,Uzbekistan,2,1,10,4,0,home,,,3
+45,Portugal,Uzbekistan,1,1,10,4,0,home,,,2
 46,England,Ghana,1,1,9,4,0,home,,,2
-47,Panama,Croatia,1,2,8,4,0,away,,,3
+47,Panama,Croatia,1,1,8,4,0,away,,,2
 48,Colombia,DR Congo,2,1,9,4,0,home,,,3
-49,Switzerland,Canada,1,1,9,4,0,home,,,2
+49,Switzerland,Canada,1,1,9,4,0,away,,,2
 50,Bosnia and Herzegovina,Qatar,1,1,10,4,0,home,,,2
 51,Scotland,Brazil,1,1,10,4,0,away,,,2
 52,Morocco,Haiti,2,1,10,4,0,home,,,3
 53,Czechia,Mexico,1,1,9,4,0,away,,,2
-54,South Africa,South Korea,1,2,10,4,0,away,,,3
+54,South Africa,South Korea,1,1,10,4,0,away,,,2
 55,Curaçao,Côte d'Ivoire,1,1,11,4,0,draw,,,2
 56,Ecuador,Germany,1,1,10,4,0,away,,,2
 57,Japan,Sweden,2,1,9,4,0,home,,,3
@@ -65,9 +65,9 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 64,Uruguay,Spain,1,2,9,4,0,away,,,3
 65,Egypt,Iran,1,1,8,4,0,home,,,2
 66,New Zealand,Belgium,1,2,10,4,0,away,,,3
-67,Panama,England,1,2,9,4,0,away,,,3
+67,Panama,England,1,1,9,4,0,away,,,2
 68,Croatia,Ghana,1,1,9,4,0,home,,,2
-69,Colombia,Portugal,1,2,10,4,0,away,,,3
+69,Colombia,Portugal,1,1,10,4,0,away,,,2
 70,DR Congo,Uzbekistan,1,1,9,4,0,away,,,2
 71,Algeria,Austria,1,1,9,4,0,away,,,2
 72,Jordan,Argentina,1,2,10,4,0,away,,,3
@@ -77,29 +77,29 @@ match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_card
 76,Japan,Morocco,2,1,8,4,0,,home,False,3
 77,Côte d'Ivoire,Senegal,1,2,9,4,0,,away,False,3
 78,Norway,Scotland,2,1,7,4,0,,home,False,3
-79,Mexico,Ecuador,2,1,8,4,0,,home,False,3
-80,Ghana,Saudi Arabia,2,1,9,3,0,,home,False,3
+79,Mexico,Ecuador,1,0,8,4,0,,home,False,1
+80,England,Saudi Arabia,1,0,9,4,0,,home,False,1
 81,Belgium,Austria,2,1,9,4,0,,home,False,3
 82,United States,Bosnia and Herzegovina,2,1,9,4,0,,home,False,3
-83,Colombia,Ghana,2,1,9,4,0,,home,False,3
-84,Spain,Austria,2,1,8,4,0,,home,False,3
-85,Canada,Iran,2,1,9,4,0,,home,False,3
+83,Colombia,England,1,2,8,4,0,,away,False,3
+84,Spain,Algeria,3,1,8,4,0,,home,False,4
+85,Canada,New Zealand,2,1,9,4,0,,home,False,3
 86,Australia,Belgium,1,2,9,4,0,,away,False,3
 87,Argentina,Uruguay,2,1,9,4,0,,home,False,3
 88,Portugal,Ghana,2,1,10,4,0,,home,False,3
 89,Switzerland,Germany,1,2,10,4,0,,away,False,3
 90,Morocco,Senegal,2,1,9,4,0,,home,False,3
 91,Japan,Norway,2,1,8,4,0,,home,False,3
-92,Mexico,Ghana,2,1,9,4,0,,home,False,3
-93,Colombia,Spain,1,2,8,4,0,,away,False,3
+92,Mexico,England,1,2,8,4,0,,away,False,3
+93,England,Spain,1,2,9,4,0,,away,False,3
 94,Belgium,United States,2,1,9,4,0,,home,False,3
 95,Belgium,Portugal,1,2,9,4,0,,away,False,3
 96,Canada,Argentina,1,2,9,4,0,,away,False,3
 97,Germany,Morocco,2,1,10,4,0,,home,False,3
 98,Spain,Belgium,2,1,9,4,0,,home,False,3
-99,Japan,Mexico,2,1,9,4,0,,home,False,3
+99,Japan,England,1,2,9,4,0,,away,False,3
 100,Portugal,Argentina,2,1,9,4,0,,home,False,3
 101,Germany,Spain,1,2,10,4,0,,away,False,3
-102,Japan,Portugal,1,2,9,4,0,,away,False,3
-103,Germany,Japan,1,2,10,4,0,,away,False,3
+102,England,Portugal,1,2,9,4,0,,away,False,3
+103,Germany,England,1,2,10,4,0,,away,False,3
 104,Spain,Portugal,2,1,9,4,0,,home,False,3
