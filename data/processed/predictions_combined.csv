@@ -1,74 +1,74 @@
 match_id,home_team,away_team,home_score,away_score,corners,yellow_cards,red_cards,winning_team,match_winner,penalties,total_goals
-1,Mexico,South Africa,1,1,9,4,0,home,,,2
+1,Mexico,South Africa,2,1,9,4,0,home,,,3
 2,South Korea,Czechia,1,1,9,4,0,home,,,2
 3,Canada,Bosnia and Herzegovina,2,1,10,4,0,home,,,3
 4,United States,Paraguay,1,1,9,4,0,home,,,2
-5,Australia,Türkiye,1,1,9,3,0,home,,,2
+5,Australia,Türkiye,1,1,9,3,0,away,,,2
 6,Qatar,Switzerland,1,2,9,4,0,away,,,3
 7,Brazil,Morocco,1,1,9,4,0,home,,,2
-8,Haiti,Scotland,1,1,10,4,0,away,,,2
-9,Germany,Curaçao,2,1,11,4,0,home,,,3
+8,Haiti,Scotland,1,2,10,4,0,away,,,3
+9,Germany,Curaçao,3,1,11,4,0,home,,,4
 10,Netherlands,Japan,1,1,9,4,0,home,,,2
-11,Côte d'Ivoire,Ecuador,1,1,10,4,0,draw,,,2
-12,Sweden,Tunisia,1,1,10,4,0,away,,,2
-13,Spain,Cape Verde,2,1,10,4,0,home,,,3
+11,Côte d'Ivoire,Ecuador,1,1,10,4,0,away,,,2
+12,Sweden,Tunisia,1,1,10,4,0,home,,,2
+13,Spain,Cape Verde,3,1,10,4,0,home,,,4
 14,Belgium,Egypt,1,1,9,4,0,home,,,2
 15,Saudi Arabia,Uruguay,0,1,9,3,0,away,,,1
 16,Iran,New Zealand,1,1,9,4,0,home,,,2
-17,Austria,Jordan,1,1,10,4,0,home,,,2
-18,France,Senegal,1,1,9,4,0,home,,,2
+17,Austria,Jordan,2,1,10,4,0,home,,,3
+18,France,Senegal,2,1,9,4,0,home,,,3
 19,Iraq,Norway,1,2,10,4,0,away,,,3
 20,Argentina,Algeria,2,1,9,4,0,home,,,3
-21,Portugal,DR Congo,1,1,10,4,0,home,,,2
+21,Portugal,DR Congo,2,1,10,4,0,home,,,3
 22,England,Croatia,1,1,8,4,0,home,,,2
 23,Ghana,Panama,1,1,9,4,0,home,,,2
-24,Uzbekistan,Colombia,1,1,8,4,0,away,,,2
+24,Uzbekistan,Colombia,1,2,8,4,0,away,,,3
 25,Czechia,South Africa,1,1,10,3,0,home,,,2
-26,Switzerland,Bosnia and Herzegovina,1,1,10,4,0,home,,,2
+26,Switzerland,Bosnia and Herzegovina,2,1,10,4,0,home,,,3
 27,Canada,Qatar,2,1,9,4,0,home,,,3
 28,Mexico,South Korea,1,1,9,4,0,home,,,2
 29,Türkiye,Paraguay,1,1,10,3,0,home,,,2
 30,United States,Australia,2,1,9,4,0,home,,,3
 31,Scotland,Morocco,1,1,9,4,0,away,,,2
-32,Brazil,Haiti,2,1,10,4,0,home,,,3
-33,Tunisia,Japan,1,1,10,4,0,away,,,2
+32,Brazil,Haiti,3,0,10,4,0,home,,,3
+33,Tunisia,Japan,1,2,10,4,0,away,,,3
 34,Netherlands,Sweden,2,1,9,4,0,home,,,3
 35,Germany,Côte d'Ivoire,2,1,11,4,0,home,,,3
 36,Ecuador,Curaçao,1,1,10,4,0,home,,,2
 37,Spain,Saudi Arabia,2,0,9,4,0,home,,,2
-38,Belgium,Iran,1,1,9,4,0,home,,,2
+38,Belgium,Iran,2,1,9,4,0,home,,,3
 39,Uruguay,Cape Verde,1,1,9,4,0,home,,,2
 40,New Zealand,Egypt,1,1,10,4,0,away,,,2
 41,Argentina,Austria,1,1,9,4,0,home,,,2
-42,France,Iraq,1,0,9,4,0,home,,,1
+42,France,Iraq,2,0,9,4,0,home,,,2
 43,Norway,Senegal,1,1,10,4,0,home,,,2
-44,Jordan,Algeria,1,1,9,4,0,away,,,2
+44,Jordan,Algeria,1,2,9,4,0,away,,,3
 45,Portugal,Uzbekistan,2,1,10,4,0,home,,,3
 46,England,Ghana,2,1,9,4,0,home,,,3
-47,Panama,Croatia,1,1,8,4,0,away,,,2
+47,Panama,Croatia,1,2,8,4,0,away,,,3
 48,Colombia,DR Congo,1,1,9,4,0,home,,,2
-49,Switzerland,Canada,1,1,9,4,0,away,,,2
-50,Bosnia and Herzegovina,Qatar,1,1,10,4,0,home,,,2
-51,Scotland,Brazil,1,1,10,4,0,away,,,2
+49,Switzerland,Canada,1,1,9,4,0,home,,,2
+50,Bosnia and Herzegovina,Qatar,2,1,10,4,0,home,,,3
+51,Scotland,Brazil,1,2,10,4,0,away,,,3
 52,Morocco,Haiti,2,1,10,4,0,home,,,3
 53,Czechia,Mexico,1,1,9,4,0,away,,,2
 54,South Africa,South Korea,1,2,10,4,0,away,,,3
-55,Curaçao,Côte d'Ivoire,1,1,11,4,0,away,,,2
+55,Curaçao,Côte d'Ivoire,1,2,11,4,0,away,,,3
 56,Ecuador,Germany,1,1,10,4,0,away,,,2
 57,Japan,Sweden,2,1,9,4,0,home,,,3
-58,Tunisia,Netherlands,1,1,10,4,0,away,,,2
+58,Tunisia,Netherlands,1,2,10,4,0,away,,,3
 59,United States,Türkiye,2,1,10,4,0,home,,,3
-60,Paraguay,Australia,1,1,9,4,0,away,,,2
+60,Paraguay,Australia,1,1,9,4,0,home,,,2
 61,Norway,France,1,1,9,4,0,away,,,2
-62,Senegal,Iraq,1,1,10,4,0,home,,,2
-63,Cape Verde,Saudi Arabia,1,1,9,3,0,draw,,,2
-64,Uruguay,Spain,1,1,9,4,0,away,,,2
+62,Senegal,Iraq,2,1,10,4,0,home,,,3
+63,Cape Verde,Saudi Arabia,1,1,9,3,0,away,,,2
+64,Uruguay,Spain,1,2,9,4,0,away,,,3
 65,Egypt,Iran,1,1,8,4,0,home,,,2
 66,New Zealand,Belgium,1,2,10,4,0,away,,,3
 67,Panama,England,1,2,9,4,0,away,,,3
 68,Croatia,Ghana,1,1,9,4,0,home,,,2
 69,Colombia,Portugal,1,2,10,4,0,away,,,3
-70,DR Congo,Uzbekistan,1,1,9,4,0,draw,,,2
+70,DR Congo,Uzbekistan,1,1,9,4,0,home,,,2
 71,Algeria,Austria,1,1,9,4,0,away,,,2
 72,Jordan,Argentina,1,2,10,4,0,away,,,3
 73,South Korea,Switzerland,1,2,10,4,0,,away,False,3

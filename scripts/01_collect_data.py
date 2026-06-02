@@ -215,7 +215,13 @@ def fetch_odds() -> None:
         params = {
             "apiKey":     api_key,
             "regions":    "eu",
-            "markets":    "h2h",
+            # h2h = moneyline (winner / draw / loser)
+            # spreads = Asian handicap (home -3.5 etc.) -> expected goal diff
+            # totals = over/under total goals (4.5) -> expected total goals
+            # Together these triangulate match-level Poisson lambdas straight
+            # from bookmaker consensus, much sharper than h2h alone for
+            # blowout matchups where the favourite piles on.
+            "markets":    "h2h,spreads,totals",
             "oddsFormat": "decimal",
         }
         resp = requests.get(url, params=params, timeout=30)
@@ -240,11 +246,19 @@ def fetch_odds() -> None:
                             "market":        mkt["key"],
                             "outcome":       o["name"],
                             "price":         o["price"],
+                            # point = the spread/total line (e.g. -3.5, 4.5).
+                            # Null for h2h outcomes.
+                            "point":         o.get("point"),
                         })
 
         df = pd.DataFrame(rows)
         remaining = resp.headers.get("x-requests-remaining", "?")
-        save(df, "odds_h2h.csv", "odds_api", extra=f"{remaining} requests left")
+        n_h2h = (df["market"] == "h2h").sum()
+        n_spr = (df["market"] == "spreads").sum()
+        n_tot = (df["market"] == "totals").sum()
+        save(df, "odds_h2h.csv", "odds_api",
+             extra=f"{remaining} requests left; rows: h2h={n_h2h}, "
+                   f"spreads={n_spr}, totals={n_tot}")
     except Exception as e:
         fail("odds_api", str(e))
 

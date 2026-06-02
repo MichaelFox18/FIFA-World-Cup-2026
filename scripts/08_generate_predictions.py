@@ -56,6 +56,13 @@ CORNERS_TOURNAMENT_BUMP = 0.6
 # usually sharper at the top of the bracket but noisier on long-shots.
 MARKET_BLEND_WEIGHT = 0.25       # 75% model, 25% market
 
+# Separate blend weight for the GOALS-LAMBDA blend (totals + spreads markets).
+# Dixon-Coles systematically underpredicts blowouts because Poisson with a
+# capped lambda undercounts how much a much-stronger team will pile on.
+# Bookmaker totals + spreads incorporate the right tail. 50/50 split per
+# user's call on 2026-06-02.
+LAMBDA_BLEND_WEIGHT = 0.5        # 50% model, 50% market
+
 
 def altitude_cards_adj(altitude_m):
     if pd.isna(altitude_m): return 1.0
@@ -423,8 +430,11 @@ def main():
     except FileNotFoundError:
         warn("h2h_lookup", "matches_clean.csv not found, knockouts will use h2h=0")
 
-    # Build bookmaker consensus lookup for the winning_team blend
+    # Build bookmaker consensus lookup for the winning_team blend AND the
+    # goals-lambda blend. odds_consensus.csv now carries both h2h probs and
+    # market-derived lambdas (from spreads + totals markets).
     market_lookup = {}
+    market_lambda_lookup = {}    # (home, away) -> (lambda_market_home, lambda_market_away)
     odds_path = PROCESSED / "odds_consensus.csv"
     if odds_path.exists():
         odds = pd.read_csv(odds_path)
@@ -432,6 +442,12 @@ def main():
             market_lookup[(o["home_team"], o["away_team"])] = (
                 float(o["p_home"]), float(o["p_draw"]), float(o["p_away"])
             )
+            lh_m, la_m = o.get("lambda_market_home"), o.get("lambda_market_away")
+            if pd.notna(lh_m) and pd.notna(la_m):
+                market_lambda_lookup[(o["home_team"], o["away_team"])] = (float(lh_m), float(la_m))
+        ok("market_lambdas",
+           f"{len(market_lambda_lookup)} fixtures with market lambdas from spreads+totals "
+           f"(blend={1-LAMBDA_BLEND_WEIGHT:.2f}*model + {LAMBDA_BLEND_WEIGHT:.2f}*market)")
         ok("market_lookup", f"{len(market_lookup)} fixtures with bookmaker consensus "
                             f"(blend={1-MARKET_BLEND_WEIGHT:.2f}*model + "
                             f"{MARKET_BLEND_WEIGHT:.2f}*market)")
@@ -442,13 +458,24 @@ def main():
     rho = gm["rho"]
     group_rows = []
     n_winner_flipped = 0
+    n_lambda_blended = 0
     for _, r in fixtures_g.iterrows():
         mid = int(r["match_id"])
         g = group_lambdas[group_lambdas["match_id"] == mid].iloc[0]
         c = corners_preds[corners_preds["match_id"] == mid].iloc[0]
         y = cards_preds[cards_preds["match_id"] == mid].iloc[0]
 
-        lh, la = float(g["lambda_home"]), float(g["lambda_away"])
+        # Lambda blend: model (Dixon-Coles, Polymarket-calibrated) + market
+        # (bookmaker totals + spreads). Market is sharper on blowouts.
+        lh_model, la_model = float(g["lambda_home"]), float(g["lambda_away"])
+        mkt_lambdas = market_lambda_lookup.get((r["home_team"], r["away_team"]))
+        if mkt_lambdas is not None:
+            w = LAMBDA_BLEND_WEIGHT
+            lh = (1 - w) * lh_model + w * mkt_lambdas[0]
+            la = (1 - w) * la_model + w * mkt_lambdas[1]
+            n_lambda_blended += 1
+        else:
+            lh, la = lh_model, la_model
         hs, as_, p_home, p_draw, p_away = best_score_from_lambdas(lh, la, rho)
 
         # winning_team: blend with bookmaker consensus if available, then argmax
@@ -491,6 +518,10 @@ def main():
     if market_lookup:
         ok("market_flips", f"{n_winner_flipped} of {len(group_rows)} group winners "
                             f"changed by market blend")
+    if market_lambda_lookup:
+        ok("lambda_blends",
+           f"{n_lambda_blended} of {len(group_rows)} group fixtures had goals "
+           f"lambdas blended with market totals+spreads")
 
     section("Full top-down bracket reconciliation")
     # Pick the Final matchup first, then traverse the bracket upstream choosing
