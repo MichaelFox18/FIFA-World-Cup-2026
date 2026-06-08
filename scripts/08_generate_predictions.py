@@ -23,7 +23,9 @@ import re
 import numpy as np
 import pandas as pd
 from pathlib import Path
+from collections import defaultdict
 from scipy.stats import poisson
+from scipy.optimize import brentq
 
 PROCESSED = Path("data/processed")
 EXTERNAL  = Path("data/external")
@@ -62,6 +64,12 @@ MARKET_BLEND_WEIGHT = 0.25       # 75% model, 25% market
 # Bookmaker totals + spreads incorporate the right tail. 50/50 split per
 # user's call on 2026-06-02.
 LAMBDA_BLEND_WEIGHT = 0.5        # 50% model, 50% market
+
+# Blend weight for the MANUAL corners/cards markets (manual_cards_corners_odds.csv).
+# The Odds API carries no corner/card markets, so these hand-collected bookmaker
+# totals are our only market signal for the two weakest models. Applied to group
+# fixtures only (knockout matchups aren't known pre-tournament). 0.5 = even split.
+MANUAL_ODDS_BLEND_WEIGHT = 0.5
 
 
 def altitude_cards_adj(altitude_m):
@@ -290,6 +298,109 @@ def reconcile_bracket(matchup_details: pd.DataFrame, mc_knockout: pd.DataFrame,
     return chosen, log
 
 
+def reconcile_bracket_bottom_up(matchup_details, mc_knockout, knockout_fixtures,
+                                gm, h2h_lookup):
+    """Bottom-up deterministic bracket reconciliation.
+
+    The MC sim emits per-slot *marginal* modes (most common home, away and
+    winner). Each is individually reasonable but they are jointly inconsistent: a
+    slot's modal winner need not appear in its modal matchup, and one team can be
+    the modal occupant of two different slots. The old top-down reconciler tried to
+    repair this by forcing each match's Dixon-Coles winner to equal the team needed
+    downstream, which cascaded into *dropping* strong sides -- England, France and
+    Netherlands all vanished from the 2026 knockouts despite ~84-93% qualify odds.
+
+    This version is bottom-up and consistent by construction:
+      1. Seed the Round of 32 from the MC per-slot modal matchups, de-duplicated so
+         all 32 participants are distinct (greedy, most-confident position first).
+      2. Play every later round upward: each match's two teams are the Dixon-Coles
+         winners of its feeder matches; the 3rd-place match takes the semi losers.
+    A team therefore advances only where the model favours it, and no team can
+    occupy two slots in the same round.
+
+    Returns (chosen, log) where chosen[match_id] = (home, away) for all matches.
+    """
+    deps = parse_bracket_dependencies(knockout_fixtures)
+    log: list[str] = []
+
+    mc_home = dict(zip(mc_knockout["match_id"], mc_knockout["pred_home_team"]))
+    mc_away = dict(zip(mc_knockout["match_id"], mc_knockout["pred_away_team"]))
+
+    # Per-slot occupant counts (marginalised from the matchup distribution).
+    home_counts: dict[int, pd.Series] = {}
+    away_counts: dict[int, pd.Series] = {}
+    if matchup_details is not None:
+        for mid, sub in matchup_details.groupby("match_id"):
+            home_counts[int(mid)] = (sub.groupby("home_team")["count"].sum()
+                                        .sort_values(ascending=False))
+            away_counts[int(mid)] = (sub.groupby("away_team")["count"].sum()
+                                        .sort_values(ascending=False))
+
+    r32_ids = sorted(m for m in deps if deps[m] == (None, None))
+
+    # --- 1. Seed R32 with globally-distinct occupants ----------------------
+    # Process the 32 positions in descending confidence (top candidate's share of
+    # the slot) so the most certain slots claim their team before contested ones.
+    positions = []   # (confidence, match_id, "home"/"away", ranked_team_list)
+    for mid in r32_ids:
+        for pos, counts, fallback in (
+            ("home", home_counts.get(mid), mc_home.get(mid)),
+            ("away", away_counts.get(mid), mc_away.get(mid)),
+        ):
+            if counts is not None and len(counts):
+                conf = float(counts.iloc[0] / counts.sum())
+                ranked = counts.index.tolist()
+            else:
+                conf, ranked = 0.0, ([fallback] if fallback else [])
+            positions.append((conf, mid, pos, ranked))
+
+    positions.sort(key=lambda p: p[0], reverse=True)
+    r32_home: dict[int, str] = {}
+    r32_away: dict[int, str] = {}
+    used: set[str] = set()
+    for conf, mid, pos, ranked in positions:
+        pick = next((t for t in ranked if t not in used), None)
+        if pick is None:                       # exhausted -> accept modal even if dup
+            pick = mc_home.get(mid) if pos == "home" else mc_away.get(mid)
+        used.add(pick)
+        (r32_home if pos == "home" else r32_away)[mid] = pick
+
+    n_subbed = sum(1 for mid in r32_ids
+                   if r32_home[mid] != mc_home.get(mid)
+                   or r32_away[mid] != mc_away.get(mid))
+    if n_subbed:
+        log.append(f"R32 de-dup: {n_subbed} of {len(r32_ids)} slots had an occupant "
+                   f"substituted to keep all 32 teams distinct")
+
+    # --- 2. Play the bracket upward ----------------------------------------
+    chosen: dict[int, tuple[str, str]] = {}
+    winner_of: dict[int, str] = {}
+    loser_of: dict[int, str] = {}
+
+    def resolve(dep):
+        kind, pid = dep
+        return winner_of.get(pid) if kind == "Winner" else loser_of.get(pid)
+
+    for mid in sorted(deps):                   # ascending -> feeders resolved first
+        h_dep, a_dep = deps[mid]
+        if h_dep is None and a_dep is None:
+            home, away = r32_home[mid], r32_away[mid]
+        else:
+            home = resolve(h_dep) if h_dep else mc_home.get(mid)
+            away = resolve(a_dep) if a_dep else mc_away.get(mid)
+        chosen[mid] = (home, away)
+        w = dc_winner_neutral(home, away, gm, h2h_lookup)
+        winner_of[mid] = w
+        loser_of[mid] = away if w == home else home
+
+    fin = knockout_fixtures[knockout_fixtures["round"] == "Final"]
+    if not fin.empty:
+        fmid = int(fin.iloc[0]["match_id"])
+        log.append(f"Final ({fmid}): {chosen[fmid][0]} vs {chosen[fmid][1]} "
+                   f"-> winner {winner_of[fmid]}")
+    return chosen, log
+
+
 def predict_score_neutral(home, away, gm, h2h_lookup=None):
     """Knockout prediction (neutral venue). Forces a non-draw result since
     knockout matches can't actually end in a tie -- either regulation/ET
@@ -378,6 +489,56 @@ def predict_cards_for(home, away, altitude_m, team_lookup, cards_bundle):
     return yellow, red_rate
 
 
+def _implied_total_mean(line, p_over):
+    """Back out a Poisson mean for a total (corners or cards) from a de-vigged
+    over probability at a given line. 'Over L.5' == total >= ceil(L)."""
+    k = int(math.floor(float(line))) + 1          # over = total >= k
+    p_over = min(max(float(p_over), 1e-4), 1 - 1e-4)
+    f = lambda mu: (1.0 - poisson.cdf(k - 1, mu)) - p_over
+    try:
+        return brentq(f, 1e-3, 40.0)
+    except ValueError:
+        return None
+
+
+def load_manual_market(fixtures_g):
+    """Parse data/raw/manual_cards_corners_odds.csv (hand-collected corner/card
+    totals) into {match_id: {'corners': mu, 'yellow_cards': mu}}. Returns
+    (lookup, n_corner_fixtures, n_yellow_fixtures, unmatched_team_strings).
+    Missing file -> empty lookup, so the blend is simply skipped."""
+    path = Path("data/raw/manual_cards_corners_odds.csv")
+    if not path.exists():
+        return {}, 0, 0, []
+    raw = pd.read_csv(path)
+    key_to_mid = {(str(r.home_team), str(r.away_team)): int(r.match_id)
+                  for r in fixtures_g.itertuples()}
+    acc = defaultdict(lambda: defaultdict(list))
+    unmatched = []
+    for r in raw.itertuples():
+        mid = key_to_mid.get((str(r.home_team), str(r.away_team)))
+        if mid is None:
+            unmatched.append(f"{r.home_team} vs {r.away_team}")
+            continue
+        try:
+            io, iu = 1.0 / float(r.over_price), 1.0 / float(r.under_price)
+            p_over = io / (io + iu)
+            mu = _implied_total_mean(r.line, p_over)
+        except (ValueError, ZeroDivisionError, TypeError):
+            mu = None
+        if mu is None:
+            continue
+        mk = str(r.market).strip().lower()
+        if mk in ("corners", "corner"):
+            acc[mid]["corners"].append(mu)
+        elif mk in ("yellow_cards", "yellow_card", "yellows", "yellow", "cards"):
+            acc[mid]["yellow_cards"].append(mu)
+    lookup = {mid: {m: float(np.mean(v)) for m, v in d.items()}
+              for mid, d in acc.items()}
+    n_c = sum(1 for d in lookup.values() if "corners" in d)
+    n_y = sum(1 for d in lookup.values() if "yellow_cards" in d)
+    return lookup, n_c, n_y, sorted(set(unmatched))
+
+
 def main():
     print("=" * 60)
     print("08_generate_predictions.py")
@@ -454,11 +615,25 @@ def main():
     else:
         warn("market_lookup", "odds_consensus.csv not found; run 01e to enable market blend")
 
+    manual_odds_lookup, n_manual_c, n_manual_y, manual_unmatched = load_manual_market(fixtures_g)
+    if manual_odds_lookup:
+        ok("manual_odds", f"corners on {n_manual_c} fixtures, yellow-cards on {n_manual_y} "
+                          f"fixtures (blend={1-MANUAL_ODDS_BLEND_WEIGHT:.2f}*model + "
+                          f"{MANUAL_ODDS_BLEND_WEIGHT:.2f}*market)")
+        if manual_unmatched:
+            warn("manual_odds_unmatched",
+                 f"{len(manual_unmatched)} row-team(s) didn't match a group fixture: "
+                 + ", ".join(manual_unmatched[:5]) + (" ..." if len(manual_unmatched) > 5 else ""))
+    else:
+        ok("manual_odds", "no manual_cards_corners_odds.csv (corner/card market blend skipped)")
+
     section("Building group-stage predictions (1-72)")
     rho = gm["rho"]
     group_rows = []
     n_winner_flipped = 0
     n_lambda_blended = 0
+    n_corners_blended = 0
+    n_yellow_blended = 0
     for _, r in fixtures_g.iterrows():
         mid = int(r["match_id"])
         g = group_lambdas[group_lambdas["match_id"] == mid].iloc[0]
@@ -501,14 +676,29 @@ def main():
         if winning != model_pick:
             n_winner_flipped += 1
 
+        # Corners / yellow-cards: blend the model estimate with hand-collected
+        # bookmaker totals where available (group fixtures only).
+        manual = manual_odds_lookup.get(mid, {})
+        corners_val = float(c["pred_total_corners"]) + CORNERS_TOURNAMENT_BUMP
+        if "corners" in manual:
+            corners_val = ((1 - MANUAL_ODDS_BLEND_WEIGHT) * corners_val
+                           + MANUAL_ODDS_BLEND_WEIGHT * manual["corners"])
+            n_corners_blended += 1
+        yellow_val = (float(y["pred_yellow"]) if "pred_yellow" in y
+                      else float(y["pred_yellow_rounded"]))
+        if "yellow_cards" in manual:
+            yellow_val = ((1 - MANUAL_ODDS_BLEND_WEIGHT) * yellow_val
+                          + MANUAL_ODDS_BLEND_WEIGHT * manual["yellow_cards"])
+            n_yellow_blended += 1
+
         group_rows.append({
             "match_id":     mid,
             "home_team":    r["home_team"],
             "away_team":    r["away_team"],
             "home_score":   hs,
             "away_score":   as_,
-            "corners":      int(round(float(c["pred_total_corners"]) + CORNERS_TOURNAMENT_BUMP)),
-            "yellow_cards": int(y["pred_yellow_rounded"]),
+            "corners":      int(round(corners_val)),
+            "yellow_cards": int(round(yellow_val)),
             "red_cards":    int(y["pred_red_rounded"]),
             "winning_team": winning,
             "match_winner": np.nan,
@@ -522,30 +712,29 @@ def main():
         ok("lambda_blends",
            f"{n_lambda_blended} of {len(group_rows)} group fixtures had goals "
            f"lambdas blended with market totals+spreads")
+    if manual_odds_lookup:
+        ok("manual_blends", f"{n_corners_blended} corners + {n_yellow_blended} yellow-card "
+                            f"group fixtures blended with manual bookmaker totals")
 
-    section("Full top-down bracket reconciliation")
-    # Pick the Final matchup first, then traverse the bracket upstream choosing
-    # each match's matchup so its Dixon-Coles winner matches the team needed in
-    # the next round. Replaces the previous Final/3rd-place-only reconciler.
-    overrides: dict[int, tuple[str, str, float]] = {}
+    section("Bottom-up bracket reconciliation")
+    # Seed the Round of 32 from the MC's per-slot modal matchups (de-duplicated)
+    # and play every later round upward via Dixon-Coles. Keeps the teams the model
+    # expects in the bracket instead of the old top-down pass that evicted them.
+    mc_home_map = dict(zip(mc_knockout["match_id"], mc_knockout["pred_home_team"]))
+    mc_away_map = dict(zip(mc_knockout["match_id"], mc_knockout["pred_away_team"]))
+    chosen: dict[int, tuple[str, str]] = {}
     if matchup_details is not None:
-        chosen, log = reconcile_bracket(
+        chosen, log = reconcile_bracket_bottom_up(
             matchup_details, mc_knockout, fixtures_k, gm, h2h_lookup
         )
-        # Compare against MC's raw per-slot top picks to surface what changed
-        for mid, (h, a) in chosen.items():
-            raw_row = mc_knockout[mc_knockout["match_id"] == mid]
-            if raw_row.empty:
-                continue
-            raw = raw_row.iloc[0]
-            if h != raw["pred_home_team"] or a != raw["pred_away_team"]:
-                overrides[mid] = (h, a, 0.0)
-        for entry in log[:4]:
+        n_diff = sum(1 for mid, (h, a) in chosen.items()
+                     if h != mc_home_map.get(mid) or a != mc_away_map.get(mid))
+        for entry in log[:6]:
             ok("reconcile", entry)
-        ok("matches_overridden", f"{len(overrides)} of {len(chosen)} knockout matches "
-                                  f"changed from MC top pick for bracket consistency")
-        if len(log) > 4:
-            ok("more_reconcile_notes", f"... {len(log) - 4} additional notes (suppressed)")
+        ok("bracket_built", f"{len(chosen)} matches; {n_diff} differ from MC raw "
+                            f"per-slot modes")
+        if len(log) > 6:
+            ok("more_reconcile_notes", f"... {len(log) - 6} additional notes (suppressed)")
     else:
         warn("matchup_details", "mc_matchup_details.csv not found -- re-run script 07")
 
@@ -554,8 +743,8 @@ def main():
     ko_rows = []
     for _, r in mc_knockout.iterrows():
         mid = int(r["match_id"])
-        if mid in overrides:
-            home, away, _ = overrides[mid]
+        if mid in chosen:
+            home, away = chosen[mid]
         else:
             home = r["pred_home_team"]
             away = r["pred_away_team"]

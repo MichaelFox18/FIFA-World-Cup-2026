@@ -30,3 +30,38 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral
 2026-06-01,Austria,Tunisia,1,0,Friendly,Vienna,Austria,FALSE
 2026-06-01,Colombia,Costa Rica,3,0,Friendly,Bogotá,Colombia,FALSE
 2026-06-01,Canada,Uzbekistan,2,0,Friendly,Edmonton,Canada,FALSE
+2026-06-02,Croatia,Belgium,0,2,Friendly,Rijeka,Croatia,FALSE
+2026-06-02,Morocco,Madagascar,4,0,Friendly,Rabat,Morocco,FALSE
+2026-06-02,Wales,Ghana,1,1,Friendly,Cardiff,Wales,FALSE
+2026-06-02,Haiti,New Zealand,4,0,Friendly,Fort Lauderdale,United States,TRUE
+2026-06-03,DR Congo,Denmark,0,0,Friendly,Liège,Belgium,TRUE
+2026-06-03,Netherlands,Algeria,0,1,Friendly,Rotterdam,Netherlands,FALSE
+2026-06-03,Panama,Dominican Republic,4,2,Friendly,Panama City,Panama,FALSE
+2026-06-03,South Korea,El Salvador,1,0,Friendly,,,TRUE
+2026-06-04,Iran,Mali,2,0,Friendly,Antalya,Türkiye,TRUE
+2026-06-04,Sweden,Greece,2,2,Friendly,Stockholm,Sweden,FALSE
+2026-06-04,Spain,Iraq,1,1,Friendly,La Coruña,Spain,FALSE
+2026-06-04,France,Côte d'Ivoire,1,2,Friendly,Nantes,France,FALSE
+2026-06-04,Czechia,Guatemala,3,1,Friendly,Harrison,United States,TRUE
+2026-06-04,Mexico,Serbia,5,1,Friendly,Toluca,Mexico,FALSE
+2026-06-05,Paraguay,Nicaragua,4,0,Friendly,Asunción,Paraguay,FALSE
+2026-06-05,Puerto Rico,Saudi Arabia,0,3,Friendly,Austin,United States,TRUE
+2026-06-05,Canada,Republic of Ireland,1,1,Friendly,Montreal,Canada,FALSE
+2026-06-05,Haiti,Peru,1,2,Friendly,Miami,United States,TRUE
+2026-06-06,Belgium,Tunisia,5,0,Friendly,Brussels,Belgium,FALSE
+2026-06-06,Portugal,Chile,2,1,Friendly,Oeiras,Portugal,FALSE
+2026-06-06,United States,Germany,1,2,Friendly,Chicago,United States,FALSE
+2026-06-06,Panama,Bosnia and Herzegovina,1,1,Friendly,St. Louis,United States,TRUE
+2026-06-06,Switzerland,Australia,1,1,Friendly,San Diego,United States,TRUE
+2026-06-06,Bolivia,Scotland,0,4,Friendly,Harrison,United States,TRUE
+2026-06-06,England,New Zealand,1,0,Friendly,Tampa,United States,TRUE
+2026-06-06,Qatar,El Salvador,0,0,Friendly,Los Angeles,United States,TRUE
+2026-06-06,Jamaica,South Africa,0,1,Friendly,Pachuca,Mexico,TRUE
+2026-06-06,Brazil,Egypt,2,1,Friendly,Cleveland,United States,TRUE
+2026-06-06,Venezuela,Türkiye,1,2,Friendly,Fort Lauderdale,United States,TRUE
+2026-06-06,Argentina,Honduras,2,0,Friendly,College Station,United States,TRUE
+2026-06-06,Curaçao,Aruba,4,0,Friendly,Willemstad,Curaçao,FALSE
+2026-06-07,Croatia,Slovenia,2,1,Friendly,Varaždin,Croatia,FALSE
+2026-06-07,Morocco,Norway,1,1,Friendly,Harrison,United States,TRUE
+2026-06-07,Ecuador,Guatemala,3,0,Friendly,Columbus,United States,TRUE
+2026-06-07,Colombia,Jordan,2,0,Friendly,San Diego,United States,TRUE

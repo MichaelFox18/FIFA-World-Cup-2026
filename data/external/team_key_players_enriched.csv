@@ -9,18 +9,18 @@ Argentina,Alexis Mac Allister,MID,0.7,midfield linker,0,2,0,,exact,True
 Argentina,Cristian Romero,DEF,0.6,centre back,0,0,0,,miss,False
 Argentina,Emiliano Martínez,GK,0.6,2022 Cup-winning keeper,0,0,0,,miss,False
 Australia,Mathew Ryan,GK,0.6,captain + keeper,0,0,0,,miss,False
-Australia,Ajdin Hrustic,MID,0.5,attacking midfielder,0,1,0,,exact,True
+Australia,Ajdin Hrustic,MID,0.5,attacking midfielder,0,0,0,,miss,False
 Australia,Mitchell Duke,FWD,0.4,striker,0,0,0,,miss,False
 Austria,David Alaba,DEF,0.8,centre back + leader (if fit),0,0,0,,miss,False
 Austria,Marko Arnautović,FWD,0.5,veteran striker,8,11,1,2025-11-15,exact,True
-Austria,Marcel Sabitzer,MID,0.5,attacking midfielder,3,6,1,2025-09-09,exact,True
 Austria,Konrad Laimer,MID,0.5,energetic midfielder,2,3,0,2025-10-09,exact,True
+Austria,Marcel Sabitzer,MID,0.5,attacking midfielder,2,6,1,2025-09-09,exact,True
 Belgium,Kevin De Bruyne,MID,0.9,creative midfielder; declining but key,6,9,2,2025-10-13,exact,True
 Belgium,Romelu Lukaku,FWD,0.7,striker,1,4,1,2025-06-09,exact,True
 Belgium,Thibaut Courtois,GK,0.7,elite keeper,0,0,0,,miss,False
 Belgium,Jérémy Doku,FWD,0.6,wing pace,5,5,0,2025-11-18,exact,True
 Belgium,Youri Tielemans,MID,0.5,midfield depth,3,5,1,2025-09-04,exact,True
-Bosnia and Herzegovina,Edin Džeko,FWD,0.7,veteran striker,6,8,0,2026-03-26,exact,True
+Bosnia and Herzegovina,Edin Džeko,FWD,0.7,veteran striker,5,8,0,2026-03-26,exact,True
 Bosnia and Herzegovina,Miralem Pjanić,MID,0.5,deep midfielder,0,0,0,,miss,False
 Bosnia and Herzegovina,Ermedin Demirović,FWD,0.5,striker,0,3,0,,exact,True
 Brazil,Vinicius Jr.,FWD,1.0,primary attacker,1,4,0,2025-06-10,exact,True
@@ -42,12 +42,12 @@ Colombia,Jhon Durán,FWD,0.5,emerging striker,0,2,0,,exact,True
 Croatia,Luka Modrić,MID,0.7,veteran maestro; depends on minutes load,1,3,1,2025-06-09,exact,True
 Croatia,Joško Gvardiol,DEF,0.7,centre back,1,2,0,2025-11-14,exact,True
 Croatia,Mateo Kovačić,MID,0.6,deep midfielder,0,0,0,,miss,False
-Croatia,Andrej Kramarić,FWD,0.5,striker,6,8,0,2025-09-08,exact,True
+Croatia,Andrej Kramarić,FWD,0.5,striker,4,8,0,2025-09-08,exact,True
 Curaçao,Tahith Chong,MID,0.5,midfielder,2,2,0,2025-09-09,exact,True
 Curaçao,Cuco Martina,DEF,0.3,defender,0,0,0,,miss,False
-Czechia,Patrik Schick,FWD,0.7,primary striker,2,6,1,2026-03-26,exact,True
+Czechia,Patrik Schick,FWD,0.7,primary striker,1,6,1,2026-03-26,exact,True
 Czechia,Tomáš Souček,MID,0.6,midfield workhorse,2,4,0,2025-11-17,exact,True
-Czechia,Adam Hložek,FWD,0.5,attacker,1,2,0,2025-06-06,exact,True
+Czechia,Adam Hložek,FWD,0.5,attacker,0,2,0,,exact,True
 Côte d'Ivoire,Sébastien Haller,FWD,0.7,striker,0,1,0,,exact,True
 Côte d'Ivoire,Franck Kessié,MID,0.6,midfield captain,2,2,0,2025-10-14,exact,True
 Côte d'Ivoire,Wilfried Singo,DEF,0.5,centre back,0,0,0,,miss,False
@@ -59,19 +59,19 @@ Ecuador,Enner Valencia,FWD,0.6,veteran striker,1,6,1,2025-09-09,exact,True
 Ecuador,Piero Hincapié,DEF,0.5,centre back,0,0,0,,miss,False
 Egypt,Mohamed Salah,FWD,1.0,everything goes through him,7,9,2,2026-01-10,exact,True
 Egypt,Mohamed Elneny,MID,0.5,midfield veteran,0,0,0,,miss,False
-Egypt,Trezeguet,FWD,0.4,attacker,0,2,0,,exact,True
+Egypt,Trezeguet,FWD,0.4,attacker,0,0,0,,miss,False
 England,Jude Bellingham,MID,1.0,attacking midfielder; pivot of the side,0,3,0,,exact,True
-England,Harry Kane,FWD,0.9,captain + goalscorer,6,14,1,2025-11-16,exact,True
+England,Harry Kane,FWD,0.9,captain + goalscorer,5,14,1,2025-11-16,exact,True
 England,Bukayo Saka,FWD,0.8,right wing pace + finishing,1,2,0,2025-11-13,exact,True
 England,Phil Foden,MID,0.8,creative outlet,0,0,0,,miss,False
 England,Declan Rice,MID,0.6,defensive midfield,1,3,0,2025-09-06,exact,True
 England,Jordan Pickford,GK,0.4,first-choice keeper,0,0,0,,miss,False
-France,Kylian Mbappé,FWD,1.0,franchise player; absence is catastrophic for attack,7,8,3,2025-11-13,exact,True
+France,Kylian Mbappé,FWD,1.0,franchise player; absence is catastrophic for attack,6,8,2,2025-11-13,exact,True
 France,Antoine Griezmann,MID,0.7,creative hub; veteran captain,0,0,0,,miss,False
 France,Aurélien Tchouaméni,MID,0.7,defensive midfield anchor,0,0,0,,miss,False
 France,Théo Hernández,DEF,0.6,left back / overlapping attacker,0,0,0,,miss,False
 France,Mike Maignan,GK,0.5,first-choice keeper,0,0,0,,miss,False
-Germany,Florian Wirtz,MID,1.0,creative engine,2,7,0,2025-09-07,exact,True
+Germany,Florian Wirtz,MID,1.0,creative engine,1,7,0,2025-09-07,exact,True
 Germany,Jamal Musiala,MID,1.0,playmaker + finisher,0,6,0,,exact,True
 Germany,Joshua Kimmich,MID,0.7,captain + deep midfielder,2,4,1,2025-10-10,exact,True
 Germany,Kai Havertz,FWD,0.6,versatile forward,0,4,0,,exact,True
@@ -79,13 +79,13 @@ Germany,Antonio Rüdiger,DEF,0.6,centre back leader,0,0,0,,miss,False
 Germany,Manuel Neuer,GK,0.5,first-choice keeper (if still active),0,0,0,,miss,False
 Ghana,Mohammed Kudus,MID,0.9,creative attacker,1,2,0,2025-10-12,exact,True
 Ghana,Thomas Partey,MID,0.6,defensive midfielder,1,3,0,2025-10-08,exact,True
-Ghana,Jordan Ayew,FWD,0.4,striker,2,7,0,2025-10-08,exact,True
-Haiti,Duckens Nazon,FWD,0.5,striker,5,6,0,2025-10-09,exact,True
-Haiti,Frantzdy Pierrot,FWD,0.4,striker,3,3,0,2025-11-13,exact,True
-Iran,Mehdi Taremi,FWD,0.8,primary striker,1,8,0,2025-06-10,exact,True
-Iran,Sardar Azmoun,FWD,0.6,secondary striker,0,5,0,,exact,True
+Ghana,Jordan Ayew,FWD,0.4,striker,2,6,0,2025-10-08,exact,True
+Haiti,Duckens Nazon,FWD,0.5,striker,4,5,0,2025-10-09,exact,True
+Haiti,Frantzdy Pierrot,FWD,0.4,striker,2,3,0,2025-11-13,exact,True
+Iran,Mehdi Taremi,FWD,0.8,primary striker,1,5,0,2025-06-10,exact,True
+Iran,Sardar Azmoun,FWD,0.6,secondary striker,0,4,0,,exact,True
 Iran,Alireza Jahanbakhsh,FWD,0.4,winger,0,0,0,,miss,False
-Iraq,Aymen Hussein,FWD,0.5,striker,1,7,0,2026-03-31,exact,True
+Iraq,Aymen Hussein,FWD,0.5,striker,1,6,0,2026-03-31,exact,True
 Iraq,Ali Adnan,DEF,0.4,left back,0,0,0,,miss,False
 Japan,Takefusa Kubo,FWD,0.8,creative winger,1,3,0,2025-06-10,exact,True
 Japan,Wataru Endō,MID,0.6,captain + defensive midfield,0,1,0,,exact,True
@@ -93,34 +93,34 @@ Japan,Daichi Kamada,MID,0.5,attacking midfielder,2,4,0,2025-06-10,exact,True
 Japan,Daizen Maeda,FWD,0.5,pace + pressing,0,1,0,,exact,True
 Japan,Hidemasa Morita,MID,0.5,midfield engine,0,3,0,,exact,True
 Jordan,Musa Al-Tamari,FWD,0.6,winger / attacker,0,0,0,,miss,False
-Jordan,Yazan Al-Naimat,FWD,0.4,striker,0,6,0,,exact,True
+Jordan,Yazan Al-Naimat,FWD,0.4,striker,0,5,0,,exact,True
 Mexico,Edson Álvarez,MID,0.6,captain + defensive midfield,2,2,0,2025-07-06,exact,True
 Mexico,Hirving Lozano,FWD,0.6,winger,0,0,0,,miss,False
 Mexico,Raúl Jiménez,FWD,0.5,veteran striker,3,3,0,2025-07-06,exact,True
 Mexico,Santiago Giménez,FWD,0.5,striker,0,0,0,,miss,False
 Mexico,Guillermo Ochoa,GK,0.4,if still active,0,0,0,,miss,False
 Morocco,Achraf Hakimi,DEF,1.0,right back + primary outlet,0,0,0,,miss,False
-Morocco,Hakim Ziyech,MID,0.7,creative midfielder (when fit),0,1,0,,exact,True
+Morocco,Hakim Ziyech,MID,0.7,creative midfielder (when fit),0,0,0,,miss,False
 Morocco,Yassine Bounou,GK,0.6,2022 hero keeper,0,0,0,,miss,False
 Morocco,Sofyan Amrabat,MID,0.5,defensive midfielder,0,0,0,,miss,False
 Netherlands,Virgil van Dijk,DEF,0.9,captain + centre back; backline organisation,2,2,0,2025-10-12,exact,True
 Netherlands,Frenkie de Jong,MID,0.8,deep midfielder,0,0,0,,miss,False
 Netherlands,Cody Gakpo,FWD,0.7,wide forward,4,10,3,2025-11-17,exact,True
-Netherlands,Memphis Depay,FWD,0.6,striker / finisher,8,10,2,2025-11-14,exact,True
+Netherlands,Memphis Depay,FWD,0.6,striker / finisher,7,10,2,2025-11-14,exact,True
 Netherlands,Tijjani Reijnders,MID,0.5,box-to-box midfielder,2,5,0,2025-11-17,exact,True
 Netherlands,Bart Verbruggen,GK,0.4,first-choice keeper,0,0,0,,miss,False
 New Zealand,Chris Wood,FWD,0.7,primary striker,0,9,0,,exact,True
 New Zealand,Sarpreet Singh,MID,0.4,midfielder,0,2,0,,exact,True
-Norway,Erling Haaland,FWD,1.0,team carries on his goals; absence devastating,14,23,0,2025-11-16,exact,True
+Norway,Erling Haaland,FWD,1.0,team carries on his goals; absence devastating,13,23,0,2025-11-16,exact,True
 Norway,Martin Ødegaard,MID,0.8,captain + chance creator,1,1,0,2025-09-09,exact,True
-Norway,Antonio Nusa,FWD,0.5,emerging winger,2,5,0,2025-11-16,exact,True
-Norway,Alexander Sørloth,FWD,0.4,secondary striker,3,8,0,2025-11-13,exact,True
+Norway,Antonio Nusa,FWD,0.5,emerging winger,1,5,0,2025-11-16,exact,True
+Norway,Alexander Sørloth,FWD,0.4,secondary striker,2,8,0,2025-11-13,exact,True
 Panama,Adalberto Carrasquilla,MID,0.5,midfielder,0,0,0,,miss,False
 Panama,Aníbal Godoy,MID,0.4,defensive midfielder,0,0,0,,miss,False
 Paraguay,Miguel Almirón,FWD,0.6,winger,0,1,0,,exact,True
 Paraguay,Antonio Sanabria,FWD,0.5,striker,0,3,0,,exact,True
 Paraguay,Diego Gómez,MID,0.5,midfielder,0,1,0,,exact,True
-Portugal,Cristiano Ronaldo,FWD,0.8,captain; symbolic + still a finisher,7,13,1,2025-10-14,exact,True
+Portugal,Cristiano Ronaldo,FWD,0.8,captain; symbolic + still a finisher,6,13,1,2025-10-14,exact,True
 Portugal,Bruno Fernandes,MID,0.8,chance creation + set pieces,3,6,2,2025-11-16,exact,True
 Portugal,Bernardo Silva,MID,0.7,deep creator + winger,1,3,0,2025-09-09,exact,True
 Portugal,Rúben Dias,DEF,0.7,centre back leader,0,0,0,,miss,False
@@ -137,18 +137,18 @@ Scotland,Angus Gunn,GK,0.4,first-choice keeper,0,0,0,,miss,False
 Senegal,Sadio Mané,FWD,0.9,still primary outlet,5,5,0,2026-01-14,exact,True
 Senegal,Kalidou Koulibaly,DEF,0.7,centre back leader,1,1,0,2025-09-05,exact,True
 Senegal,Édouard Mendy,GK,0.6,first-choice keeper,0,0,0,,miss,False
-Senegal,Ismaïla Sarr,FWD,0.5,winger,2,3,0,2025-10-10,exact,True
+Senegal,Ismaïla Sarr,FWD,0.5,winger,2,2,0,2025-10-10,exact,True
 Senegal,Idrissa Gueye,MID,0.5,defensive midfield,0,0,0,,miss,False
 South Africa,Lyle Foster,FWD,0.6,primary striker,3,4,0,2025-12-29,exact,True
 South Africa,Percy Tau,FWD,0.5,attacker,0,0,0,,miss,False
-South Korea,Son Heung-min,FWD,1.0,captain + primary attacker,0,5,0,,exact,True
-South Korea,Lee Kang-in,MID,0.7,creative midfielder,1,4,0,2025-06-10,exact,True
+South Korea,Son Heung-min,FWD,1.0,captain + primary attacker,0,3,0,,exact,True
+South Korea,Lee Kang-in,MID,0.7,creative midfielder,1,2,0,2025-06-10,exact,True
 South Korea,Kim Min-jae,DEF,0.6,centre back,0,0,0,,miss,False
-South Korea,Hwang Hee-chan,FWD,0.5,secondary striker,0,3,0,,exact,True
-Spain,Lamine Yamal,FWD,1.0,Polymarket favourite-by-implication; key wide creator,2,4,1,2025-06-05,exact,True
+South Korea,Hwang Hee-chan,FWD,0.5,secondary striker,0,2,0,,exact,True
+Spain,Lamine Yamal,FWD,1.0,Polymarket favourite-by-implication; key wide creator,0,4,0,,exact,True
 Spain,Rodri,MID,1.0,defensive midfield engine; Ballon d'Or winner,0,1,0,,exact,True
-Spain,Pedri,MID,0.8,deep playmaker; chance creation,3,3,0,2025-09-07,exact,True
-Spain,Nico Williams,FWD,0.7,left wing pace + finishing,1,4,0,2025-06-05,exact,True
+Spain,Pedri,MID,0.8,deep playmaker; chance creation,2,3,0,2025-09-07,exact,True
+Spain,Nico Williams,FWD,0.7,left wing pace + finishing,0,4,0,,exact,True
 Spain,Aymeric Laporte,DEF,0.5,centre back; if Saudi-based form holds,0,1,0,,exact,True
 Spain,Unai Simón,GK,0.4,first-choice keeper,0,0,0,,miss,False
 Sweden,Alexander Isak,FWD,0.9,primary striker,0,4,0,,exact,True

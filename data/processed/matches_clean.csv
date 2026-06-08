@@ -15734,3 +15734,38 @@ date,home_team,away_team,home_score,away_score,tournament,city,country,neutral,i
 2026-06-01,Austria,Tunisia,1.0,0.0,Friendly,Vienna,Austria,False,False,1.0,1.0,Austria
 2026-06-01,Colombia,Costa Rica,3.0,0.0,Friendly,Bogotá,Colombia,False,False,3.0,3.0,Colombia
 2026-06-01,Canada,Uzbekistan,2.0,0.0,Friendly,Edmonton,Canada,False,False,2.0,2.0,Canada
+2026-06-02,Croatia,Belgium,0.0,2.0,Friendly,Rijeka,Croatia,False,False,2.0,-2.0,Belgium
+2026-06-02,Morocco,Madagascar,4.0,0.0,Friendly,Rabat,Morocco,False,False,4.0,4.0,Morocco
+2026-06-02,Wales,Ghana,1.0,1.0,Friendly,Cardiff,Wales,False,False,2.0,0.0,Draw
+2026-06-02,Haiti,New Zealand,4.0,0.0,Friendly,Fort Lauderdale,United States,True,False,4.0,4.0,Haiti
+2026-06-03,DR Congo,Denmark,0.0,0.0,Friendly,Liège,Belgium,True,False,0.0,0.0,Draw
+2026-06-03,Netherlands,Algeria,0.0,1.0,Friendly,Rotterdam,Netherlands,False,False,1.0,-1.0,Algeria
+2026-06-03,Panama,Dominican Republic,4.0,2.0,Friendly,Panama City,Panama,False,False,6.0,2.0,Panama
+2026-06-03,South Korea,El Salvador,1.0,0.0,Friendly,,,True,False,1.0,1.0,South Korea
+2026-06-04,Iran,Mali,2.0,0.0,Friendly,Antalya,Türkiye,True,False,2.0,2.0,Iran
+2026-06-04,Sweden,Greece,2.0,2.0,Friendly,Stockholm,Sweden,False,False,4.0,0.0,Draw
+2026-06-04,Spain,Iraq,1.0,1.0,Friendly,La Coruña,Spain,False,False,2.0,0.0,Draw
+2026-06-04,France,Côte d'Ivoire,1.0,2.0,Friendly,Nantes,France,False,False,3.0,-1.0,Côte d'Ivoire
+2026-06-04,Czechia,Guatemala,3.0,1.0,Friendly,Harrison,United States,True,False,4.0,2.0,Czechia
+2026-06-04,Mexico,Serbia,5.0,1.0,Friendly,Toluca,Mexico,False,False,6.0,4.0,Mexico
+2026-06-05,Paraguay,Nicaragua,4.0,0.0,Friendly,Asunción,Paraguay,False,False,4.0,4.0,Paraguay
+2026-06-05,Puerto Rico,Saudi Arabia,0.0,3.0,Friendly,Austin,United States,True,False,3.0,-3.0,Saudi Arabia
+2026-06-05,Canada,Republic of Ireland,1.0,1.0,Friendly,Montreal,Canada,False,False,2.0,0.0,Draw
+2026-06-05,Haiti,Peru,1.0,2.0,Friendly,Miami,United States,True,False,3.0,-1.0,Peru
+2026-06-06,Belgium,Tunisia,5.0,0.0,Friendly,Brussels,Belgium,False,False,5.0,5.0,Belgium
+2026-06-06,Portugal,Chile,2.0,1.0,Friendly,Oeiras,Portugal,False,False,3.0,1.0,Portugal
+2026-06-06,United States,Germany,1.0,2.0,Friendly,Chicago,United States,False,False,3.0,-1.0,Germany
+2026-06-06,Panama,Bosnia and Herzegovina,1.0,1.0,Friendly,St. Louis,United States,True,False,2.0,0.0,Draw
+2026-06-06,Switzerland,Australia,1.0,1.0,Friendly,San Diego,United States,True,False,2.0,0.0,Draw
+2026-06-06,Bolivia,Scotland,0.0,4.0,Friendly,Harrison,United States,True,False,4.0,-4.0,Scotland
+2026-06-06,England,New Zealand,1.0,0.0,Friendly,Tampa,United States,True,False,1.0,1.0,England
+2026-06-06,Qatar,El Salvador,0.0,0.0,Friendly,Los Angeles,United States,True,False,0.0,0.0,Draw
+2026-06-06,Jamaica,South Africa,0.0,1.0,Friendly,Pachuca,Mexico,True,False,1.0,-1.0,South Africa
+2026-06-06,Brazil,Egypt,2.0,1.0,Friendly,Cleveland,United States,True,False,3.0,1.0,Brazil
+2026-06-06,Venezuela,Türkiye,1.0,2.0,Friendly,Fort Lauderdale,United States,True,False,3.0,-1.0,Türkiye
+2026-06-06,Argentina,Honduras,2.0,0.0,Friendly,College Station,United States,True,False,2.0,2.0,Argentina
+2026-06-06,Curaçao,Aruba,4.0,0.0,Friendly,Willemstad,Curaçao,False,False,4.0,4.0,Curaçao
+2026-06-07,Croatia,Slovenia,2.0,1.0,Friendly,Varaždin,Croatia,False,False,3.0,1.0,Croatia
+2026-06-07,Morocco,Norway,1.0,1.0,Friendly,Harrison,United States,True,False,2.0,0.0,Draw
+2026-06-07,Ecuador,Guatemala,3.0,0.0,Friendly,Columbus,United States,True,False,3.0,3.0,Ecuador
+2026-06-07,Colombia,Jordan,2.0,0.0,Friendly,San Diego,United States,True,False,2.0,2.0,Colombia

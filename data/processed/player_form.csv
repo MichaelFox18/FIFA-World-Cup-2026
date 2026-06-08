@@ -1,28 +1,24 @@
 team,player,goals_12mo,n_pens_12mo,last_goal_date,goals_24mo
-Norway,Erling Haaland,14,0,2025-11-16,23
+Norway,Erling Haaland,13,0,2025-11-16,23
 Nigeria,Victor Osimhen,9,0,2026-01-10,12
 Austria,Marko Arnautović,8,1,2025-11-15,11
-Netherlands,Memphis Depay,8,2,2025-11-14,10
 Panama,Ismael Díaz,8,2,2025-10-14,8
-Portugal,Cristiano Ronaldo,7,1,2025-10-14,13
 Spain,Mikel Oyarzabal,7,2,2025-11-18,11
+Netherlands,Memphis Depay,7,2,2025-11-14,10
 Egypt,Mohamed Salah,7,2,2026-01-10,9
-Spain,Mikel Merino,7,0,2025-10-14,9
-France,Kylian Mbappé,7,3,2025-11-13,8
-England,Harry Kane,6,1,2025-11-16,14
+Portugal,Cristiano Ronaldo,6,1,2025-10-14,13
 Belgium,Kevin De Bruyne,6,2,2025-10-13,9
 Italy,Moise Kean,6,0,2026-03-31,9
-Bosnia and Herzegovina,Edin Džeko,6,0,2026-03-26,8
-Croatia,Andrej Kramarić,6,0,2025-09-08,8
-Costa Rica,Alonso Martínez,6,0,2025-10-13,6
+Spain,Mikel Merino,6,0,2025-10-14,9
+France,Kylian Mbappé,6,2,2025-11-13,8
 Republic of Ireland,Troy Parrott,6,2,2026-03-26,6
-Wales,Harry Wilson,5,3,2025-11-18,9
+England,Harry Kane,5,1,2025-11-16,14
 Algeria,Mohamed Amoura,5,2,2025-10-14,8
+Bosnia and Herzegovina,Edin Džeko,5,0,2026-03-26,8
 Gabon,Pierre-Emerick Aubameyang,5,0,2025-12-28,8
 Italy,Mateo Retegui,5,1,2025-10-14,7
-Costa Rica,Manfred Ugalde,5,3,2025-10-13,6
+Costa Rica,Alonso Martínez,5,0,2025-10-13,6
 Denmark,Rasmus Højlund,5,1,2025-11-18,6
-Haiti,Duckens Nazon,5,0,2025-10-09,6
 Hungary,Barnabás Varga,5,0,2025-11-16,6
 Morocco,Brahim Díaz,5,1,2026-01-09,6
 Belgium,Jérémy Doku,5,0,2025-11-18,5
@@ -30,19 +26,19 @@ Mali,Lassine Sinayoko,5,2,2026-01-03,5
 Senegal,Sadio Mané,5,0,2026-01-14,5
 Sweden,Viktor Gyökeres,4,1,2026-03-31,13
 Netherlands,Cody Gakpo,4,3,2025-11-17,10
-Austria,Michael Gregoritsch,4,0,2025-11-18,8
+Wales,Harry Wilson,4,3,2025-11-18,9
+Croatia,Andrej Kramarić,4,0,2025-09-08,8
 Gabon,Denis Bouanga,4,0,2025-12-31,7
 Morocco,Ayoub El Kaabi,4,0,2025-12-29,7
 Poland,Robert Lewandowski,4,0,2026-03-26,7
+Costa Rica,Manfred Ugalde,4,3,2025-10-13,6
 Netherlands,Donyell Malen,4,0,2025-11-17,6
 Switzerland,Breel Embolo,4,0,2025-11-15,6
-Croatia,Ivan Perišić,4,1,2025-11-17,5
-Curaçao,Gervane Kastaneer,4,0,2025-06-10,5
 Gambia,Adama Sidibeh,4,0,2025-10-14,5
+Haiti,Duckens Nazon,4,0,2025-10-09,5
 Norway,Thelo Aasgaard,4,1,2025-09-09,5
 Serbia,Aleksandar Mitrović,4,2,2025-10-14,5
 Algeria,Riyad Mahrez,4,1,2025-12-28,4
-Bermuda,Djair Parfitt,4,0,2025-11-18,4
 Colombia,Luis Suárez,4,0,2025-09-09,4
 Côte d'Ivoire,Amad Diallo,4,0,2026-01-06,4
 DR Congo,Cédric Bakambu,4,0,2025-12-27,4
@@ -55,37 +51,32 @@ Nigeria,Akor Adams,4,0,2026-01-10,4
 Senegal,Nicolas Jackson,4,1,2025-12-23,4
 South Africa,Oswin Appollis,4,1,2025-12-29,4
 Suriname,Richonell Margaret,4,0,2025-11-13,4
-Trinidad and Tobago,Dante Sealy,4,0,2025-10-10,4
 Türkiye,Kerem Aktürkoğlu,3,0,2026-03-31,9
+Austria,Michael Gregoritsch,3,0,2025-11-18,8
 Bolivia,Miguel Terceros,3,2,2026-03-26,8
-Norway,Alexander Sørloth,3,0,2025-11-13,8
-Jordan,Ali Olwan,3,1,2025-06-05,7
-Austria,Marcel Sabitzer,3,1,2025-09-09,6
 Gambia,Musa Barrow,3,0,2025-10-14,6
 Greece,Christos Tzolis,3,0,2025-11-15,6
-Mali,Kamory Doumbia,3,1,2025-10-08,6
 Portugal,Bruno Fernandes,3,2,2025-11-16,6
 Belgium,Youri Tielemans,3,1,2025-09-04,5
+Croatia,Ivan Perišić,3,1,2025-11-17,5
 Denmark,Gustav Isaksen,3,0,2026-03-26,5
 Italy,Giacomo Raspadori,3,0,2025-09-08,5
+Mali,Kamory Doumbia,3,1,2025-10-08,5
 Mozambique,Geny Catamo,3,1,2025-12-31,5
 Republic of Ireland,Evan Ferguson,3,0,2025-10-14,5
-Saint Vincent and the Grenadines,Oalex Anderson,3,0,2025-06-10,5
-Saudi Arabia,Firas Al-Buraikan,3,1,2025-10-08,5
+Bermuda,Djair Parfitt,3,0,2025-11-18,4
 Faroe Islands,Hanus Sørensen,3,0,2025-10-12,4
 France,Michael Olise,3,0,2025-11-13,4
 Libya,Ezoo El Maremi,3,0,2025-10-08,4
 Morocco,Ismael Saibari,3,0,2026-01-09,4
 Namibia,Peter Shalulile,3,0,2025-09-09,4
 South Africa,Lyle Foster,3,0,2025-12-29,4
-Tunisia,Mohamed Ali Ben Romdhane,3,1,2025-10-10,4
 Türkiye,Kenan Yıldız,3,0,2025-10-14,4
 Ukraine,Oleksiy Hutsulyak,3,0,2025-11-16,4
 Bosnia and Herzegovina,Haris Tabaković,3,0,2026-03-31,3
 Burkina Faso,Edmond Tapsoba,3,0,2025-12-24,3
 Burkina Faso,Pierre Landry Kaboré,3,0,2025-10-12,3
 Canada,Tajon Buchanan,3,0,2025-06-24,3
-Costa Rica,Warren Madrigal,3,0,2025-06-10,3
 Curaçao,Kenji Gorré,3,0,2025-10-14,3
 Côte d'Ivoire,Yan Diomande,3,0,2026-01-06,3
 Egypt,Omar Marmoush,3,1,2026-01-10,3
@@ -93,15 +84,12 @@ Finland,Benjamin Källman,3,0,2025-10-09,3
 Gambia,Abdoulie Manneh,3,0,2025-10-14,3
 Germany,Serge Gnabry,3,0,2025-11-17,3
 Guatemala,Olger Escobar,3,0,2025-11-18,3
-Guatemala,Oscar Santis,3,0,2025-06-06,3
 Guinea,Abdoul Karim Traoré,3,0,2025-10-14,3
 Haiti,Don Deedson Louicius,3,0,2025-11-18,3
-Haiti,Frantzdy Pierrot,3,0,2025-11-13,3
 Honduras,Romell Quioto,3,0,2025-10-13,3
 Israel,Dor Peretz,3,0,2025-09-08,3
 Italy,Pio Esposito,3,0,2025-11-16,3
 Jamaica,Jon Russell,3,0,2025-09-09,3
-Jamaica,Warner Brown,3,0,2025-06-10,3
 Kosovo,Fisnik Asllani,3,0,2026-03-26,3
 Liberia,Ayouba Kosiah,3,1,2025-10-09,3
 Mexico,César Montes,3,0,2025-06-18,3
@@ -110,55 +98,47 @@ Niger,Daniel Sosah,3,0,2025-10-12,3
 Nigeria,Ademola Lookman,3,0,2026-01-05,3
 Panama,Tomás Rodríguez,3,0,2025-06-24,3
 Portugal,João Neves,3,0,2025-11-16,3
+Saudi Arabia,Firas Al-Buraikan,3,1,2025-10-08,3
 Senegal,Cherif Ndiaye,3,1,2025-12-30,3
 Senegal,Pape Gueye,3,0,2026-01-03,3
-Spain,Pedri,3,0,2025-09-07,3
 São Tomé and Príncipe,Ronaldo Afonso,3,3,2025-10-13,3
 Tunisia,Elias Saad,3,0,2025-10-10,3
+Tunisia,Mohamed Ali Ben Romdhane,3,1,2025-10-10,3
 Uganda,Rogers Mato,3,0,2025-12-30,3
 Ukraine,Ruslan Malinovskyi,3,0,2025-10-13,3
 United States,Diego Luna,3,0,2025-07-02,3
 United States,Malik Tillman,3,0,2025-06-22,3
-Germany,Florian Wirtz,2,0,2025-09-07,7
-Ghana,Jordan Ayew,2,0,2025-10-08,7
-Venezuela,Salomón Rondón,2,0,2025-09-09,7
+Norway,Alexander Sørloth,2,0,2025-11-13,8
 Argentina,Lionel Messi,2,0,2025-09-04,6
-Czechia,Patrik Schick,2,1,2026-03-26,6
+Austria,Marcel Sabitzer,2,1,2025-09-09,6
+Ghana,Jordan Ayew,2,0,2025-10-08,6
 Scotland,Scott McTominay,2,0,2025-11-18,6
 Slovakia,David Strelec,2,0,2026-03-26,6
 Gambia,Yankuba Minteh,2,0,2025-10-10,5
 Georgia,Khvicha Kvaratskhelia,2,0,2025-09-07,5
-Jamaica,Shamar Nicholson,2,0,2025-10-14,5
 Montenegro,Nikola Krstović,2,1,2025-11-17,5
-Netherlands,Denzel Dumfries,2,0,2025-09-04,5
 Netherlands,Tijjani Reijnders,2,0,2025-11-17,5
 Netherlands,Xavi Simons,2,0,2025-11-17,5
-Norway,Antonio Nusa,2,0,2025-11-16,5
 Panama,José Fajardo,2,0,2025-11-13,5
 Romania,Denis Drăguș,2,0,2025-09-09,5
 Armenia,Eduard Spertsyan,2,1,2025-11-16,4
-Belgium,Maxim De Cuyper,2,0,2025-09-04,4
 Benin,Steve Mounié,2,0,2025-09-09,4
 Canada,Jonathan David,2,1,2025-06-29,4
 Cape Verde,Dailon Livramento,2,0,2025-10-13,4
 Colombia,Jhon Córdoba,2,0,2025-09-09,4
-Costa Rica,Josimar Alcócer,2,0,2025-06-18,4
 Czechia,Tomáš Souček,2,0,2025-11-17,4
-Dominican Republic,Dorny Romero,2,0,2025-06-10,4
 Germany,Joshua Kimmich,2,1,2025-10-10,4
 Greece,Anastasios Bakasetas,2,0,2025-11-15,4
-Guatemala,Rubio Rubin,2,0,2025-06-29,4
 Italy,Sandro Tonali,2,0,2026-03-26,4
+Jamaica,Shamar Nicholson,2,0,2025-10-14,4
 Japan,Daichi Kamada,2,0,2025-06-10,4
 Kenya,Michael Olunga,2,1,2025-09-09,4
 Lithuania,Gvidas Gineitis,2,1,2025-09-07,4
-Nicaragua,Jaime Moreno,2,0,2025-11-13,4
 North Macedonia,Enis Bardhi,2,0,2025-10-13,4
 Poland,Piotr Zieliński,2,0,2026-03-26,4
 Romania,Dennis Man,2,0,2025-11-18,4
-South Korea,Oh Hyeon-gyu,2,0,2025-06-10,4
 Spain,Ferran Torres,2,0,2025-11-15,4
-Spain,Lamine Yamal,2,1,2025-06-05,4
+Trinidad and Tobago,Dante Sealy,2,0,2025-10-10,4
 Türkiye,Merih Demiral,2,0,2025-10-14,4
 Wales,Brennan Johnson,2,0,2025-11-18,4
 Albania,Kristjan Asllani,2,1,2025-11-13,3
@@ -166,47 +146,40 @@ Austria,Konrad Laimer,2,0,2025-10-09,3
 Austria,Stefan Posch,2,0,2025-10-09,3
 Burkina Faso,Dango Ouattara,2,1,2025-09-05,3
 Costa Rica,Francisco Calvo,2,1,2025-10-13,3
-Croatia,Ante Budimir,2,1,2025-06-09,3
-Curaçao,Juninho Bacuna,2,0,2025-11-13,3
+Costa Rica,Josimar Alcócer,2,0,2025-06-18,3
 Côte d'Ivoire,Evann Guessand,2,0,2025-12-31,3
 Denmark,Patrick Dorgu,2,0,2025-11-18,3
 England,Eberechi Eze,2,0,2025-11-13,3
-Estonia,Mattias Käit,2,0,2025-10-14,3
 Germany,Leroy Sané,2,0,2025-11-17,3
 Greece,Konstantinos Karetsas,2,0,2025-11-15,3
-Honduras,Anthony Lozano,2,0,2025-10-13,3
+Guatemala,Rubio Rubin,2,0,2025-06-29,3
+Haiti,Frantzdy Pierrot,2,0,2025-11-13,3
 Iceland,Victor Pálsson,2,0,2025-10-13,3
 Iceland,Ísak Bergmann Jóhannesson,2,0,2025-09-05,3
+Jamaica,Warner Brown,2,0,2025-06-10,3
 Mali,Dorgeles Nene,2,0,2025-10-12,3
 Nigeria,Raphael Onyedika,2,0,2025-12-30,3
-Panama,Eduardo Guerrero,2,1,2025-06-16,3
-Portugal,Francisco Conceição,2,0,2025-11-16,3
 Portugal,João Félix,2,0,2025-09-06,3
-Saint Lucia,Caniggia Elva,2,2,2025-06-10,3
 Scotland,Ryan Christie,2,0,2025-11-15,3
 Senegal,Habib Diallo,2,0,2025-12-30,3
-Senegal,Ismaïla Sarr,2,0,2025-10-10,3
 Senegal,Pape Matar Sarr,2,0,2025-09-09,3
 Serbia,Dušan Vlahović,2,0,2025-10-14,3
+Spain,Pedri,2,0,2025-09-07,3
 Switzerland,Dan Ndoye,2,0,2025-11-15,3
-Trinidad and Tobago,Nathaniel James,2,0,2025-11-18,3
 Tunisia,Elias Achouri,2,0,2025-12-23,3
 Uganda,Allan Okello,2,1,2025-09-08,3
 Uruguay,Rodrigo Aguirre,2,0,2025-09-04,3
 Wales,Daniel James,2,0,2026-03-26,3
-Wales,Kieffer Moore,2,0,2025-09-04,3
 Algeria,Baghdad Bounedjah,2,0,2025-09-04,2
 Algeria,Ibrahim Maza,2,0,2025-12-31,2
 Belgium,Charles De Ketelaere,2,0,2025-11-18,2
 Belgium,Hans Vanaken,2,0,2025-11-18,2
 Belgium,Thomas Meunier,2,0,2025-10-13,2
-Bermuda,Reggie Lambe,2,0,2025-06-10,2
 Bolivia,Moisés Paniagua,2,0,2026-03-31,2
 Cameroon,Christian Kofane,2,0,2026-01-04,2
 Canada,Nathan Saliba,2,0,2025-06-21,2
 Cape Verde,Willy Semedo,2,0,2025-10-13,2
 Chad,Célestin Ecua,2,0,2025-10-12,2
-Croatia,Franjo Ivanović,2,0,2025-06-06,2
 Croatia,Kristijan Jakić,2,0,2025-11-17,2
 Croatia,Nikola Vlašić,2,0,2025-11-17,2
 Curaçao,Jeremy Antonisse,2,0,2025-06-21,2
@@ -222,26 +195,20 @@ DR Congo,Nathanaël Mbuku,2,0,2025-12-30,2
 DR Congo,Yoane Wissa,2,0,2025-09-09,2
 Denmark,Anders Dreyer,2,0,2025-10-09,2
 Denmark,Joachim Andersen,2,0,2026-03-31,2
-Dominica,Audel Laville,2,0,2025-06-04,2
 Dominican Republic,Peter González,2,0,2025-06-14,2
-El Salvador,Brayan Gil,2,0,2025-06-10,2
 Eswatini,Justice Figuareido,2,0,2025-10-08,2
 Faroe Islands,Martin Agnarsson,2,0,2025-10-12,2
 Faroe Islands,Árni Frederiksberg,2,1,2025-10-09,2
 France,Jean-Philippe Mateta,2,0,2025-11-16,2
 Gabon,Mario Lemina,2,0,2025-11-13,2
 Ghana,Alexander Djiku,2,0,2025-10-08,2
-Grenada,Darius Johnson,2,0,2025-06-10,2
-Grenada,Jermaine Francis,2,0,2025-06-10,2
 Guatemala,Darwin Lom,2,0,2025-11-18,2
-Haiti,Danley Jean Jacques,2,0,2025-10-09,2
-Haiti,Ruben Providence,2,0,2025-11-18,2
 Honduras,Alexy Vega,2,0,2025-09-09,2
+Honduras,Anthony Lozano,2,0,2025-10-13,2
 Hungary,Dániel Lukács,2,0,2025-11-16,2
 Iceland,Kristian Hlynsson,2,0,2025-10-13,2
 Indonesia,Kevin Diks,2,2,2025-10-08,2
 Iraq,Ali Al-Hamadi,2,0,2026-03-31,2
-Israel,Dan Biton,2,0,2025-06-06,2
 Italy,Gianluca Mancini,2,0,2025-11-13,2
 Jamaica,Bailey Cadamarteri,2,0,2026-03-26,2
 Jamaica,Renaldo Cephas,2,0,2025-11-13,2
@@ -259,22 +226,19 @@ Netherlands,Virgil van Dijk,2,0,2025-10-12,2
 Nigeria,Frank Onyeka,2,0,2025-11-16,2
 Panama,Cecilio Waterman,2,0,2025-11-13,2
 Panama,Eric Davis,2,1,2025-11-18,2
-Paraguay,Matías Galarza,2,0,2025-09-09,2
 Poland,Jakub Kamiński,2,0,2025-11-14,2
 Poland,Matty Cash,2,0,2025-09-07,2
 Portugal,João Cancelo,2,0,2025-09-09,2
-Romania,Florin Tănase,2,0,2025-06-10,2
-Saudi Arabia,Abdulrahman Al-Aboud,2,0,2025-06-10,2
+Saint Lucia,Caniggia Elva,2,2,2025-06-10,2
 Scotland,Che Adams,2,0,2025-10-12,2
 Senegal,Iliman Ndiaye,2,0,2026-01-09,2
+Senegal,Ismaïla Sarr,2,0,2025-10-10,2
 South Africa,Evidence Makgopa,2,0,2026-01-04,2
 Suriname,Dhoraso Klas,2,0,2025-11-13,2
 Sweden,Anthony Elanga,2,0,2026-03-31,2
 Switzerland,Granit Xhaka,2,2,2025-11-15,2
 Switzerland,Johan Manzambi,2,0,2025-11-15,2
-Trinidad and Tobago,Kevin Molino,2,1,2025-11-13,2
 Trinidad and Tobago,Kobi Henry,2,0,2025-11-18,2
-Trinidad and Tobago,Levi García,2,0,2025-06-10,2
 Trinidad and Tobago,Tyrese Spicer,2,0,2025-10-14,2
 Tunisia,Ali Abdi,2,2,2025-12-27,2
 Tunisia,Ferjani Sassi,2,0,2025-10-13,2
@@ -285,73 +249,79 @@ United Arab Emirates,Caio Lucas,2,0,2025-11-18,2
 United States,Chris Richards,2,0,2025-07-06,2
 United States,Patrick Agyemang,2,0,2025-06-22,2
 Uruguay,Giorgian de Arrascaeta,2,0,2025-09-04,2
-Wales,Joe Rodon,2,0,2025-10-13,2
 Wales,Nathan Broadhead,2,0,2025-11-18,2
 Georgia,Georges Mikautadze,1,0,2025-09-07,11
 Argentina,Lautaro Martínez,1,0,2025-09-04,9
-Iran,Mehdi Taremi,1,0,2025-06-10,8
 Colombia,Luis Díaz,1,0,2025-06-10,7
-Iraq,Aymen Hussein,1,0,2026-03-31,7
-Burkina Faso,Lassina Traoré,1,0,2025-12-31,6
+Germany,Florian Wirtz,1,0,2025-09-07,7
+Venezuela,Salomón Rondón,1,0,2025-09-09,7
+Czechia,Patrik Schick,1,1,2026-03-26,6
 Ecuador,Enner Valencia,1,1,2025-09-09,6
+Iraq,Aymen Hussein,1,0,2026-03-31,6
 Kosovo,Vedat Muriqi,1,0,2025-09-08,6
 North Macedonia,Bojan Miovski,1,0,2025-11-18,6
-United Arab Emirates,Harib Abdalla,1,0,2025-06-10,6
+Burkina Faso,Lassina Traoré,1,0,2025-12-31,5
 Cyprus,Ioannis Pittas,1,1,2025-10-09,5
 Czechia,Pavel Šulc,1,0,2026-03-31,5
-France,Randal Kolo Muani,1,0,2025-06-05,5
-Madagascar,Rayan Raveloson,1,0,2025-09-08,5
+Iran,Mehdi Taremi,1,0,2025-06-10,5
+Netherlands,Denzel Dumfries,1,0,2025-09-04,5
 Northern Ireland,Isaac Price,1,0,2025-09-07,5
-Argentina,Julián Alvarez,1,0,2025-06-05,4
+Norway,Antonio Nusa,1,0,2025-11-16,5
 Austria,Christoph Baumgartner,1,0,2025-06-10,4
+Belgium,Maxim De Cuyper,1,0,2025-09-04,4
 Belgium,Romelu Lukaku,1,1,2025-06-09,4
 Brazil,Vinícius Júnior,1,0,2025-06-10,4
+Curaçao,Gervane Kastaneer,1,0,2025-06-10,4
+Dominican Republic,Dorny Romero,1,0,2025-06-10,4
 Georgia,Giorgi Kochorashvili,1,0,2025-10-14,4
 Hungary,Dominik Szoboszlai,1,0,2025-10-14,4
-Israel,Mohammad Abu Fani,1,1,2025-06-06,4
-North Korea,Ri Jo-guk,1,0,2025-06-05,4
-Palestine,Wessam Abou Ali,1,1,2025-06-05,4
-Paraguay,Julio Enciso,1,1,2025-06-05,4
+Saint Vincent and the Grenadines,Oalex Anderson,1,0,2025-06-10,4
 Slovakia,Ivan Schranz,1,0,2025-10-13,4
 South Korea,Lee Jae-sung,1,0,2025-06-10,4
-South Korea,Lee Kang-in,1,0,2025-06-10,4
+South Korea,Oh Hyeon-gyu,1,0,2025-06-10,4
 Spain,Dani Olmo,1,0,2025-11-18,4
-Spain,Nico Williams,1,0,2025-06-05,4
 Türkiye,Arda Güler,1,0,2025-10-11,4
 Türkiye,Hakan Çalhanoğlu,1,1,2025-11-15,4
+United Arab Emirates,Harib Abdalla,1,0,2025-06-10,4
 Albania,Rey Manaj,1,0,2025-10-11,3
 Argentina,Thiago Almada,1,0,2025-06-10,3
 Austria,Romano Schmid,1,0,2025-10-09,3
 Cameroon,Bryan Mbeumo,1,0,2025-10-08,3
 Colombia,James Rodríguez,1,0,2025-09-04,3
-Costa Rica,Orlando Galo,1,0,2025-06-07,3
+Costa Rica,Warren Madrigal,1,0,2025-06-10,3
+Croatia,Ante Budimir,1,1,2025-06-09,3
 Croatia,Luka Modrić,1,1,2025-06-09,3
+Curaçao,Juninho Bacuna,1,0,2025-11-13,3
 Czechia,Tomáš Chorý,1,0,2025-11-17,3
 England,Declan Rice,1,0,2025-09-06,3
 Equatorial Guinea,Iban Salvador,1,0,2025-09-04,3
+Estonia,Mattias Käit,1,0,2025-10-14,3
 Finland,Joel Pohjanpalo,1,1,2025-06-10,3
 France,Adrien Rabiot,1,0,2025-10-10,3
 France,Bradley Barcola,1,0,2025-09-09,3
 Ghana,Thomas Partey,1,0,2025-10-08,3
 Greece,Vangelis Pavlidis,1,0,2025-09-05,3
 Iceland,Andri Guðjohnsen,1,0,2025-09-09,3
-Indonesia,Ole Romeny,1,1,2025-06-05,3
 Italy,Andrea Cambiaso,1,0,2025-06-09,3
 Japan,Takefusa Kubo,1,0,2025-06-10,3
+Madagascar,Rayan Raveloson,1,0,2025-09-08,3
 Moldova,Ion Nicolaescu,1,0,2025-11-16,3
 Nicaragua,Bancy Hernández,1,0,2025-11-13,3
-Panama,José Luis Rodríguez,1,0,2025-11-18,3
+Nicaragua,Jaime Moreno,1,0,2025-11-13,3
+Panama,Eduardo Guerrero,1,1,2025-06-16,3
 Poland,Karol Świderski,1,0,2026-03-31,3
 Poland,Nicola Zalewski,1,0,2026-03-31,3
 Poland,Sebastian Szymański,1,0,2025-10-12,3
 Portugal,Bernardo Silva,1,0,2025-09-09,3
-Saudi Arabia,Musab Al-Juwayr,1,0,2025-06-05,3
+Portugal,Francisco Conceição,1,0,2025-11-16,3
+Trinidad and Tobago,Nathaniel James,1,0,2025-11-18,3
 United Arab Emirates,Sultan Adil,1,0,2025-10-14,3
+Wales,Kieffer Moore,1,0,2025-09-04,3
 Angola,Fredy,1,0,2025-09-09,2
 Angola,Gelson Dala,1,0,2025-12-26,2
 Belgium,Leandro Trossard,1,0,2025-10-13,2
 Benin,Jodel Dossou,1,0,2026-01-05,2
-Bermuda,Zeiko Lewis,1,1,2025-06-04,2
+Bermuda,Reggie Lambe,1,0,2025-06-10,2
 Bolivia,Enzo Monteiro,1,0,2025-06-10,2
 Botswana,Gape Mohutsiwa,1,0,2025-10-14,2
 Botswana,Tebogo Kopelang,1,0,2025-09-04,2
@@ -359,20 +329,17 @@ Brazil,Lucas Paquetá,1,0,2025-09-04,2
 Burkina Faso,Josué Tiendrébéogo,1,0,2025-09-05,2
 Burkina Faso,Mohamed Zougrana,1,0,2025-10-08,2
 Cape Verde,Diney,1,0,2025-09-04,2
-Central African Republic,Vénuste Baboula,1,0,2025-10-12,2
 Colombia,Juan Fernando Quintero,1,0,2025-09-04,2
 Comoros,Myziane Maolida,1,0,2025-09-07,2
 Comoros,Rafiki Saïd,1,0,2025-10-08,2
-Costa Rica,Álvaro Zamora,1,0,2025-06-07,2
 Croatia,Joško Gvardiol,1,0,2025-11-14,2
 Cyprus,Andronikos Kakoullis,1,0,2025-10-12,2
 Cyprus,Grigoris Kastanos,1,1,2025-10-12,2
-Czechia,Adam Hložek,1,0,2025-06-06,2
 Czechia,Lukáš Červ,1,0,2025-09-05,2
 Czechia,Václav Černý,1,0,2025-09-05,2
 DR Congo,Meschak Elia,1,0,2025-11-16,2
 DR Congo,Théo Bongonda,1,0,2025-12-23,2
-Dominica,Troy Jules,1,0,2025-06-04,2
+El Salvador,Brayan Gil,1,0,2025-06-10,2
 England,Anthony Gordon,1,0,2025-10-14,2
 England,Bukayo Saka,1,0,2025-11-13,2
 Equatorial Guinea,Emilio Nsue,1,0,2025-12-31,2
@@ -382,41 +349,45 @@ Gambia,Ebou Adams,1,0,2025-09-09,2
 Ghana,Mohammed Kudus,1,0,2025-10-12,2
 Ghana,Mohammed Salisu,1,0,2025-10-08,2
 Gibraltar,James Scanlon,1,0,2025-06-09,2
+Grenada,Darius Johnson,1,0,2025-06-10,2
+Grenada,Jermaine Francis,1,0,2025-06-10,2
 Guatemala,José Carlos Pinto,1,1,2025-06-24,2
 Guinea-Bissau,Mama Baldé,1,0,2025-09-04,2
+Haiti,Danley Jean Jacques,1,0,2025-10-09,2
 Haiti,Louicius Don Deedson,1,0,2025-06-10,2
+Haiti,Ruben Providence,1,0,2025-11-18,2
 Hungary,Roland Sallai,1,0,2025-09-06,2
 Israel,Dor Turgeman,1,1,2025-11-16,2
 Italy,Alessandro Bastoni,1,0,2025-09-05,2
 Kosovo,Elvis Rexhbeçaj,1,0,2025-09-08,2
-Kyrgyzstan,Gulzhigit Alykulov,1,0,2025-06-05,2
 Liberia,Nicholas Andrews,1,0,2025-10-13,2
 Madagascar,Arnaud Randrianantenaina,1,0,2025-09-04,2
-Malawi,Chawanangwa Kawonga,1,0,2025-09-08,2
 Malta,Teddy Teuma,1,1,2025-11-17,2
 Morocco,Azzedine Ounahi,1,0,2025-09-05,2
 Niger,Youssouf Oumarou,1,0,2025-10-08,2
-North Korea,Pak Kwang-hun,1,0,2025-06-05,2
 North Macedonia,Aleksandar Trajkovski,1,0,2025-06-09,2
 North Macedonia,Lirim Qamili,1,0,2025-09-07,2
 Norway,Felix Horn Myhre,1,0,2025-09-09,2
 Oman,Issam Al-Sabhi,1,1,2025-06-10,2
-Palestine,Tamer Seyam,1,0,2025-06-05,2
-Panama,Cristian Martínez,1,0,2025-06-16,2
 Panama,César Blackman,1,0,2025-11-18,2
 Panama,César Yanis,1,0,2025-06-10,2
+Panama,José Luis Rodríguez,1,0,2025-11-18,2
+Paraguay,Matías Galarza,1,0,2025-09-09,2
 Portugal,Gonçalo Ramos,1,0,2025-11-16,2
 Puerto Rico,Leandro Antonetti,1,0,2025-06-10,2
 Republic of Ireland,Adam Idah,1,0,2025-09-06,2
 Romania,Daniel Bîrligea,1,0,2025-11-15,2
+Romania,Florin Tănase,1,0,2025-06-10,2
 Romania,Ianis Hagi,1,0,2025-11-18,2
+Saudi Arabia,Abdulrahman Al-Aboud,1,0,2025-06-10,2
 Slovakia,Dávid Hancko,1,0,2025-09-04,2
 Slovakia,Lukáš Haraslín,1,0,2026-03-26,2
+South Korea,Lee Kang-in,1,0,2025-06-10,2
 Spain,Martin Zubimendi,1,0,2025-11-15,2
-Suriname,Jaden Montnor,1,0,2025-06-06,2
-Suriname,Justin Lonwijk,1,0,2025-06-10,2
 Suriname,Shaquille Pinas,1,1,2025-06-15,2
 Sweden,Yasin Ayari,1,0,2025-09-05,2
+Trinidad and Tobago,Kevin Molino,1,0,2025-11-13,2
+Trinidad and Tobago,Levi García,1,0,2025-06-10,2
 Tunisia,Hazem Mastouri,1,0,2025-09-04,2
 Türkiye,Mert Müldür,1,0,2025-09-04,2
 Türkiye,İrfan Can Kahveci,1,0,2025-10-11,2
@@ -425,6 +396,7 @@ United Arab Emirates,Marcus Meloni,1,0,2025-10-11,2
 Uzbekistan,Eldor Shomurodov,1,0,2025-06-10,2
 Venezuela,Telasco Segovia,1,0,2025-09-09,2
 Wales,David Brooks,1,0,2025-11-18,2
+Wales,Joe Rodon,1,0,2025-10-13,2
 Zimbabwe,Knowledge Musona,1,0,2025-12-26,2
 Albania,Arbër Hoxha,1,0,2026-03-26,1
 Algeria,Adil Boulbina,1,0,2026-01-06,1
@@ -439,15 +411,12 @@ Angola,M'Bala Nzola,1,0,2025-09-09,1
 Angola,Show,1,0,2025-12-22,1
 Angola,Zini,1,0,2025-09-09,1
 Armenia,Grant-Leon Ranos,1,0,2025-09-09,1
-Aruba,Diederick Luydens,1,0,2025-06-04,1
-Australia,Aziz Behich,1,0,2025-06-05,1
 Australia,Connor Metcalfe,1,0,2025-06-10,1
 Australia,Mitch Duke,1,0,2025-06-10,1
 Austria,Nikolaus Wurmbrand,1,0,2025-10-09,1
 Azerbaijan,Emin Mahmudov,1,1,2025-09-09,1
 Azerbaijan,Renat Dadaşov,1,0,2025-11-16,1
 Barbados,Devonte Richards,1,0,2025-06-10,1
-Barbados,Omani Leacock,1,1,2025-06-04,1
 Belarus,German Barkovsky,1,1,2025-09-05,1
 Belarus,Gleb Kuchko,1,0,2025-10-12,1
 Belarus,Nikita Demchenko,1,0,2025-11-15,1
@@ -462,9 +431,7 @@ Benin,Hassane Imourane,1,0,2025-09-09,1
 Benin,Junior Olaitan,1,0,2025-09-09,1
 Benin,Tosin Aiyegun,1,0,2025-10-10,1
 Benin,Yohan Roche,1,0,2025-12-27,1
-Bermuda,Julian Carpenter,1,0,2025-06-04,1
 Bermuda,Kane Crichlow,1,0,2025-09-09,1
-Bermuda,Kole Hall,1,0,2025-06-04,1
 Bermuda,Ne-Jai Tucker,1,0,2025-11-18,1
 Bosnia and Herzegovina,Benjamin Tahirović,1,0,2025-09-06,1
 Bosnia and Herzegovina,Esmir Bajraktarević,1,0,2025-11-15,1
@@ -495,6 +462,7 @@ Cape Verde,Stopira,1,0,2025-10-13,1
 Cape Verde,Telmo Arcanjo,1,0,2025-10-08,1
 Central African Republic,Delphin Mokonou,1,0,2025-10-12,1
 Central African Republic,Karl Namnganda,1,0,2025-10-12,1
+Central African Republic,Vénuste Baboula,1,0,2025-10-12,1
 Chad,Marius Mouandilmadji,1,0,2025-10-12,1
 Chad,Yves Allarabaye,1,0,2025-09-08,1
 China PR,Wang Yudong,1,1,2025-06-10,1
@@ -502,19 +470,15 @@ Colombia,Yerry Mina,1,0,2025-09-09,1
 Comoros,Youssouf M'Changama,1,0,2025-09-07,1
 Congo,Dechan Moussavou,1,0,2025-09-05,1
 Congo,Déo Bassinga,1,0,2025-10-08,1
-Costa Rica,Alejandro Bran,1,0,2025-06-07,1
 Costa Rica,Alexis Gamboa,1,0,2025-09-05,1
 Costa Rica,Jeyland Mitchell,1,0,2025-06-10,1
-Costa Rica,Joseph Mora,1,0,2025-06-07,1
 Costa Rica,Juan Pablo Vargas,1,0,2025-09-09,1
 Costa Rica,Kenneth Vargas,1,0,2025-09-09,1
 Croatia,Luka Sučić,1,0,2025-10-12,1
-Croatia,Mario Pašalić,1,0,2025-06-06,1
 Croatia,Martin Erlić,1,0,2025-10-12,1
 Croatia,Petar Musa,1,0,2025-11-14,1
 Croatia,Toni Fruk,1,0,2025-10-12,1
 Cuba,Jorge Aguirre,1,0,2025-06-10,1
-Cuba,Pedro Bravo,1,0,2025-06-06,1
 Curaçao,Ar'jany Martha,1,0,2025-11-13,1
 Curaçao,Jearl Margaritha,1,0,2025-06-10,1
 Curaçao,Kevin Felida,1,0,2025-06-10,1
@@ -547,7 +511,6 @@ Denmark,Victor Froholdt,1,0,2025-10-09,1
 Djibouti,Abdichakour Farah,1,0,2025-10-12,1
 Dominican Republic,Edarlyn Reyes,1,0,2025-06-10,1
 Dominican Republic,Edison Azcona,1,0,2025-06-14,1
-Dominican Republic,Heinz Mörschel,1,0,2025-06-06,1
 Dominican Republic,Jimmy Kaparos,1,0,2025-06-10,1
 Dominican Republic,Joao Urbáez,1,0,2025-06-18,1
 Dominican Republic,Noah Dollenmayer,1,0,2025-06-10,1
@@ -556,9 +519,7 @@ Egypt,Marwan Attia,1,0,2026-01-05,1
 Egypt,Mohamed Hamdy,1,0,2025-10-12,1
 Egypt,Ramy Rabia,1,0,2026-01-10,1
 Egypt,Yasser Ibrahim,1,0,2026-01-05,1
-El Salvador,Elvin Alvarado,1,0,2025-06-07,1
 El Salvador,Harold Osorio,1,0,2025-09-04,1
-El Salvador,Santos Ortiz,1,0,2025-06-07,1
 England,Ezri Konsa,1,0,2025-09-09,1
 England,Marc Guéhi,1,0,2025-09-09,1
 England,Marcus Rashford,1,1,2025-09-09,1
@@ -576,7 +537,6 @@ Finland,Adam Markhiyev,1,0,2025-10-09,1
 France,Florian Thauvin,1,0,2025-10-10,1
 France,Hugo Ekitike,1,0,2025-11-13,1
 France,Maghnes Akliouche,1,0,2025-11-16,1
-France,Rayan Cherki,1,0,2025-06-05,1
 Gabon,Alex Moucketou-Moussounda,1,0,2025-12-28,1
 Gabon,Bryan Meyo,1,0,2025-10-14,1
 Gabon,Guélor Kanga,1,0,2025-12-31,1
@@ -594,18 +554,13 @@ Ghana,Kamaldeen Sulemana,1,0,2025-10-08,1
 Gibraltar,Liam Jessop,1,0,2025-11-14,1
 Greece,Dimitrios Kourbelis,1,0,2025-09-05,1
 Greece,Kostas Tsimikas,1,0,2025-10-09,1
-Grenada,Joshua Isaac,1,0,2025-06-04,1
-Grenada,Kayden Harrack,1,0,2025-06-04,1
-Grenada,Keishean Francois,1,0,2025-06-04,1
 Grenada,Regan Charles-Cook,1,0,2025-06-10,1
-Grenada,Saydrel Lewis,1,0,2025-06-04,1
 Guadeloupe,Ange-Freddy Plumain,1,1,2025-06-24,1
 Guadeloupe,Florian David,1,1,2025-06-16,1
 Guadeloupe,Jordan Leborgne,1,0,2025-06-16,1
 Guadeloupe,Matthias Phaëton,1,0,2025-06-24,1
 Guadeloupe,Thierry Ambrose,1,0,2025-06-20,1
 Guatemala,Arquímides Ordóñez,1,0,2025-11-13,1
-Guatemala,Nicolás Samayoa,1,0,2025-06-06,1
 Guatemala,Rudy Muñoz,1,0,2025-11-13,1
 Guinea,Aliou Baldé,1,0,2025-10-14,1
 Guinea,Ousmane Camara,1,0,2025-09-05,1
@@ -615,7 +570,6 @@ Guinea-Bissau,Iano Imbeni,1,0,2025-09-08,1
 Guyana,Nathan Ferguson,1,0,2025-06-10,1
 Guyana,Omari Glasgow,1,0,2025-06-10,1
 Guyana,Osaze De Rosario,1,0,2025-06-10,1
-Haiti,Mondy Prunier,1,0,2025-06-07,1
 Honduras,Dixon Ramírez,1,0,2025-06-21,1
 Honduras,Getsel Montes,1,0,2025-06-10,1
 Honduras,Jorge Álvarez,1,0,2025-06-24,1
@@ -667,6 +621,7 @@ Madagascar,Clément Couturier,1,0,2025-10-08,1
 Madagascar,El Hadari Raheriniaina,1,0,2025-10-08,1
 Madagascar,Hakim Abdallah,1,0,2025-09-08,1
 Madagascar,Johan N'Zi,1,0,2025-10-12,1
+Malawi,Chawanangwa Kawonga,1,0,2025-09-08,1
 Malawi,Richard Mbulu,1,0,2025-09-05,1
 Mali,Gaoussou Diarra,1,0,2025-10-12,1
 Mali,Lassana Coulibaly,1,0,2025-09-04,1
@@ -680,7 +635,6 @@ Mexico,Alexis Vega,1,0,2025-06-28,1
 Moldova,Ștefan Bodișteanu,1,0,2025-10-14,1
 Montenegro,Milutin Osmajić,1,0,2025-11-17,1
 Montenegro,Vasilije Adžić,1,0,2025-11-14,1
-Montserrat,Mark Rogers,1,0,2025-06-04,1
 Mozambique,Diogo Calila,1,0,2025-12-28,1
 Mozambique,Reinildo Mandava,1,0,2025-10-09,1
 Mozambique,Witi,1,0,2025-09-08,1
@@ -700,7 +654,6 @@ Nigeria,Tolu Arokodare,1,0,2025-09-06,1
 Nigeria,Wilfred Ndidi,1,0,2025-12-27,1
 Nigeria,William Troost-Ekong,1,1,2025-10-10,1
 North Macedonia,Darko Churlinov,1,0,2025-09-07,1
-North Macedonia,Ezgjan Alioski,1,0,2025-06-06,1
 North Macedonia,Luka Stankovski,1,0,2025-09-07,1
 Northern Ireland,Jamie Donley,1,1,2025-11-17,1
 Northern Ireland,Jamie Reid,1,0,2025-09-04,1
@@ -711,7 +664,7 @@ Norway,Jørgen Strand Larsen,1,0,2025-11-16,1
 Norway,Martin Ødegaard,1,0,2025-09-09,1
 Palestine,Oday Kharoub,1,0,2025-06-10,1
 Panama,Carlos Harvey,1,0,2025-09-08,1
-Panama,Fidel Escobar,1,0,2025-06-07,1
+Panama,Cristian Martínez,1,0,2025-06-16,1
 Poland,Jakub Kiwior,1,0,2025-06-10,1
 Poland,Paweł Wszołek,1,0,2025-11-17,1
 Portugal,Nuno Mendes,1,0,2025-06-08,1
@@ -720,20 +673,13 @@ Portugal,Rúben Neves,1,0,2025-10-11,1
 Puerto Rico,Steven Echevarria,1,0,2025-06-10,1
 Qatar,Boualem Khoukhi,1,0,2025-10-14,1
 Qatar,Pedro Miguel,1,0,2025-10-14,1
-Qatar,Ró-Ró,1,0,2025-06-05,1
 Romania,Andrei Rațiu,1,0,2025-11-18,1
 Romania,Louis Munteanu,1,1,2025-11-18,1
 Romania,Virgil Ghiță,1,0,2025-10-12,1
 Romania,Ștefan Baiaram,1,0,2025-11-18,1
 Rwanda,Gilbert Mugisha,1,0,2025-09-09,1
-Saint Kitts and Nevis,G'Vaune Amory,1,0,2025-06-06,1
 Saint Kitts and Nevis,Romaine Sawyers,1,0,2025-06-10,1
-Saint Kitts and Nevis,Tiquanny Williams,1,0,2025-06-06,1
 Saint Kitts and Nevis,Tyreece Simpson,1,0,2025-06-10,1
-Saint Vincent and the Grenadines,Cornelius Stewart,1,1,2025-06-04,1
-Saint Vincent and the Grenadines,Kirtney Franklyn,1,0,2025-06-04,1
-Saint Vincent and the Grenadines,Kyle Edwards,1,0,2025-06-04,1
-Saint Vincent and the Grenadines,Micah Joseph,1,0,2025-06-04,1
 San Marino,Nicolas Giacopetti,1,0,2025-11-18,1
 Saudi Arabia,Saleh Abu Al-Shamat,1,0,2025-10-08,1
 Saudi Arabia,Saleh Al-Shehri,1,1,2025-06-15,1
@@ -763,13 +709,13 @@ Slovenia,Žan Vipotnik,1,0,2025-09-05,1
 South Africa,Mohau Nkota,1,0,2025-09-05,1
 South Africa,Thalente Mbatha,1,0,2025-10-14,1
 South Africa,Tshepang Moremi,1,0,2025-12-29,1
-South Korea,Kim Jin-gyu,1,0,2025-06-05,1
 South Sudan,Keer Majak,1,0,2025-09-05,1
 Spain,Marc Cucurella,1,0,2025-09-04,1
 Spain,Martín Zubimendi,1,0,2025-06-08,1
 Spain,Yéremy Pino,1,0,2025-10-11,1
 Sudan,Aamir Abdallah,1,0,2026-01-03,1
 Suriname,Gyrano Kerk,1,0,2025-06-15,1
+Suriname,Justin Lonwijk,1,0,2025-06-10,1
 Suriname,Liam van Gelderen,1,0,2026-03-26,1
 Suriname,Radinio Balker,1,0,2025-09-08,1
 Suriname,Tjaronn Chery,1,1,2025-11-13,1
@@ -786,7 +732,6 @@ Tanzania,Feisal Salum,1,0,2025-12-30,1
 Tanzania,Selemani Mwalimu,1,0,2025-09-05,1
 Tanzania,Simon Msuva,1,1,2025-12-27,1
 Togo,Sadik Fofana,1,0,2025-09-09,1
-Trinidad and Tobago,Ajani Fortune,1,0,2025-06-06,1
 Trinidad and Tobago,Justin Garcia,1,0,2025-06-19,1
 Tunisia,Ellyes Skhiri,1,0,2025-12-23,1
 Tunisia,Hannibal Mejbri,1,0,2025-10-13,1
@@ -822,29 +767,36 @@ New Zealand,Chris Wood,0,0,,9
 Romania,Răzvan Marin,0,0,,9
 Fiji,Roy Krishna,0,0,,8
 Germany,Jamal Musiala,0,0,,6
-Jordan,Yazan Al-Naimat,0,0,,6
+Jordan,Ali Olwan,0,0,,6
 New Zealand,Ben Waine,0,0,,6
-Australia,Kusini Yengi,0,0,,5
 Brazil,Raphinha,0,0,,5
+France,Randal Kolo Muani,0,0,,5
 Iceland,Orri Óskarsson,0,0,,5
-Iran,Sardar Azmoun,0,0,,5
+Jordan,Yazan Al-Naimat,0,0,,5
 Kuwait,Yousef Nasser,0,0,,5
 Lithuania,Armandas Kučys,0,0,,5
 New Zealand,Elijah Just,0,0,,5
 New Zealand,Kosta Barbarouses,0,0,,5
-Oman,Abdulrahman Al-Mushaifri,0,0,,5
 Qatar,Almoez Ali,0,0,,5
 Slovenia,Benjamin Šeško,0,0,,5
-South Korea,Son Heung-min,0,0,,5
 United Arab Emirates,Fábio Lima,0,0,,5
+Argentina,Julián Alvarez,0,0,,4
+Australia,Kusini Yengi,0,0,,4
 Cameroon,Vincent Aboubakar,0,0,,4
 Fiji,Thomas Dunn,0,0,,4
 Germany,Kai Havertz,0,0,,4
 Germany,Tim Kleindienst,0,0,,4
 Iran,Mohammad Mohebi,0,0,,4
+Iran,Sardar Azmoun,0,0,,4
+Israel,Mohammad Abu Fani,0,0,,4
 Japan,Takumi Minamino,0,0,,4
+North Korea,Ri Jo-guk,0,0,,4
+Palestine,Wessam Abou Ali,0,0,,4
 Papua New Guinea,Tommy Semmy,0,0,,4
+Paraguay,Julio Enciso,0,0,,4
 Spain,Fabián Ruiz,0,0,,4
+Spain,Lamine Yamal,0,0,,4
+Spain,Nico Williams,0,0,,4
 Sweden,Alexander Isak,0,0,,4
 Tahiti,Teaonui Tehau,0,0,,4
 Uzbekistan,Abbosbek Fayzullaev,0,0,,4
@@ -855,8 +807,6 @@ Bosnia and Herzegovina,Ermedin Demirović,0,0,,3
 Burundi,Bienvenue Kanakimana,0,0,,3
 Central African Republic,Louis Mafouta,0,0,,3
 Chile,Eduardo Vargas,0,0,,3
-China PR,Zhang Yuning,0,0,,3
-Curaçao,Rangelo Janga,0,0,,3
 Denmark,Christian Eriksen,0,0,,3
 England,Jude Bellingham,0,0,,3
 Ethiopia,Abubeker Nassir,0,0,,3
@@ -864,10 +814,11 @@ Ethiopia,Bereket Desta,0,0,,3
 Germany,Deniz Undav,0,0,,3
 Germany,Niclas Füllkrug,0,0,,3
 Greece,Fotis Ioannidis,0,0,,3
+Guatemala,Oscar Santis,0,0,,3
+Indonesia,Ole Romeny,0,0,,3
 Italy,Davide Frattesi,0,0,,3
 Japan,Ayase Ueda,0,0,,3
 Japan,Hidemasa Morita,0,0,,3
-Japan,Koki Ogawa,0,0,,3
 Japan,Kōki Ogawa,0,0,,3
 Kyrgyzstan,Joel Kojo,0,0,,3
 Lebanon,Hassan Maatouk,0,0,,3
@@ -876,7 +827,7 @@ New Caledonia,Georges Gope-Fenepej,0,0,,3
 New Caledonia,Joseph Athale,0,0,,3
 Paraguay,Antonio Sanabria,0,0,,3
 Paraguay,Omar Alderete,0,0,,3
-South Korea,Hwang Hee-chan,0,0,,3
+South Korea,Son Heung-min,0,0,,3
 Switzerland,Zeki Amdouni,0,0,,3
 Albania,Nedim Bajrami,0,0,,2
 Algeria,Mohamed El Amine Amoura,0,0,,2
@@ -888,26 +839,26 @@ Australia,Martin Boyle,0,0,,2
 Austria,Philipp Lienhart,0,0,,2
 Azerbaijan,Toral Bayramov,0,0,,2
 Bahrain,Mohamed Marhoon,0,0,,2
-Barbados,Niall Reid-Stephen,0,0,,2
-Benin,Dodo Dokou,0,0,,2
+Bermuda,Zeiko Lewis,0,0,,2
 Bolivia,Carmelo Algarañaz,0,0,,2
 Brazil,Luiz Henrique,0,0,,2
 Burundi,Bonfils-Caleb Bimenyimana,0,0,,2
-Burundi,Sudi Abdallah,0,0,,2
 Chile,Lucas Cepeda,0,0,,2
+China PR,Zhang Yuning,0,0,,2
 Colombia,Daniel Muñoz,0,0,,2
 Colombia,Davinson Sánchez,0,0,,2
 Colombia,Jefferson Lerma,0,0,,2
 Colombia,Jhon Durán,0,0,,2
-Comoros,El Fardou Ben Nabouhane,0,0,,2
-DR Congo,Fiston Mayele,0,0,,2
-Djibouti,Gabriel Dadzie,0,0,,2
+Costa Rica,Álvaro Zamora,0,0,,2
+Croatia,Franjo Ivanović,0,0,,2
+Czechia,Adam Hložek,0,0,,2
 Djibouti,Samuel Akinbinu,0,0,,2
+Dominica,Audel Laville,0,0,,2
+Dominica,Troy Jules,0,0,,2
 Dominican Republic,Rafael Núñez,0,0,,2
 Ecuador,Alan Minda,0,0,,2
 Ecuador,Gonzalo Plata,0,0,,2
 Egypt,Ahmed Sayed,0,0,,2
-Egypt,Trézéguet,0,0,,2
 England,Jack Grealish,0,0,,2
 England,Ollie Watkins,0,0,,2
 Eswatini,Philani Mkhontfo,0,0,,2
@@ -919,20 +870,14 @@ France,Ousmane Dembélé,0,0,,2
 Gabon,Jim Allevinah,0,0,,2
 Gambia,Muhammed Badamosi,0,0,,2
 Georgia,Giorgi Chakvetadze,0,0,,2
-Ghana,Ernest Nuamah,0,0,,2
 Gibraltar,Liam Walker,0,0,,2
-Grenada,Myles Hippolyte,0,0,,2
-Guatemala,Alejandro Galindo,0,0,,2
 Guyana,Deon Moore,0,0,,2
-Honduras,Edwin Rodríguez,0,0,,2
 Indonesia,Marselino Ferdinan,0,0,,2
 Indonesia,Thom Haye,0,0,,2
 Iran,Mehdi Ghayedi,0,0,,2
-Iraq,Ali Jasim,0,0,,2
 Iraq,Ibrahim Bayesh,0,0,,2
+Israel,Dan Biton,0,0,,2
 Italy,Giovanni Di Lorenzo,0,0,,2
-Japan,Keito Nakamura,0,0,,2
-Japan,Ritsu Dōan,0,0,,2
 Jordan,Musa Al-Taamari,0,0,,2
 Jordan,Noor Al-Rawabdeh,0,0,,2
 Kosovo,Ermal Krasniqi,0,0,,2
@@ -944,16 +889,17 @@ Luxembourg,Gerson Rodrigues,0,0,,2
 Mauritius,Lindsay Rose,0,0,,2
 Moldova,Mihail Caimacov,0,0,,2
 Mozambique,Pepo Santos,0,0,,2
-Mozambique,Stanley Ratifo,0,0,,2
 New Zealand,Callum McCowatt,0,0,,2
 New Zealand,Max Mata,0,0,,2
 New Zealand,Sarpreet Singh,0,0,,2
 New Zealand,Tyler Bindon,0,0,,2
-North Korea,Jong Il-gwan,0,0,,2
 North Korea,Kim Yu-song,0,0,,2
+North Korea,Pak Kwang-hun,0,0,,2
 North Korea,Ri Il-song,0,0,,2
 Northern Ireland,Daniel Ballard,0,0,,2
+Oman,Abdulrahman Al-Mushaifri,0,0,,2
 Oman,Muhsen Al-Ghassani,0,0,,2
+Palestine,Tamer Seyam,0,0,,2
 Palestine,Zaid Qunbar,0,0,,2
 Papua New Guinea,Ati Kepo,0,0,,2
 Portugal,Francisco Trincão,0,0,,2
@@ -967,13 +913,12 @@ Rwanda,Jojea Kwizera,0,0,,2
 Samoa,Luke Salisbury,0,0,,2
 San Marino,Nicola Nanni,0,0,,2
 Saudi Arabia,Hassan Kadesh,0,0,,2
+Saudi Arabia,Musab Al-Juwayr,0,0,,2
 Scotland,John McGinn,0,0,,2
-Sierra Leone,Augustus Kargbo,0,0,,2
 Slovakia,Ondrej Duda,0,0,,2
 Slovenia,Adam Gnezda Čerin,0,0,,2
 South Africa,Thapelo Morena,0,0,,2
-South Korea,Bae Jun-ho,0,0,,2
-South Korea,Joo Min-kyu,0,0,,2
+South Korea,Hwang Hee-chan,0,0,,2
 South Korea,Oh Se-hun,0,0,,2
 Spain,Álvaro Morata,0,0,,2
 Suriname,Tyrone Conraad,0,0,,2
@@ -984,25 +929,18 @@ Tahiti,Benoît Mathon,0,0,,2
 Tahiti,Matéo Degrumelle,0,0,,2
 Trinidad and Tobago,Duane Muckette,0,0,,2
 Trinidad and Tobago,Malcolm Shaw,0,0,,2
-Trinidad and Tobago,Reon Moore,0,0,,2
 Türkiye,İrfan Kahveci,0,0,,2
-Uganda,Muhammad Shaban,0,0,,2
 Ukraine,Roman Yaremchuk,0,0,,2
 Ukraine,Vladyslav Vanat,0,0,,2
-United Arab Emirates,Ali Saleh,0,0,,2
 United Arab Emirates,Yahya Al-Ghassani,0,0,,2
 United States,Folarin Balogun,0,0,,2
 Uruguay,Darwin Núñez,0,0,,2
 Uruguay,Federico Valverde,0,0,,2
 Uruguay,Maximiliano Araújo,0,0,,2
 Uruguay,Rodrigo Bentancur,0,0,,2
-Uzbekistan,Husniddin Aliqulov,0,0,,2
-Uzbekistan,Oston Urunov,0,0,,2
 Vanuatu,John Alick,0,0,,2
 Venezuela,Eduard Bello,0,0,,2
 Venezuela,Jhonder Cádiz,0,0,,2
-Vietnam,Nguyễn Tiến Linh,0,0,,2
-Vietnam,Phạm Tuấn Hải,0,0,,2
 Wales,Liam Cullen,0,0,,2
 Zimbabwe,Tawanda Chirewa,0,0,,2
 Albania,Ardian Ismajli,0,0,,1
@@ -1015,8 +953,6 @@ Algeria,Aïssa Mandi,0,0,,1
 Algeria,Houssem Aouar,0,0,,1
 Algeria,Jaouen Hadjam,0,0,,1
 Algeria,Said Benrahma,0,0,,1
-Angola,Mabululu,0,0,,1
-Antigua and Barbuda,Raheem Deterville,0,0,,1
 Argentina,Enzo Fernández,0,0,,1
 Argentina,Giuliano Simeone,0,0,,1
 Argentina,Lisandro Martínez,0,0,,1
@@ -1027,22 +963,27 @@ Armenia,Artur Miranyan,0,0,,1
 Armenia,Edgar Sevikyan,0,0,,1
 Armenia,Gor Manvelyan,0,0,,1
 Armenia,Vahan Bichakhchyan,0,0,,1
+Aruba,Diederick Luydens,0,0,,1
 Aruba,Isaï Marselia,0,0,,1
 Aruba,Walter Bennett,0,0,,1
 Australia,Adam Taggart,0,0,,1
-Australia,Ajdin Hrustic,0,0,,1
+Australia,Aziz Behich,0,0,,1
 Australia,Craig Goodwin,0,0,,1
 Australia,Nestory Irankunda,0,0,,1
 Austria,Gernot Trauner,0,0,,1
 Austria,Matthias Seidl,0,0,,1
 Azerbaijan,Renat Dadashov,0,0,,1
 Bahamas,Wood Julmis,0,0,,1
+Barbados,Niall Reid-Stephen,0,0,,1
+Barbados,Omani Leacock,0,0,,1
 Belarus,Sergei Politevich,0,0,,1
 Belarus,Valery Gromyko,0,0,,1
 Belarus,Yury Kavalyow,0,0,,1
 Belgium,Loïs Openda,0,0,,1
 Belize,Carlos Bernárdez,0,0,,1
-Bermuda,Sachiel Ming,0,0,,1
+Benin,Dodo Dokou,0,0,,1
+Bermuda,Julian Carpenter,0,0,,1
+Bermuda,Kole Hall,0,0,,1
 Bolivia,Bruno Miranda,0,0,,1
 Bolivia,Ervin Vaca,0,0,,1
 Bolivia,Ramiro Vaca,0,0,,1
@@ -1066,6 +1007,7 @@ Bulgaria,Vasil Panayotov,0,0,,1
 Burkina Faso,Bertrand Traoré,0,0,,1
 Burundi,Christophe Nduwarugira,0,0,,1
 Burundi,Jean-Claude Girumugisha,0,0,,1
+Burundi,Sudi Abdallah,0,0,,1
 Cameroon,Michael Ngadeu-Ngadjui,0,0,,1
 Cameroon,Nouhou Tolo,0,0,,1
 Canada,Ismaël Koné,0,0,,1
@@ -1082,34 +1024,42 @@ Colombia,Luis Sinisterra,0,0,,1
 Colombia,Miguel Borja,0,0,,1
 Colombia,Richard Ríos,0,0,,1
 Colombia,Yerson Mosquera,0,0,,1
+Comoros,El Fardou Ben Nabouhane,0,0,,1
 Cook Islands,Taci Kumsuz,0,0,,1
-Costa Rica,Andy Rojas,0,0,,1
+Costa Rica,Alejandro Bran,0,0,,1
 Costa Rica,Gerald Taylor,0,0,,1
+Costa Rica,Joseph Mora,0,0,,1
+Costa Rica,Orlando Galo,0,0,,1
 Croatia,Borna Sosa,0,0,,1
 Croatia,Igor Matanović,0,0,,1
+Croatia,Mario Pašalić,0,0,,1
 Croatia,Martin Baturina,0,0,,1
 Croatia,Petar Sučić,0,0,,1
-Cuba,Maikel Reyes,0,0,,1
+Cuba,Pedro Bravo,0,0,,1
 Curaçao,Xander Severina,0,0,,1
 Cyprus,Marinos Tzionis,0,0,,1
 Czechia,Jan Kliment,0,0,,1
 Czechia,Lukáš Kalvach,0,0,,1
 Czechia,Lukáš Provod,0,0,,1
-Côte d'Ivoire,Seko Fofana,0,0,,1
 Côte d'Ivoire,Sébastien Haller,0,0,,1
 DR Congo,Charles Pickel,0,0,,1
+DR Congo,Fiston Mayele,0,0,,1
 Denmark,Albert Grønbæk,0,0,,1
 Denmark,Morten Hjulmand,0,0,,1
 Denmark,Pierre-Emile Højbjerg,0,0,,1
 Denmark,Rasmus Kristensen,0,0,,1
 Denmark,Yussuf Poulsen,0,0,,1
+Djibouti,Gabriel Dadzie,0,0,,1
 Dominica,Javid George,0,0,,1
+Dominican Republic,Heinz Mörschel,0,0,,1
 Ecuador,Jeremy Sarmiento,0,0,,1
 Ecuador,Kendry Páez,0,0,,1
 Ecuador,Kevin Rodríguez,0,0,,1
+El Salvador,Elvin Alvarado,0,0,,1
 El Salvador,Jairo Henríquez,0,0,,1
 El Salvador,Nelson Bonilla,0,0,,1
 El Salvador,Rafael Tejada,0,0,,1
+El Salvador,Santos Ortiz,0,0,,1
 England,Cole Palmer,0,0,,1
 England,Conor Gallagher,0,0,,1
 England,Curtis Jones,0,0,,1
@@ -1144,6 +1094,7 @@ Finland,Kaan Kairinen,0,0,,1
 Finland,Oliver Antman,0,0,,1
 France,Eduardo Camavinga,0,0,,1
 France,Mattéo Guendouzi,0,0,,1
+France,Rayan Cherki,0,0,,1
 Georgia,Otar Kiteishvili,0,0,,1
 Germany,Aleksandar Pavlović,0,0,,1
 Germany,Emre Can,0,0,,1
@@ -1153,31 +1104,30 @@ Germany,Leon Goretzka,0,0,,1
 Germany,İlkay Gündoğan,0,0,,1
 Ghana,Abdul Fatawu,0,0,,1
 Ghana,Antoine Semenyo,0,0,,1
+Ghana,Ernest Nuamah,0,0,,1
 Ghana,Iñaki Williams,0,0,,1
 Gibraltar,Dan Bent,0,0,,1
 Gibraltar,Ethan Britto,0,0,,1
 Greece,Giannis Konstantelias,0,0,,1
 Greece,Petros Mantalos,0,0,,1
-Guatemala,Allen Yanes,0,0,,1
-Guatemala,José Carlos Martínez,0,0,,1
-Guatemala,José Morales,0,0,,1
+Grenada,Joshua Isaac,0,0,,1
+Grenada,Kayden Harrack,0,0,,1
+Grenada,Keishean Francois,0,0,,1
+Grenada,Saydrel Lewis,0,0,,1
+Guatemala,Nicolás Samayoa,0,0,,1
 Guatemala,Óscar Castellanos,0,0,,1
-Guinea,Aguibou Camara,0,0,,1
-Guinea,Morlaye Sylla,0,0,,1
 Guinea-Bissau,Tamble Monteiro,0,0,,1
 Guinea-Bissau,Zidane Banjaqui,0,0,,1
 Guyana,Liam Gordon,0,0,,1
 Haiti,Bryan Labissiere,0,0,,1
 Haiti,Duke Lacroix,0,0,,1
-Haiti,Jean-Kévin Duverne,0,0,,1
+Haiti,Mondy Prunier,0,0,,1
 Honduras,Andy Najar,0,0,,1
 Honduras,Bryan Róchez,0,0,,1
 Honduras,David Ruiz,0,0,,1
+Honduras,Edwin Rodríguez,0,0,,1
 Honduras,Kervin Arriaga,0,0,,1
 Honduras,Luis Vega,0,0,,1
-Honduras,Rubilio Castillo,0,0,,1
-Hong Kong,Anthony Pinto,0,0,,1
-Hong Kong,Ma Hei Wai,0,0,,1
 Hungary,András Schäfer,0,0,,1
 Hungary,Kevin Csoboth,0,0,,1
 Iceland,Jón Dagur Þorsteinsson,0,0,,1
@@ -1189,6 +1139,7 @@ Indonesia,Rizky Ridho,0,0,,1
 Indonesia,Sandy Walsh,0,0,,1
 Iran,Saleh Hardani,0,0,,1
 Iraq,Akam Hashim,0,0,,1
+Iraq,Ali Jasim,0,0,,1
 Iraq,Hussein Ali,0,0,,1
 Iraq,Youssef Amyn,0,0,,1
 Israel,Eli Dasa,0,0,,1
@@ -1203,16 +1154,16 @@ Japan,Daizen Maeda,0,0,,1
 Japan,Junya Itō,0,0,,1
 Japan,Kaoru Mitoma,0,0,,1
 Japan,Ko Itakura,0,0,,1
+Japan,Koki Ogawa,0,0,,1
+Japan,Ritsu Dōan,0,0,,1
 Japan,Wataru Endo,0,0,,1
 Japan,Yuki Soma,0,0,,1
 Japan,Yukinari Sugawara,0,0,,1
 Jordan,Abdallah Nasib,0,0,,1
-Jordan,Ibrahim Sadeh,0,0,,1
 Jordan,Yazan Al-Arab,0,0,,1
 Kazakhstan,Aleksandr Marochkin,0,0,,1
 Kazakhstan,Askhat Tagybergen,0,0,,1
 Kazakhstan,Maksim Samorodov,0,0,,1
-Kenya,Duke Abuya,0,0,,1
 Kenya,Mohammed Bajaber,0,0,,1
 Kenya,William Wilson,0,0,,1
 Kosovo,Albion Rrahmani,0,0,,1
@@ -1223,6 +1174,7 @@ Kosovo,Muharrem Jashari,0,0,,1
 Kuwait,Eid Al Rashidi,0,0,,1
 Kyrgyzstan,Aleksandr Mishchenko,0,0,,1
 Kyrgyzstan,Eldiyar Zarypbekov,0,0,,1
+Kyrgyzstan,Gulzhigit Alykulov,0,0,,1
 Kyrgyzstan,Khristiyan Brauzman,0,0,,1
 Kyrgyzstan,Odilzhon Abdurakhmanov,0,0,,1
 Kyrgyzstan,Valery Kichin,0,0,,1
@@ -1230,14 +1182,9 @@ Latvia,Andrejs Cigaņiks,0,0,,1
 Latvia,Renārs Varslavāns,0,0,,1
 Latvia,Roberts Uldriķis,0,0,,1
 Lebanon,Nader Matar,0,0,,1
-Lesotho,Jane Thabantso,0,0,,1
 Lesotho,Lehlohonolo Fothoane,0,0,,1
-Lesotho,Rethabile Rasethuntša,0,0,,1
 Liberia,Jimmy Farkarlun,0,0,,1
 Liberia,Sheikh Sesay,0,0,,1
-Liberia,Terry Sackor,0,0,,1
-Libya,Ahmed Krawa'a,0,0,,1
-Libya,Faisal Al Badri,0,0,,1
 Libya,Muaid Ellafi,0,0,,1
 Liechtenstein,Aron Sele,0,0,,1
 Liechtenstein,Ferhat Saglam,0,0,,1
@@ -1246,8 +1193,6 @@ Lithuania,Giedrius Matulevicius,0,0,,1
 Lithuania,Paulius Golubickas,0,0,,1
 Luxembourg,Seid Korać,0,0,,1
 Madagascar,Lalaïna Rafanomezantsoa,0,0,,1
-Malawi,Chifundo Mphasi,0,0,,1
-Malawi,Lanjesi Nkhoma,0,0,,1
 Malaysia,Adib Raop,0,0,,1
 Malaysia,Paulo Josué,0,0,,1
 Malaysia,Safawi Rasid,0,0,,1
@@ -1255,7 +1200,6 @@ Malta,Ryan Camenzuli,0,0,,1
 Mauritania,Abdallahi Mahmoud,0,0,,1
 Mauritania,Aboubakary Koïta,0,0,,1
 Mauritius,Emmanuel Vincent,0,0,,1
-Mauritius,Kévin Bru,0,0,,1
 Mauritius,Mike Gaspard,0,0,,1
 Mauritius,Yannick Aristide,0,0,,1
 Mexico,Gerardo Arteaga,0,0,,1
@@ -1267,18 +1211,15 @@ Montenegro,Driton Camaj,0,0,,1
 Montenegro,Edvin Kuč,0,0,,1
 Montenegro,Marko Tući,0,0,,1
 Montenegro,Stevan Jovetić,0,0,,1
-Montserrat,Brandon Barzey,0,0,,1
 Montserrat,Kaleem Simon,0,0,,1
+Montserrat,Mark Rogers,0,0,,1
 Morocco,Bilal El Khannouss,0,0,,1
 Morocco,Chadi Riad,0,0,,1
-Morocco,Eliesse Ben Seghir,0,0,,1
-Morocco,Hakim Ziyech,0,0,,1
 Morocco,Nayef Aguerd,0,0,,1
 Morocco,Soufiane Rahimi,0,0,,1
-Mozambique,Alfons Amade,0,0,,1
+Mozambique,Stanley Ratifo,0,0,,1
 Myanmar,Wai Lin Aung,0,0,,1
 Namibia,Prins Tjiueza,0,0,,1
-Namibia,Tjipe Karuuombe,0,0,,1
 Nepal,Gillespye Jung Karki,0,0,,1
 Nepal,Sanjeeb Bista,0,0,,1
 Netherlands,Brian Brobbey,0,0,,1
@@ -1299,12 +1240,11 @@ New Zealand,Marko Stamenić,0,0,,1
 New Zealand,Matthew Garbett,0,0,,1
 New Zealand,Michael Boxall,0,0,,1
 New Zealand,Tim Payne,0,0,,1
-Nicaragua,Harold Medina,0,0,,1
-Nicaragua,Jacob Montes,0,0,,1
 Nicaragua,Juan Barrera,0,0,,1
-Nigeria,Fisayo Dele-Bashiru,0,0,,1
+North Korea,Jong Il-gwan,0,0,,1
 North Korea,Kang Kuk-chol,0,0,,1
 North Macedonia,Elif Elmas,0,0,,1
+North Macedonia,Ezgjan Alioski,0,0,,1
 North Macedonia,Isnik Alimi,0,0,,1
 North Macedonia,Jani Atanasov,0,0,,1
 North Macedonia,Nikola Serafimov,0,0,,1
@@ -1321,6 +1261,7 @@ Norway,Kristoffer Ajer,0,0,,1
 Oman,Abdullah Fawaz,0,0,,1
 Oman,Ali Al-Busaidi,0,0,,1
 Palestine,Ameed Mahajna,0,0,,1
+Panama,Fidel Escobar,0,0,,1
 Panama,Jovani Welch,0,0,,1
 Panama,Michael Amir Murillo,0,0,,1
 Papua New Guinea,Joseph Joe,0,0,,1
@@ -1335,8 +1276,6 @@ Peru,Andy Polo,0,0,,1
 Peru,Edison Flores,0,0,,1
 Peru,Miguel Araujo,0,0,,1
 Peru,Paolo Guerrero,0,0,,1
-Philippines,Kevin Ingreso,0,0,,1
-Philippines,Patrick Reichelt,0,0,,1
 Poland,Adam Buksa,0,0,,1
 Poland,Dominik Marczuk,0,0,,1
 Poland,Kamil Piątkowski,0,0,,1
@@ -1349,6 +1288,7 @@ Puerto Rico,Nicolás Cardona,0,0,,1
 Puerto Rico,Roberto Ydrach,0,0,,1
 Qatar,Ahmed Al Ganehi,0,0,,1
 Qatar,Ahmed Alaaeldin,0,0,,1
+Qatar,Ró-Ró,0,0,,1
 Qatar,Yousef Aymen,0,0,,1
 Republic of Ireland,Finn Azaz,0,0,,1
 Republic of Ireland,Liam Scales,0,0,,1
@@ -1362,8 +1302,14 @@ Romania,Nicolae Stanciu,0,0,,1
 Romania,Radu Drăgușin,0,0,,1
 Romania,Valentin Mihăilă,0,0,,1
 Saint Kitts and Nevis,Ethan Bristow,0,0,,1
+Saint Kitts and Nevis,G'Vaune Amory,0,0,,1
+Saint Kitts and Nevis,Tiquanny Williams,0,0,,1
 Saint Lucia,Peter Pearson,0,0,,1
 Saint Lucia,Ridel Stanislas,0,0,,1
+Saint Vincent and the Grenadines,Cornelius Stewart,0,0,,1
+Saint Vincent and the Grenadines,Kirtney Franklyn,0,0,,1
+Saint Vincent and the Grenadines,Kyle Edwards,0,0,,1
+Saint Vincent and the Grenadines,Micah Joseph,0,0,,1
 Samoa,Dilo Tumua,0,0,,1
 Samoa,Jarvis Vaai,0,0,,1
 Samoa,Jefferson Faamatau,0,0,,1
@@ -1384,7 +1330,7 @@ Serbia,Nemanja Maksimović,0,0,,1
 Seychelles,Lorenzo Hoareau,0,0,,1
 Seychelles,Ryan Henriette,0,0,,1
 Sierra Leone,Amadou Bakayoko,0,0,,1
-Sierra Leone,Curtis Davies,0,0,,1
+Sierra Leone,Augustus Kargbo,0,0,,1
 Sierra Leone,Ibrahim Turay,0,0,,1
 Sierra Leone,Musa Noah Kamara,0,0,,1
 Sierra Leone,Mustapha Bundu,0,0,,1
@@ -1398,11 +1344,12 @@ Solomon Islands,Javin Alick,0,0,,1
 Solomon Islands,Junior David,0,0,,1
 Solomon Islands,Micah Lea'alafa,0,0,,1
 Solomon Islands,Raphael Lea'i,0,0,,1
-Somalia,Ismael Shirwa,0,0,,1
 Somalia,Sak Hassan,0,0,,1
 South Africa,Iqraam Rayners,0,0,,1
 South Africa,Jayden Adams,0,0,,1
-South Africa,Themba Zwane,0,0,,1
+South Korea,Bae Jun-ho,0,0,,1
+South Korea,Joo Min-kyu,0,0,,1
+South Korea,Kim Jin-gyu,0,0,,1
 South Sudan,Omot Sebit,0,0,,1
 Spain,Aymeric Laporte,0,0,,1
 Spain,Ayoze Pérez,0,0,,1
@@ -1415,11 +1362,9 @@ Spain,Yeremy Pino,0,0,,1
 Spain,Álex Baena,0,0,,1
 Sudan,Mohamed Abdelrahman,0,0,,1
 Sudan,Mohamed Eisa,0,0,,1
-Sudan,Seif Teiri,0,0,,1
 Sudan,Walieldin Khedr,0,0,,1
 Sudan,Yaser Muzmel,0,0,,1
-Suriname,Jeredy Hilterman,0,0,,1
-Suriname,Sheraldo Becker,0,0,,1
+Suriname,Jaden Montnor,0,0,,1
 Sweden,Ken Sema,0,0,,1
 Switzerland,Andi Zeqiri,0,0,,1
 Switzerland,Joël Monteiro,0,0,,1
@@ -1427,7 +1372,6 @@ Switzerland,Kwadwo Duah,0,0,,1
 Switzerland,Michel Aebischer,0,0,,1
 Switzerland,Ruben Vargas,0,0,,1
 Switzerland,Xherdan Shaqiri,0,0,,1
-São Tomé and Príncipe,Denilson Silva,0,0,,1
 São Tomé and Príncipe,Dola,0,0,,1
 Tahiti,Eddy Kaspard,0,0,,1
 Taiwan,Yu Yao-hsing,0,0,,1
@@ -1437,23 +1381,22 @@ Tajikistan,Vahdat Hanonov,0,0,,1
 Tanzania,Junior Waziri,0,0,,1
 Thailand,Jaroensak Wonggorn,0,0,,1
 Thailand,Poramet Arjvirai,0,0,,1
-Thailand,Supachok Sarachat,0,0,,1
 Thailand,Suphanat Mueanta,0,0,,1
-Togo,Khaled Narey,0,0,,1
 Togo,Kévin Denkey,0,0,,1
 Togo,Thibault Klidjé,0,0,,1
 Tonga,Christopher Kefu,0,0,,1
 Tonga,Hemaloto Polovili,0,0,,1
 Tonga,Ulafala Sonasi,0,0,,1
 Tonga,Viliami Tikoipau,0,0,,1
+Trinidad and Tobago,Ajani Fortune,0,0,,1
 Trinidad and Tobago,Alvin Jones,0,0,,1
-Trinidad and Tobago,Ryan Telfer,0,0,,1
+Trinidad and Tobago,Reon Moore,0,0,,1
 Tunisia,Seifeddine Jaziri,0,0,,1
-Turkmenistan,Şanazar Tirkişow,0,0,,1
 Türkiye,Abdülkerim Bardakcı,0,0,,1
 Türkiye,Cenk Tosun,0,0,,1
 Türkiye,Orkun Kökçü,0,0,,1
 Türkiye,Samet Akaydin,0,0,,1
+Uganda,Muhammad Shaban,0,0,,1
 Uganda,Travis Mutyaba,0,0,,1
 Ukraine,Artem Dovbyk,0,0,,1
 Ukraine,Illya Zabarnyi,0,0,,1
@@ -1461,7 +1404,7 @@ Ukraine,Mykhailo Mudryk,0,0,,1
 Ukraine,Mykola Shaparenko,0,0,,1
 Ukraine,Oleksandr Zinchenko,0,0,,1
 Ukraine,Yukhym Konoplya,0,0,,1
-United Arab Emirates,Hazem Mohammad,0,0,,1
+United Arab Emirates,Ali Saleh,0,0,,1
 United Arab Emirates,Khaled Ibrahim,0,0,,1
 United States,Christian Pulisic,0,0,,1
 Uruguay,Facundo Pellistri,0,0,,1
@@ -1469,11 +1412,12 @@ Uruguay,Luis Suárez,0,0,,1
 Uruguay,Manuel Ugarte,0,0,,1
 Uruguay,Mathías Olivera,0,0,,1
 Uruguay,Matías Viña,0,0,,1
+Uzbekistan,Husniddin Aliqulov,0,0,,1
 Uzbekistan,Jaloliddin Masharipov,0,0,,1
 Uzbekistan,Khojiakbar Alijonov,0,0,,1
 Uzbekistan,Khojimat Erkinov,0,0,,1
+Uzbekistan,Oston Urunov,0,0,,1
 Uzbekistan,Otabek Shukurov,0,0,,1
-Uzbekistan,Sherzod Nasrullaev,0,0,,1
 Vanuatu,Bong Kalo,0,0,,1
 Vanuatu,Jason Thomas,0,0,,1
 Vanuatu,Johnathan Spokeyjack,0,0,,1
@@ -1484,9 +1428,9 @@ Venezuela,Eric Ramírez,0,0,,1
 Venezuela,Jefferson Savarino,0,0,,1
 Venezuela,Jon Aramburu,0,0,,1
 Venezuela,Rubén Ramírez,0,0,,1
+Vietnam,Phạm Tuấn Hải,0,0,,1
 Wales,Ben Davies,0,0,,1
 Wales,Rabbi Matondo,0,0,,1
 Yemen,Mohammed Al-Dahi,0,0,,1
 Yemen,Nasser Al-Gahwashi,0,0,,1
-Zambia,Edward Chilufya,0,0,,1
 Zimbabwe,Marshall Munetsi,0,0,,1
